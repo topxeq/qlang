@@ -23,7 +23,8 @@ var Exports = map[string]interface{}{
 	"create":    os.Create,
 	"exit":      os.Exit,
 
-	"Args":   os.Args[1:],
+	"Args":   os.Args,
+	"Argsc":  os.Args[1:],
 	"Stdin":  os.Stdin,
 	"Stderr": os.Stderr,
 	"Stdout": os.Stdout,

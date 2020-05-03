@@ -257,28 +257,28 @@ func (p *iMemberRef) Exec(stk *Stack, ctx *Context) {
 		name = strings.Title(name)
 		m := obj.MethodByName(name)
 
-		typeT := reflect.TypeOf(v)
+		// typeT := reflect.TypeOf(v)
 
-		fmt.Printf("1m: %#v, obj: %#v, kind: %v, %v, Name: %v\n", m, typeT, kind, m.CanSet(), name)
-		lenT := typeT.NumMethod()
+		// fmt.Printf("1m: %#v, obj: %#v, kind: %v, %v, Name: %v\n", m, typeT, kind, m.CanSet(), name)
+		// lenT := typeT.NumMethod()
 
-		fmt.Printf("typeT: %#v, methodNum: %#v\n", typeT, lenT)
-		for i := 0; i < lenT; i++ {
-			fmt.Printf("m %v: %#v, method: %#v\n", i, typeT.Method(i), typeT.Method(i).Name)
+		// fmt.Printf("typeT: %#v, methodNum: %#v\n", typeT, lenT)
+		// for i := 0; i < lenT; i++ {
+		// 	fmt.Printf("m %v: %#v, method: %#v\n", i, typeT.Method(i), typeT.Method(i).Name)
 
-		}
+		// }
 
-		if kind == reflect.Ptr {
-			typeT = typeT.Elem()
-		}
+		// if kind == reflect.Ptr {
+		// 	typeT = typeT.Elem()
+		// }
 
-		lenT = typeT.NumField()
+		// lenT = typeT.NumField()
 
-		fmt.Printf("typeT: %#v, NumField: %#v, name: %v\n", typeT, lenT, typeT.Name)
-		for i := 0; i < lenT; i++ {
-			fmt.Printf("i %v: %#v, field: %#v\n", i, typeT.Field(i), typeT.Field(i).Name)
+		// fmt.Printf("typeT: %#v, NumField: %#v, name: %v\n", typeT, lenT, typeT.Name)
+		// for i := 0; i < lenT; i++ {
+		// 	fmt.Printf("i %v: %#v, field: %#v\n", i, typeT.Field(i), typeT.Field(i).Name)
 
-		}
+		// }
 
 		if !m.IsValid() {
 			if kind == reflect.Ptr {
@@ -300,12 +300,12 @@ func (p *iMemberRef) Exec(stk *Stack, ctx *Context) {
 					m = m.Addr()
 				}
 				// }
-				fmt.Printf("2m: %#v, obj: %#v, kind: %v, %v, canaddr: %v, Name: %v\n", m, obj, kind, m.CanSet(), m.CanAddr(), name)
+				// fmt.Printf("2m: %#v, obj: %#v, kind: %v, %v, canaddr: %v, Name: %v\n", m, obj, kind, m.CanSet(), m.CanAddr(), name)
 			} else if kind == reflect.Struct {
 				obj = reflect.Indirect(obj)
 				m = obj.FieldByName(name)
 
-				fmt.Printf("3m: %#v, obj: %#v, obj.CanAddr(): %#v, kind: %v, %v, Name: %v\n", m, obj, obj.CanAddr(), kind, m.CanSet(), name)
+				// fmt.Printf("3m: %#v, obj: %#v, obj.CanAddr(): %#v, kind: %v, %v, Name: %v\n", m, obj, obj.CanAddr(), kind, m.CanSet(), name)
 			} else if obj.CanAddr() {
 				obj = obj.Addr()
 				m = obj.MethodByName(name)
