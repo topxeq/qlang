@@ -1,7 +1,7 @@
 package extractor
 
 import (
-	"github.com/topxeq/text/tpl/extractor"
+	"github.com/topxeq/qlang/text/tpl/extractor"
 )
 
 // -----------------------------------------------------------------------------
@@ -9,7 +9,7 @@ import (
 // Exports is the export table of this module.
 //
 var Exports = map[string]interface{}{
-	"_name": "github.com/topxeq/text/tpl/extractor",
+	"_name": "github.com/topxeq/qlang/text/tpl/extractor",
 	"new":   extractor.New,
 	"New":   extractor.New,
 }
