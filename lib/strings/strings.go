@@ -13,6 +13,10 @@ var (
 	tyReplacer = qlang.StructOf((*strings.Replacer)(nil))
 )
 
+func newBuilder() *strings.Builder {
+	return &strings.Builder{}
+}
+
 // Exports is the export table of this module.
 //
 var Exports = map[string]interface{}{
@@ -104,6 +108,8 @@ var Exports = map[string]interface{}{
 
 	"NewReader":   strings.NewReader,
 	"NewReplacer": strings.NewReplacer,
+
+	"NewBuilder": newBuilder,
 
 	"Reader":   tyReader,
 	"Replacer": tyReplacer,
