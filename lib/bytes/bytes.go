@@ -63,6 +63,7 @@ var Exports = map[string]interface{}{
 	"From":      from,
 	"Equal":     bytes.Equal,
 	"NewReader": bytes.NewReader,
+	"newReader": bytes.NewReader,
 	"Contains":  bytes.Contains,
 	"Index":     bytes.Index,
 	"IndexAny":  bytes.IndexAny,

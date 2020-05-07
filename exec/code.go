@@ -3,6 +3,7 @@ package exec
 import (
 	"errors"
 	"fmt"
+	"os"
 	"reflect"
 	"runtime/debug"
 	"sort"
@@ -552,12 +553,34 @@ func (p *Code) ToVar() {
 	}
 }
 
+// // GetStatus show file and line
+// func (p *Code) GetStatus() string {
+// 	file, line := p.Line(ctx.ip - 1)
+
+// 	return fmt.Sprintf("File: %v, Line: %v", file, line)
+// }
+
 // Exec executes a code block from ip to ipEnd.
 //
 func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 	defer func() {
 		if e := recover(); e != nil {
+			verboseFlagT := (os.Getenv("TXVERBOSE") == "true")
+
+			if verboseFlagT {
+				startT := ctx.ip - 20
+				if startT < ip {
+					startT = ip
+				}
+
+				for i := startT; i <= ctx.ip; i++ {
+					instr := p.data[i]
+
+					fmt.Printf("[%v] %v\n", i, instr)
+				}
+			}
+
 			if e == ErrReturn {
 				panic(e)
 			}
@@ -583,11 +606,20 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 		}
 	}()
 
+	// verboseG := os.Getenv("TXVERBOSE")
+
+	// verboseFlagT := (verboseG == "true")
+
 	ctx.ip = ip
 	data := p.data
 	for ctx.ip != ipEnd {
 		instr := data[ctx.ip]
 		ctx.ip++
+
+		// if verboseFlagT {
+		// 	fmt.Printf("[%v] %v\n", ctx.ip, instr)
+		// }
+
 		instr.Exec(stk, ctx)
 	}
 }
