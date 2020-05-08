@@ -569,15 +569,19 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 			verboseFlagT := (os.Getenv("TXVERBOSE") == "true")
 
 			if verboseFlagT {
-				startT := ctx.ip - 20
-				if startT < ip {
-					startT = ip
-				}
+				if e != ErrReturn {
+					startT := ctx.ip - 20
+					if startT < ip {
+						startT = ip
+					}
 
-				for i := startT; i <= ctx.ip; i++ {
-					instr := p.data[i]
+					for i := startT; i <= ctx.ip; i++ {
+						instr := p.data[i]
 
-					fmt.Printf("[%v] %v\n", i, instr)
+						fmt.Printf("[%v] %s %v\n", i, instrName(instr), instr)
+					}
+
+					fmt.Printf("e: %#v, len: %v, end: %v\n", e, p.Len(), ipEnd)
 				}
 			}
 
@@ -608,19 +612,27 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 	// verboseG := os.Getenv("TXVERBOSE")
 
-	// verboseFlagT := (verboseG == "true")
+	showCodeFlagT := (os.Getenv("TXSHOWCODE") == "true")
 
 	ctx.ip = ip
 	data := p.data
 	for ctx.ip != ipEnd {
 		instr := data[ctx.ip]
-		ctx.ip++
 
 		// if verboseFlagT {
-		// 	fmt.Printf("[%v] %v\n", ctx.ip, instr)
+		// fmt.Printf("[%v/%v] %s %v\n", ctx.ip, p.Len(), instrName(instr), instr)
 		// }
 
+		if ctx.ip >= p.Len() {
+			break
+		}
+
+		if showCodeFlagT {
+			fmt.Printf("[%v/%v] %s %v\n", ctx.ip, p.Len(), instrName(instr), instr)
+		}
 		instr.Exec(stk, ctx)
+
+		ctx.ip++
 	}
 }
 

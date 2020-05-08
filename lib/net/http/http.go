@@ -74,6 +74,8 @@ var Exports = map[string]interface{}{
 	"StripPrefix":      http.StripPrefix,
 	"TimeoutHandler":   http.TimeoutHandler,
 
+	"StatusOK": http.StatusOK,
+
 	"statusText":           http.StatusText,
 	"canonicalHeaderKey":   http.CanonicalHeaderKey,
 	"detectContentType":    http.DetectContentType,

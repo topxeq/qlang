@@ -241,13 +241,22 @@ func (p *iMemberRef) Exec(stk *Stack, ctx *Context) {
 		stk.Push(val)
 		return
 	}
-	// fmt.Printf("herev: %v, %v, %v\n", v, reflect.TypeOf(v), reflect.ValueOf(v).Kind())
 
 	obj := reflect.ValueOf(v)
+
 	kind := obj.Kind()
+	// fmt.Printf("herev: v: %#v, typeof(v): %v, valueofkind(v): %v, objKind: %v, obj: %#v\n", v, reflect.TypeOf(v), reflect.ValueOf(v).Kind(), kind, obj)
+
+	typeStrT := fmt.Sprintf("%v", t)
+
+	if (kind == reflect.Map) && (!strings.HasPrefix(typeStrT, "map[")) {
+		kind = reflect.Complex128
+	}
+
 	switch {
 	case kind == reflect.Map:
 		m := obj.MapIndex(reflect.ValueOf(name))
+		// fmt.Printf("m: %#v, name: %v\n", m, name)
 		if m.IsValid() {
 			stk.Push(m.Interface())
 		} else {
