@@ -566,7 +566,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 	defer func() {
 		if e := recover(); e != nil {
-			verboseFlagT := (os.Getenv("TXVERBOSE") == "true")
+			verboseFlagT := (os.Getenv("GOXVERBOSE") == "true")
 
 			if verboseFlagT {
 				if e != ErrReturn {
@@ -612,7 +612,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 	// verboseG := os.Getenv("TXVERBOSE")
 
-	showCodeFlagT := (os.Getenv("TXSHOWCODE") == "true")
+	showCodeFlagT := (os.Getenv("GOXSHOWCODE") == "true")
 
 	ctx.ip = ip
 	data := p.data
@@ -628,7 +628,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 		}
 
 		if showCodeFlagT {
-			fmt.Printf("[%v/%v] %s %v\n", ctx.ip, p.Len(), instrName(instr), instr)
+			fmt.Printf("[%v/%v] %s %#v\n", ctx.ip, p.Len(), instrName(instr), instr)
 		}
 		instr.Exec(stk, ctx)
 
