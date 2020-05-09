@@ -111,7 +111,7 @@ func (p *Object) SetVar(name string, val interface{}) {
 //
 func (p *Object) Member(name string) interface{} {
 
-	fmt.Printf("Members: %#v\n", p.vars)
+	// fmt.Printf("Members: %#v\n", p.vars)
 
 	if val, ok := p.vars[name]; ok {
 		return val
@@ -122,7 +122,9 @@ func (p *Object) Member(name string) interface{} {
 			fn:   fn,
 		}
 	}
-	panic(fmt.Errorf("object doesn't has member `%s`", name))
+
+	return qlang.Undefined
+	// panic(fmt.Errorf("object doesn't has member `%s`", name))
 }
 
 // GetMemberVar implements get(object, key).
