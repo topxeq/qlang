@@ -581,7 +581,15 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 						fmt.Printf("[%v] %s %v\n", i, instrName(instr), instr)
 					}
 
-					fmt.Printf("e: %#v, len: %v, end: %v\n", e, p.Len(), ipEnd)
+					ep, ok := e.(*Error)
+					if !ok {
+						fmt.Printf("e: %#v, len: %v, end: %v\n", e, p.Len(), ipEnd)
+
+					} else {
+						fmt.Printf("e: %#v, file: %v, len: %v, end: %v, stack: %v\n", ep.Err, ep.File, p.Len(), ipEnd, string(ep.Stack))
+
+					}
+
 				}
 			}
 

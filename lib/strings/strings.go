@@ -109,7 +109,10 @@ var Exports = map[string]interface{}{
 	"NewReader":   strings.NewReader,
 	"NewReplacer": strings.NewReplacer,
 
+	"newBuilder": newBuilder,
 	"NewBuilder": newBuilder,
+
+	"Builder": qlang.StructOf((*strings.Builder)(nil)),
 
 	"Reader":   tyReader,
 	"Replacer": tyReplacer,
