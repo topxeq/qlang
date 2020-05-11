@@ -50,6 +50,11 @@ type Scanner struct {
 
 const bom = 0xFEFF // byte order mark, only permitted as very first character
 
+// Info get scanner info
+func (s Scanner) Info() string {
+	return fmt.Sprintf("ch: %#v(%c), offset: %v, rdOffset: %v, lineOffset: %v", s.ch, s.ch, s.offset, s.rdOffset, s.lineOffset)
+}
+
 // Read the next Unicode char into s.ch.
 // s.ch < 0 means end-of-file.
 //
@@ -271,6 +276,7 @@ func (s *Scanner) scanIdentifier() string {
 	for isLetter(s.ch) || isDigit(s.ch) {
 		s.next()
 	}
+	// fmt.Printf("[I %v]", string(s.src[offs:s.offset]))
 	return string(s.src[offs:s.offset])
 }
 
@@ -452,9 +458,11 @@ func (s *Scanner) scanRune() string {
 	}
 
 	if valid && n != 1 {
+		// fmt.Printf("info1: %v\n", s.Info())
 		s.error(offs, "illegal rune literal")
 	}
 
+	// fmt.Printf("[R %v]", string(s.src[offs:s.offset]))
 	return string(s.src[offs:s.offset])
 }
 
@@ -622,13 +630,16 @@ scanAgain:
 	insertSemi := false
 	switch ch := s.ch; {
 	case isLetter(ch):
+		// fmt.Printf("[%v]", ch)
 		t.Literal = s.scanIdentifier()
 		insertSemi = true
 		t.Kind = IDENT
 	case '0' <= ch && ch <= '9':
+		// fmt.Printf("[%v]", ch)
 		insertSemi = true
 		t.Kind, t.Literal = s.scanNumber(false)
 	default:
+		// fmt.Printf("[D%v]", ch)
 		s.next() // always make progress
 		switch ch {
 		case -1:

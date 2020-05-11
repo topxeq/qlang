@@ -1,6 +1,9 @@
 package qlang
 
 import (
+	"fmt"
+	"io/ioutil"
+	"os"
 	"strings"
 
 	"github.com/topxeq/qlang/exec"
@@ -13,6 +16,7 @@ import (
 // -----------------------------------------------------------------------------
 
 const grammar = `
+
 
 term1 = factor *(
 	'*' factor/mul | '/' factor/quo | '%' factor/mod |
@@ -31,7 +35,7 @@ expr = term4 *("||"/_mute term4/_code/_unmute/or)
 sexpr = expr (
 	'='/tovar! expr/assign |
 	','/tovar! expr/tovar % ','/ARITY '=' expr % ','/ARITY /massign |
-	"++"/tovar/inc | "--"/tovar/dec |
+	"++"/tovar/inc | "--"/tovar/dec | ":="/tovar! expr/assign |
 	"+="/tovar! expr/adda | "-="/tovar! expr/suba |
 	"*="/tovar! expr/mula | "/="/tovar! expr/quoa | "%="/tovar! expr/moda |
 	"^="/tovar! expr/xora | "<<="/tovar! expr/lshra | ">>="/tovar! expr/rshra |
@@ -69,7 +73,7 @@ member = IDENT | "class" | "new" | "recover" | "main" | "import" | "as" | "map" 
 
 newargs = ?('(' expr %= ','/ARITY ')')/ARITY
 
-classb = "fn"! member/name fnbody ?';'/mfn
+classb = "fn"! member/name fnbody ?';'/mfn | "func"! member/name fnbody ?';'/mfn
 
 methods = *classb/ARITY
 
@@ -97,6 +101,7 @@ factor =
 	((IDENT | "map" ~'[')/ref | '('! expr ')' |
 	"map" '['! type ']' type /tmap ?('{'! (expr ':' expr) %= ','/ARITY ?',' '}'/initm) |
 	"fn"! (~'{' fnbody/fn | afn) | '['! expr %= ','/ARITY ?',' ']' ?slice/ARITY /slice) *atom |
+	"func"! (~'{' fnbody/fn | afn | '['! expr %= ','/ARITY ?',' ']' ?slice/ARITY /slice) *atom |
 	"new"! ('('! type ')' | type) newargs /new |
 	"range"! expr/_range |
 	"class"! '{' *classb/ARITY '}'/class |
@@ -256,8 +261,23 @@ func (p *Compiler) Code() *exec.Code {
 // Grammar returns the qlang compiler's grammar. It is required by tpl.Interpreter engine.
 //
 func (p *Compiler) Grammar() string {
+	fileT, err := os.Open("goxgrammar.txt")
+	if err != nil {
+		return grammar
+	}
 
-	return grammar
+	defer fileT.Close()
+
+	fileContentT, err := ioutil.ReadAll(fileT)
+	if err != nil {
+		return grammar
+	}
+
+	fmt.Println("using custom grammar")
+
+	return string(fileContentT)
+
+	// return grammar
 }
 
 // Fntable returns the qlang compiler's function table. It is required by tpl.Interpreter engine.
