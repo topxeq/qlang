@@ -1,9 +1,6 @@
 package qlang
 
 import (
-	"fmt"
-	"io/ioutil"
-	"os"
 	"strings"
 
 	"github.com/topxeq/qlang/exec"
@@ -261,23 +258,23 @@ func (p *Compiler) Code() *exec.Code {
 // Grammar returns the qlang compiler's grammar. It is required by tpl.Interpreter engine.
 //
 func (p *Compiler) Grammar() string {
-	fileT, err := os.Open("goxgrammar.txt")
-	if err != nil {
-		return grammar
-	}
+	// fileT, err := os.Open("goxgrammar.txt")
+	// if err != nil {
+	// 	return grammar
+	// }
 
-	defer fileT.Close()
+	// defer fileT.Close()
 
-	fileContentT, err := ioutil.ReadAll(fileT)
-	if err != nil {
-		return grammar
-	}
+	// fileContentT, err := ioutil.ReadAll(fileT)
+	// if err != nil {
+	// 	return grammar
+	// }
 
-	fmt.Println("using custom grammar")
+	// fmt.Println("using custom grammar")
 
-	return string(fileContentT)
+	// return string(fileContentT)
 
-	// return grammar
+	return grammar
 }
 
 // Fntable returns the qlang compiler's function table. It is required by tpl.Interpreter engine.
