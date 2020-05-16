@@ -18,14 +18,12 @@ var Exports = map[string]interface{}{
 	"ErrChecksum":  zip.ErrChecksum,
 	"ErrFormat":    zip.ErrFormat,
 
-	"registerCompressor":   zip.RegisterCompressor,
-	"registerDecompressor": zip.RegisterDecompressor,
+	"RegisterCompressor":   zip.RegisterCompressor,
+	"RegisterDecompressor": zip.RegisterDecompressor,
 
 	"FileHeader":     qlang.StructOf((*zip.FileHeader)(nil)),
-	"fileInfoHeader": zip.FileInfoHeader,
-	"openReader":     zip.OpenReader,
+	"FileInfoHeader": zip.FileInfoHeader,
+	"OpenReader":     zip.OpenReader,
 	"reader":         zip.NewReader,
-	"newReader":      zip.NewReader,
 	"writer":         zip.NewWriter,
-	"newWriter":      zip.NewWriter,
 }

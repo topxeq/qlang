@@ -44,7 +44,7 @@ func init() {
 	flag.BoolVar(&flagDefaultContext, "defctx", false, "optional use default context for build, default use all contexts.")
 	flag.BoolVar(&flagRenameNewTypeFunc, "convnew", true, "optional convert NewType func to type func")
 	flag.BoolVar(&flagSkipErrorImplementStruct, "skiperrimpl", true, "optional skip error interface implement struct.")
-	flag.BoolVar(&flagQlangLowerCaseStyle, "lowercase", true, "optional use qlang lower case style.")
+	flag.BoolVar(&flagQlangLowerCaseStyle, "lowercase", false, "optional use qlang lower case style, default false.")
 	flag.StringVar(&flagExportPath, "outpath", "./qlang", "optional set export root path")
 	flag.StringVar(&flagUpdatePath, "updatepath", "", "option set update qlang package root")
 }
