@@ -26,4 +26,6 @@ var Exports = map[string]interface{}{
 	"OpenReader":     zip.OpenReader,
 	"reader":         zip.NewReader,
 	"writer":         zip.NewWriter,
+	"NewReader":      zip.NewReader,
+	"NewWriter":      zip.NewWriter,
 }

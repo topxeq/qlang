@@ -15,16 +15,16 @@ func newValues() *url.Values {
 var Exports = map[string]interface{}{
 	"_name": "net/url",
 
-	"pathEscape":    url.PathEscape,
-	"pathUnescape":  url.PathUnescape,
-	"queryEscape":   url.QueryEscape,
-	"queryUnescape": url.QueryUnescape,
+	"PathEscape":    url.PathEscape,
+	"PathUnescape":  url.PathUnescape,
+	"QueryEscape":   url.QueryEscape,
+	"QueryUnescape": url.QueryUnescape,
 
 	"URL":             qlang.StructOf((*url.URL)(nil)),
 	"Values":          qlang.StructOf((*url.Values)(nil)),
 	"NewValues":       newValues,
-	"parse":           url.Parse,
-	"parseRequestURI": url.ParseRequestURI,
-	"user":            url.User,
-	"userPassword":    url.UserPassword,
+	"Parse":           url.Parse,
+	"ParseRequestURI": url.ParseRequestURI,
+	"User":            url.User,
+	"UserPassword":    url.UserPassword,
 }

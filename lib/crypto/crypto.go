@@ -29,5 +29,5 @@ var Exports = map[string]interface{}{
 	"SHA512_224":  crypto.SHA512_224,
 	"SHA512_256":  crypto.SHA512_256,
 
-	"registerHash": crypto.RegisterHash,
+	"RegisterHash": crypto.RegisterHash,
 }

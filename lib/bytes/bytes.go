@@ -3,6 +3,7 @@ package bytes
 import (
 	"bytes"
 	"fmt"
+	qlang "github.com/topxeq/qlang/spec"
 	"reflect"
 )
 
@@ -44,26 +45,13 @@ func from(v interface{}) []byte {
 // Exports is the export table of this module.
 //
 var Exports = map[string]interface{}{
-	"_name":    "bytes",
-	"buffer":   newBuffer,
-	"from":     from,
-	"equal":    bytes.Equal,
-	"reader":   bytes.NewReader,
-	"contains": bytes.Contains,
-	"index":    bytes.Index,
-	"indexAny": bytes.IndexAny,
-	"join":     bytes.Join,
-	"title":    bytes.Title,
-	"toLower":  bytes.ToLower,
-	"toTitle":  bytes.ToTitle,
-	"toUpper":  bytes.ToUpper,
-	"trim":     bytes.Trim,
-
+	"_name":     "bytes",
+	"buffer":    newBuffer,
 	"NewBuffer": newBuffer,
+	"Buffer":    qlang.StructOf((*bytes.Buffer)(nil)),
 	"From":      from,
 	"Equal":     bytes.Equal,
 	"NewReader": bytes.NewReader,
-	"newReader": bytes.NewReader,
 	"Contains":  bytes.Contains,
 	"Index":     bytes.Index,
 	"IndexAny":  bytes.IndexAny,

@@ -10,10 +10,10 @@ import (
 //
 var Exports = map[string]interface{}{
 	"_name":      "strconv",
-	"itoa":       strconv.Itoa,
-	"parseUint":  strconv.ParseUint,
-	"parseInt":   strconv.ParseInt,
-	"parseFloat": strconv.ParseFloat,
+	"Itoa":       strconv.Itoa,
+	"ParseUint":  strconv.ParseUint,
+	"ParseInt":   strconv.ParseInt,
+	"ParseFloat": strconv.ParseFloat,
 
 	"Itoa":       strconv.Itoa,
 	"ParseUint":  strconv.ParseUint,

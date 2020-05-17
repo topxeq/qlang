@@ -30,4 +30,15 @@ var Exports = map[string]interface{}{
 	"procInst":            etree.NewProcInst,
 	"ReadSettings":        qlang.StructOf((*etree.ReadSettings)(nil)),
 	"WriteSettings":       qlang.StructOf((*etree.WriteSettings)(nil)),
+
+	"NewCharData":         etree.NewCharData,
+	"NewCData":            etree.NewCData,
+	"NewText":             etree.NewText,
+	"NewComment":          etree.NewComment,
+	"NewDirective":        etree.NewDirective,
+	"NewDocumentWithRoot": etree.NewDocumentWithRoot,
+	"NewElement":          etree.NewElement,
+	"CompilePath":         etree.CompilePath,
+	"MustCompilePath":     etree.MustCompilePath,
+	"NewProcInst":         etree.NewProcInst,
 }

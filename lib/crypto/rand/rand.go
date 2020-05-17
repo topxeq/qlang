@@ -12,6 +12,9 @@ var Exports = map[string]interface{}{
 	"Reader": rand.Reader,
 
 	"int":   rand.Int,
+	"Int":   rand.Int,
 	"prime": rand.Prime,
+	"Prime": rand.Prime,
 	"read":  rand.Read,
+	"Read":  rand.Read,
 }

@@ -22,12 +22,22 @@ var Exports = map[string]interface{}{
 	"marshalIndent": xml.MarshalIndent,
 	"unmarshal":     xml.Unmarshal,
 
+	"Escape":        xml.Escape,
+	"EscapeText":    xml.EscapeText,
+	"Marshal":       xml.Marshal,
+	"MarshalIndent": xml.MarshalIndent,
+	"Unmarshal":     xml.Unmarshal,
+
 	"copyToken": xml.CopyToken,
+	"CopyToken": xml.CopyToken,
 
 	"Attr":            qlang.StructOf((*xml.Attr)(nil)),
 	"decoder":         xml.NewDecoder,
 	"newTokenDecoder": xml.NewTokenDecoder,
 	"encoder":         xml.NewEncoder,
+	"NewDecoder":      xml.NewDecoder,
+	"NewTokenDecoder": xml.NewTokenDecoder,
+	"NewEncoder":      xml.NewEncoder,
 	"EndElement":      qlang.StructOf((*xml.EndElement)(nil)),
 	"Name":            qlang.StructOf((*xml.Name)(nil)),
 	"ProcInst":        qlang.StructOf((*xml.ProcInst)(nil)),

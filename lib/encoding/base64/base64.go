@@ -19,6 +19,9 @@ var Exports = map[string]interface{}{
 
 	"newDecoder": base64.NewDecoder,
 	"newEncoder": base64.NewEncoder,
+	"NewDecoder": base64.NewDecoder,
+	"NewEncoder": base64.NewEncoder,
 
-	"encoding": base64.NewEncoding,
+	"encoding":    base64.NewEncoding,
+	"NewEncoding": base64.NewEncoding,
 }

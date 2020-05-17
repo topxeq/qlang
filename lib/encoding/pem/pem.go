@@ -14,6 +14,10 @@ var Exports = map[string]interface{}{
 	"encode":         pem.Encode,
 	"encodeToMemory": pem.EncodeToMemory,
 
+	"Encode":         pem.Encode,
+	"EncodeToMemory": pem.EncodeToMemory,
+
 	"Block":  qlang.StructOf((*pem.Block)(nil)),
 	"decode": pem.Decode,
+	"Decode": pem.Decode,
 }
