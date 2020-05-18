@@ -1,3 +1,3 @@
-module github.com/qiniu/text
+module github.com/topxeq/qlang/text
 
 go 1.12
