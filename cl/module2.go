@@ -9,7 +9,7 @@ import (
 	"syscall"
 
 	"github.com/topxeq/qlang/exec"
-	"github.com/topxeq/qlang/text/tpl/interpreter"
+	"github.com/topxeq/text/tpl/interpreter"
 )
 
 // -----------------------------------------------------------------------------

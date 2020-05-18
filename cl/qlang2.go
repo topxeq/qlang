@@ -6,8 +6,8 @@ import (
 	"github.com/topxeq/qlang/exec"
 	qlang "github.com/topxeq/qlang/spec"
 
-	ipt "github.com/topxeq/qlang/text/tpl/interpreter"
-	"github.com/topxeq/qlang/text/tpl/interpreter.util"
+	ipt "github.com/topxeq/text/tpl/interpreter"
+	"github.com/topxeq/text/tpl/interpreter.util"
 )
 
 // -----------------------------------------------------------------------------

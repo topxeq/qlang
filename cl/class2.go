@@ -4,8 +4,8 @@ import (
 	"errors"
 
 	"github.com/topxeq/qlang/exec"
-	ipt "github.com/topxeq/qlang/text/tpl/interpreter"
-	"github.com/topxeq/qlang/text/tpl/interpreter.util"
+	ipt "github.com/topxeq/text/tpl/interpreter"
+	"github.com/topxeq/text/tpl/interpreter.util"
 )
 
 // -----------------------------------------------------------------------------

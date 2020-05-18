@@ -2,7 +2,7 @@ package qlang
 
 import (
 	"github.com/topxeq/qlang/exec"
-	"github.com/topxeq/qlang/text/tpl/interpreter.util"
+	"github.com/topxeq/text/tpl/interpreter.util"
 )
 
 // -----------------------------------------------------------------------------
