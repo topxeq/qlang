@@ -15,11 +15,6 @@ var Exports = map[string]interface{}{
 	"ParseInt":   strconv.ParseInt,
 	"ParseFloat": strconv.ParseFloat,
 
-	"Itoa":       strconv.Itoa,
-	"ParseUint":  strconv.ParseUint,
-	"ParseInt":   strconv.ParseInt,
-	"ParseFloat": strconv.ParseFloat,
-
 	"unquoteChar": strconv.UnquoteChar,
 	"unquote":     strconv.Unquote,
 
