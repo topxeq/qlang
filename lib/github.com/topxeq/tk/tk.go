@@ -376,4 +376,6 @@ var Exports = map[string]interface{}{
 	"GenerateErrorStringTX":        tk.GenerateErrorStringTX,
 	"LoadStringTX":                 tk.LoadStringTX,
 	"RegFindFirstTX":               tk.RegFindFirstTX,
+	"GetOSArgs":                    tk.GetOSArgs,
+	"GetAllOSParameters":           tk.GetAllOSParameters,
 }
