@@ -378,4 +378,5 @@ var Exports = map[string]interface{}{
 	"RegFindFirstTX":               tk.RegFindFirstTX,
 	"GetOSArgs":                    tk.GetOSArgs,
 	"GetAllOSParameters":           tk.GetAllOSParameters,
+	"GetInputPasswordf":            tk.GetInputPasswordf,
 }
