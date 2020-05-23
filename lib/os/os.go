@@ -2,75 +2,114 @@ package os
 
 import (
 	"os"
-	"strconv"
 
 	qlang "github.com/topxeq/qlang/spec"
 )
 
-// -----------------------------------------------------------------------------
-
 // Exports is the export table of this module.
 //
 var Exports = map[string]interface{}{
-	"_name":     "os",
-	"_initSafe": _initSafe,
-	"args":      os.Args[1:],
-	"stdin":     os.Stdin,
-	"stderr":    os.Stderr,
-	"stdout":    os.Stdout,
-	"getenv":    os.Getenv,
-	"open":      os.Open,
-	"create":    os.Create,
-	"exit":      os.Exit,
+	"_name": "os",
 
-	"Args":   os.Args,
-	"Argsc":  os.Args[1:],
-	"Stdin":  os.Stdin,
-	"Stderr": os.Stderr,
-	"Stdout": os.Stdout,
-	"Getenv": os.Getenv,
-	"Open":   os.Open,
-	"Create": os.Create,
-	"Exit":   os.Exit,
+	"DevNull":           os.DevNull,
+	"ModeAppend":        os.ModeAppend,
+	"ModeCharDevice":    os.ModeCharDevice,
+	"ModeDevice":        os.ModeDevice,
+	"ModeDir":           os.ModeDir,
+	"ModeExclusive":     os.ModeExclusive,
+	"ModeIrregular":     os.ModeIrregular,
+	"ModeNamedPipe":     os.ModeNamedPipe,
+	"ModePerm":          os.ModePerm,
+	"ModeSetgid":        os.ModeSetgid,
+	"ModeSetuid":        os.ModeSetuid,
+	"ModeSocket":        os.ModeSocket,
+	"ModeSticky":        os.ModeSticky,
+	"ModeSymlink":       os.ModeSymlink,
+	"ModeTemporary":     os.ModeTemporary,
+	"ModeType":          os.ModeType,
+	"O_APPEND":          os.O_APPEND,
+	"O_CREATE":          os.O_CREATE,
+	"O_EXCL":            os.O_EXCL,
+	"O_RDONLY":          os.O_RDONLY,
+	"O_RDWR":            os.O_RDWR,
+	"O_SYNC":            os.O_SYNC,
+	"O_TRUNC":           os.O_TRUNC,
+	"O_WRONLY":          os.O_WRONLY,
+	"PathListSeparator": os.PathListSeparator,
+	"PathSeparator":     os.PathSeparator,
+	"SEEK_CUR":          os.SEEK_CUR,
+	"SEEK_END":          os.SEEK_END,
+	"SEEK_SET":          os.SEEK_SET,
+
+	"Args":          os.Args,
+	"ErrClosed":     os.ErrClosed,
+	"ErrExist":      os.ErrExist,
+	"ErrInvalid":    os.ErrInvalid,
+	"ErrNoDeadline": os.ErrNoDeadline,
+	"ErrNotExist":   os.ErrNotExist,
+	"ErrPermission": os.ErrPermission,
+	"Interrupt":     os.Interrupt,
+	"Kill":          os.Kill,
+	"Stderr":        os.Stderr,
+	"Stdin":         os.Stdin,
+	"Stdout":        os.Stdout,
+
+	"Chdir":           os.Chdir,
+	"Chmod":           os.Chmod,
+	"Chown":           os.Chown,
+	"Chtimes":         os.Chtimes,
+	"Clearenv":        os.Clearenv,
+	"Environ":         os.Environ,
+	"Executable":      os.Executable,
+	"Exit":            os.Exit,
+	"Expand":          os.Expand,
+	"ExpandEnv":       os.ExpandEnv,
+	"Getegid":         os.Getegid,
+	"Getenv":          os.Getenv,
+	"Geteuid":         os.Geteuid,
+	"Getgid":          os.Getgid,
+	"Getgroups":       os.Getgroups,
+	"Getpagesize":     os.Getpagesize,
+	"Getpid":          os.Getpid,
+	"Getppid":         os.Getppid,
+	"Getuid":          os.Getuid,
+	"Getwd":           os.Getwd,
+	"Hostname":        os.Hostname,
+	"IsExist":         os.IsExist,
+	"IsNotExist":      os.IsNotExist,
+	"IsPathSeparator": os.IsPathSeparator,
+	"IsPermission":    os.IsPermission,
+	"IsTimeout":       os.IsTimeout,
+	"Lchown":          os.Lchown,
+	"Link":            os.Link,
+	"LookupEnv":       os.LookupEnv,
+	"Mkdir":           os.Mkdir,
+	"MkdirAll":        os.MkdirAll,
+	"NewSyscallError": os.NewSyscallError,
+	"Pipe":            os.Pipe,
+	"Readlink":        os.Readlink,
+	"Remove":          os.Remove,
+	"RemoveAll":       os.RemoveAll,
+	"Rename":          os.Rename,
+	"SameFile":        os.SameFile,
+	"Setenv":          os.Setenv,
+	"Symlink":         os.Symlink,
+	"TempDir":         os.TempDir,
+	"Truncate":        os.Truncate,
+	"Unsetenv":        os.Unsetenv,
+	"UserCacheDir":    os.UserCacheDir,
+	"UserConfigDir":   os.UserConfigDir,
+	"UserHomeDir":     os.UserHomeDir,
+
+	"Lstat": os.Lstat,
+	"Stat":  os.Stat,
+
+	"File":         qlang.StructOf((*os.File)(nil)),
+	"file":         os.NewFile,
+	"Create":       os.Create,
+	"Open":         os.Open,
+	"OpenFile":     os.OpenFile,
+	"ProcAttr":     qlang.StructOf((*os.ProcAttr)(nil)),
+	"FindProcess":  os.FindProcess,
+	"StartProcess": os.StartProcess,
 }
-
-func _initSafe(mod qlang.Module) {
-
-	mod.Disable("open")
-	mod.Disable("getenv")
-	mod.Exports["exit"] = SafeExit
-
-	mod.Disable("Open")
-	mod.Disable("Getenv")
-	mod.Exports["Exit"] = SafeExit
-}
-
-// SafeExit is a safe way to quit qlang application.
-//
-func SafeExit(code int) {
-
-	panic("exit " + strconv.Itoa(code))
-}
-
-// -----------------------------------------------------------------------------
-
-func exit() {
-	os.Exit(0)
-}
-
-func safeExit() {
-	panic("exit")
-}
-
-func _initSafe2(mod qlang.Module) {
-	mod.Exports["exit"] = safeExit
-}
-
-// InlineExports is the export table of this module.
-//
-var InlineExports = map[string]interface{}{
-	"exit":      exit,
-	"_initSafe": _initSafe2,
-}
-
-// -----------------------------------------------------------------------------
