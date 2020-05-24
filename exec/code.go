@@ -619,9 +619,13 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				panic(e)
 			}
 
-			fmt.Printf("Current line: %v\n", p.GetCurrentLine(ctx.ip))
+			// fmt.Printf("Current line: %v\n", p.GetCurrentLine(ctx.ip))
+			lineT := p.GetCurrentLine(ctx.ip)
 
 			if err, ok := e.(*Error); ok {
+				if err.Line <= 0 && lineT > 0 {
+					err.Line = lineT
+				}
 				panic(err)
 			}
 			err, ok := e.(error)
@@ -629,6 +633,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				if s, ok := e.(string); ok {
 					err = errors.New(s)
 				} else {
+					fmt.Printf("Current line: %v\n", lineT)
 					panic(e)
 				}
 			}
