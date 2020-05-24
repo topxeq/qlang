@@ -94,7 +94,7 @@ func Float64(a interface{}) float64 {
 	default:
 		// fmt.Printf("a1: %T, %v\n", a1, reflect.ValueOf(a).Kind())
 		// if reflect.ValueOf(a).Kind() == reflect.Float64 {
-		// 	return float64(a1)
+		// 	return float64(a.(a1))
 		// }
 	}
 

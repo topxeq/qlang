@@ -29,4 +29,8 @@ var Exports = map[string]interface{}{
 	"float": big.NewFloat,
 	"int":   big.NewInt,
 	"rat":   big.NewRat,
+
+	"NewFloat": big.NewFloat,
+	"NewInt":   big.NewInt,
+	"NewRat":   big.NewRat,
 }

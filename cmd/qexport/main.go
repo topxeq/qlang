@@ -323,6 +323,7 @@ func export(pkg string, outpath string, skipOSArch bool) error {
 					outfv(vers, name, fn)
 				} else {
 					outf("\t%q:\t%s,\n", name, fn)
+					outf("\t%q:\t%s,\n", f, fn)
 				}
 			}
 
@@ -410,6 +411,7 @@ func export(pkg string, outpath string, skipOSArch bool) error {
 					outfv(vers, name, fn)
 				} else {
 					outf("\t%q:\t%s,\n", name, fn)
+					outf("\t%q:\t%s,\n", f, fn)
 				}
 			}
 
