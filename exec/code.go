@@ -416,11 +416,33 @@ type ipFileLine struct {
 	file string
 }
 
+func (v ipFileLine) String() string {
+	return fmt.Sprintf("ip: %v, line: %v, file: %v", v.ip, v.line, v.file)
+}
+
 // A Code represents generated instructions to execute.
 //
 type Code struct {
 	data  []Instr
 	lines []*ipFileLine // ip => (file,line)
+}
+
+func (p *Code) GetCurrentLine(idxA int) int {
+	rs := 0
+
+	if p.lines == nil {
+		return rs
+	}
+
+	for _, v := range p.lines {
+		if idxA < v.ip {
+			return v.line
+		}
+
+		rs = v.line
+	}
+
+	return rs
 }
 
 // A ReservedInstr represents a reserved instruction to be assigned.
@@ -578,15 +600,15 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 					for i := startT; i <= ctx.ip; i++ {
 						instr := p.data[i]
 
-						fmt.Printf("[%v] %s %v\n", i, instrName(instr), instr)
+						fmt.Printf("[%v, line: %v] %s %v \n", i, p.GetCurrentLine(i), instrName(instr), instr)
 					}
 
 					ep, ok := e.(*Error)
 					if !ok {
-						fmt.Printf("e: %#v, len: %v, end: %v\n", e, p.Len(), ipEnd)
+						fmt.Printf("e: %#v, len: %v, end: %v, line: %v\n", e, p.Len(), ipEnd, p.GetCurrentLine(ctx.ip))
 
 					} else {
-						fmt.Printf("e: %#v, file: %v, len: %v, end: %v, stack: %v\n", ep.Err, ep.File, p.Len(), ipEnd, string(ep.Stack))
+						fmt.Printf("e: %#v, file: %v, len: %v, end: %v, line: %v, stack: %v\n", ep.Err, ep.File, p.Len(), ipEnd, p.GetCurrentLine(ctx.ip), string(ep.Stack))
 
 					}
 
@@ -596,6 +618,9 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 			if e == ErrReturn {
 				panic(e)
 			}
+
+			fmt.Printf("Current line: %v\n", p.GetCurrentLine(ctx.ip))
+
 			if err, ok := e.(*Error); ok {
 				panic(err)
 			}
@@ -621,6 +646,10 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 	// verboseG := os.Getenv("TXVERBOSE")
 
 	showCodeFlagT := (os.Getenv("GOXSHOWCODE") == "true")
+
+	if showCodeFlagT {
+		fmt.Printf("%#v, %v\n", p.lines, p.lines)
+	}
 
 	ctx.ip = ip
 	data := p.data
