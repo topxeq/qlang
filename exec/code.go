@@ -567,7 +567,7 @@ func (p *Code) ToVar() {
 	data := p.data
 	idx := len(data) - 1
 
-	// fmt.Printf("%#v, %#v\n", idx, data[idx])
+	fmt.Printf("ToVar: %#v, %#v, %#v\n", idx, data[idx], data)
 	if cvt, ok := data[idx].(RefToVar); ok {
 		data[idx] = cvt.ToVar()
 	} else {

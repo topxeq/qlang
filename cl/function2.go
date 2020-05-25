@@ -1,6 +1,8 @@
 package qlang
 
 import (
+	"fmt"
+
 	"github.com/topxeq/qlang/exec"
 	"github.com/topxeq/text/tpl/interpreter.util"
 )
@@ -19,6 +21,27 @@ func (p *Compiler) function(e interpreter.Engine) {
 		start, end, symtbl := p.clFunc(e, "doc", fnb, fnctx, args)
 		instr.Set(exec.Func(nil, start, end, symtbl, args, variadic != 0))
 	})
+}
+
+func (p *Compiler) xfunction(e interpreter.Engine) {
+	fmt.Printf("hhhh\n")
+	fnb, _ := p.gstk.Pop()
+	variadic := p.popArity()
+	arity := p.popArity()
+	args := p.gstk.PopFnArgs(arity)
+	instr := p.code.Reserve()
+	fnctx := p.fnctx
+	p.exits = append(p.exits, func() {
+		start, end, symtbl := p.clFunc(e, "doc", fnb, fnctx, args)
+		instr.Set(exec.Func(nil, start, end, symtbl, args, variadic != 0))
+	})
+
+	fn := &functionInfo{
+		args:     args,
+		fnb:      fnb,
+		variadic: variadic != 0,
+	}
+	p.gstk.Push(fn)
 }
 
 func (p *Compiler) anonymFn(e interpreter.Engine) {

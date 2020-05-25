@@ -379,4 +379,5 @@ var Exports = map[string]interface{}{
 	"GetOSArgs":                    tk.GetOSArgs,
 	"GetAllOSParameters":           tk.GetAllOSParameters,
 	"GetInputPasswordf":            tk.GetInputPasswordf,
+	"GetMSIStringWithDefault":      tk.GetMSIStringWithDefault,
 }
