@@ -567,7 +567,7 @@ func (p *Code) ToVar() {
 	data := p.data
 	idx := len(data) - 1
 
-	fmt.Printf("ToVar: %#v, %#v, %#v\n", idx, data[idx], data)
+	// fmt.Printf("ToVar: %#v, %#v, %#v\n", idx, data[idx], data)
 	if cvt, ok := data[idx].(RefToVar); ok {
 		data[idx] = cvt.ToVar()
 	} else {
@@ -653,7 +653,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 	showCodeFlagT := (os.Getenv("GOXSHOWCODE") == "true")
 
 	if showCodeFlagT {
-		fmt.Printf("%#v, %v\n", p.lines, p.lines)
+		fmt.Printf("%#v, %v, %v\n", p.lines, p.lines, p.GetCurrentLine(ip))
 	}
 
 	ctx.ip = ip

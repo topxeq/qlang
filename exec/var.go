@@ -2,7 +2,6 @@ package exec
 
 import (
 	"errors"
-	"fmt"
 
 	// "fmt"
 	// "reflect"
@@ -31,13 +30,13 @@ func (p *iRef) Exec(stk *Stack, ctx *Context) {
 }
 
 func (p *iRef) ToVar() Instr {
-	fmt.Printf("iRef ToVar: %v\n", p.name)
+	// fmt.Printf("iRef ToVar: %v\n", p.name)
 
 	return &iVar{p.name}
 }
 
 func (p *Context) getRef(name int) interface{} {
-	fmt.Printf("getRef: %v\n", name)
+	// fmt.Printf("getRef: %v\n", name)
 
 	if name < symbolIndexMax {
 		return p.FastGetVar(name)
@@ -72,7 +71,7 @@ func SymbolIndex(id, scope int) int {
 // Ref returns an instruction that refers a variable.
 //
 func Ref(name int) Instr {
-	fmt.Printf("Ref: %v\n", name)
+	// fmt.Printf("Ref: %v\n", name)
 	return &iRef{name}
 }
 
@@ -91,7 +90,7 @@ func (p *iVar) Exec(stk *Stack, ctx *Context) {
 // Var returns a Var instruction.
 //
 func Var(name int) Instr {
-	fmt.Printf("Var: %v\n", name)
+	// fmt.Printf("Var: %v\n", name)
 	return &iVar{name}
 }
 

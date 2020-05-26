@@ -48,6 +48,7 @@ s = (
 	"return"! expr %= ','/ARITY /return |
 	"break" /brk |
 	"continue" /cont |
+	"func"! IDENT/ref/tovar fnbody/fn/assign |
 	"include"! STRING/include |
 	"import"! (STRING ?("as" IDENT/name)/ARITY)/import |
 	"export"! IDENT/name % ','/ARITY /export |

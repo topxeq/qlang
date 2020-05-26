@@ -1,7 +1,6 @@
 package qlang
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/topxeq/qlang/exec"
@@ -10,19 +9,19 @@ import (
 // -----------------------------------------------------------------------------
 
 func (p *Compiler) pushInt(v int) {
-	fmt.Printf("pushInt: %v\n", v)
+	// fmt.Printf("pushInt: %v\n", v)
 
 	p.code.Block(exec.Push(v))
 }
 
 func (p *Compiler) pushFloat(v float64) {
-	fmt.Printf("pushFloat: %v\n", v)
+	// fmt.Printf("pushFloat: %v\n", v)
 
 	p.code.Block(exec.Push(v))
 }
 
 func (p *Compiler) pushByte(lit string) {
-	fmt.Printf("pushbyte: %v\n", lit)
+	// fmt.Printf("pushbyte: %v\n", lit)
 
 	v, multibyte, tail, err := strconv.UnquoteChar(lit[1:len(lit)-1], '\'')
 	if err != nil {
@@ -35,7 +34,7 @@ func (p *Compiler) pushByte(lit string) {
 }
 
 func (p *Compiler) pushString(lit string) {
-	fmt.Printf("pushString: %v\n", lit)
+	// fmt.Printf("pushString: %v\n", lit)
 
 	v, err := strconv.Unquote(lit)
 	if err != nil {
@@ -45,7 +44,7 @@ func (p *Compiler) pushString(lit string) {
 }
 
 func (p *Compiler) pushID(name string) {
-	fmt.Printf("push id: %v\n", name)
+	// fmt.Printf("push id: %v\n", name)
 
 	p.code.Block(exec.Push(name))
 }
@@ -56,7 +55,7 @@ func (p *Compiler) popArity() int {
 
 	if v, ok := p.gstk.Pop(); ok {
 		if arity, ok := v.(int); ok {
-			fmt.Printf("poparity: %v\n", arity)
+			// fmt.Printf("poparity: %v\n", arity)
 			return arity
 		}
 	}
@@ -67,7 +66,7 @@ func (p *Compiler) popName() string {
 
 	if v, ok := p.gstk.Pop(); ok {
 		if name, ok := v.(string); ok {
-			fmt.Printf("pop name: %v\n", name)
+			// fmt.Printf("pop name: %v\n", name)
 			return name
 		}
 	}
@@ -75,19 +74,19 @@ func (p *Compiler) popName() string {
 }
 
 func (p *Compiler) pushCode(code interface{}) {
-	fmt.Printf("pushCode: %v\n", code)
+	// fmt.Printf("pushCode: %v\n", code)
 
 	p.gstk.Push(code)
 }
 
 func (p *Compiler) arity(arity int) {
-	fmt.Printf("pusharity: %v\n", arity)
+	// fmt.Printf("pusharity: %v\n", arity)
 
 	p.gstk.Push(arity)
 }
 
 func (p *Compiler) pushName(name string) {
-	fmt.Printf("push name: %v\n", name)
+	// fmt.Printf("push name: %v\n", name)
 	p.gstk.Push(name)
 }
 
