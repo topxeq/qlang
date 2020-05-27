@@ -34,7 +34,7 @@ expr = term4 *("||"/_mute term4/_code/_unmute/or)
 
 sexpr = expr (
 	'='/tovar! expr/assign |
-	','/tovar! expr/tovar % ','/ARITY '=' expr % ','/ARITY /massign |
+	','/tovar! expr/tovar % ','/ARITY (":=" | '=') expr % ','/ARITY /massign |
 	"++"/tovar/inc | "--"/tovar/dec | ":="/tovar! expr/assign |
 	"+="/tovar! expr/adda | "-="/tovar! expr/suba |
 	"*="/tovar! expr/mula | "/="/tovar! expr/quoa | "%="/tovar! expr/moda |
@@ -62,7 +62,7 @@ body = '{' doc/_code '}'
 
 fhead = (~'{' s)/_code %= ';'/_ARITY
 
-frange = ?(IDENT/name % ','/ARITY '=')/ARITY "range" expr
+frange = ?(IDENT/name % ','/ARITY (":=" | '='))/ARITY "range" expr
 
 swbody = *("case"! expr/_code ':' doc/_code)/_ARITY ?("default"! ':' doc/_code)/_ARITY
 

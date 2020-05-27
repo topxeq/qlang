@@ -621,6 +621,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 			// fmt.Printf("Current line: %v\n", p.GetCurrentLine(ctx.ip))
 			lineT := p.GetCurrentLine(ctx.ip)
+			fmt.Printf("Current line: %v\n", lineT)
 
 			if err, ok := e.(*Error); ok {
 				if err.Line <= 0 && lineT > 0 {
