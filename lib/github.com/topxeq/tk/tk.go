@@ -268,6 +268,7 @@ var Exports = map[string]interface{}{
 	"PlSimpleErrorString":                      tk.PlSimpleErrorString,
 	"PlTXErr":                                  tk.PlTXErr,
 	"PlVerbose":                                tk.PlVerbose,
+	"PlainAuth":                                tk.PlainAuth,
 	"Pln":                                      tk.Pln,
 	"Plv":                                      tk.Plv,
 	"PlvWithError":                             tk.PlvWithError,
@@ -364,6 +365,7 @@ var Exports = map[string]interface{}{
 	"UrlEncode2":                               tk.UrlEncode2,
 
 	"NewRandomGenerator":           tk.NewRandomGenerator,
+	"ServerInfo":                   qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":                  qlang.StructOf((*tk.SimpleEvent)(nil)),
 	"CreateSimpleEvent":            tk.CreateSimpleEvent,
 	"TXCollection":                 qlang.StructOf((*tk.TXCollection)(nil)),
