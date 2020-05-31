@@ -108,4 +108,9 @@ func (p *Compiler) memberRef(name string) {
 	p.code.Block(exec.MemberRef(name))
 }
 
+func (p *Compiler) memberRefV(name string) {
+
+	p.code.Block(exec.MemberRefV(name))
+}
+
 // -----------------------------------------------------------------------------

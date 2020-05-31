@@ -80,11 +80,13 @@ methods = *classb/ARITY
 
 atom =
 	'('! expr %= ','/ARITY ?"..."/ARITY ?',' ')'/call |
-	'.'! member/mref |
+	'.'! member/mrefv |
+	'@'! member/mref |
 	'['! ?expr/ARITY ?':'/ARITY ?expr/ARITY ']'/index
 
 type =
-	IDENT/ref *('.' member/mref) |
+	IDENT/ref *('.' member/mrefv) |
+	IDENT/ref *('@' member/mref) |
 	"class"! '{' *classb/ARITY '}'/class |
 	"map" '['! type ']' type /tmap |
 	"chan"! type /tchan |
@@ -114,7 +116,7 @@ factor =
 	// '^' factor/bitnot |
 	'-' factor/neg |
 	'*' factor/elem |
-	'&' IDENT/ref *('.' member/mref) '{' (IDENT/pushid ':' expr) %= ','/ARITY ?',' '}' /initst |
+	'&' IDENT/ref *('.' member/mrefv) '{' (IDENT/pushid ':' expr) %= ','/ARITY ?',' '}' /initst |
 	'^' IDENT/addrof |
 	"<-" factor/chout |
 	'+' factor
@@ -357,6 +359,7 @@ var exports = map[string]interface{}{
 	"$pushc":  (*Compiler).pushByte,
 	"$index":  (*Compiler).index,
 	"$mref":   (*Compiler).memberRef,
+	"$mrefv":  (*Compiler).memberRefV,
 	"$ref":    (*Compiler).ref,
 	// "$ref1":    (*Compiler).ref,
 	"$tovar":   (*Compiler).toVar,

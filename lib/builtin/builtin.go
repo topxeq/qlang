@@ -195,7 +195,13 @@ func setMember(m interface{}, args ...interface{}) {
 			setStructMember(o, args...)
 			return
 		}
+		// } else if o.Kind() == reflect.Struct {
+		// 	setStructMember(o.Addr(), args...)
+		// 	return
 	}
+
+	// fmt.Printf("%#v ----  %#v ---- %#v ---- %#v ---- %v\n", m, args, o, o.Kind(), o.Kind())
+
 	panic(fmt.Sprintf("type `%v` doesn't support `set` operator", reflect.TypeOf(m)))
 }
 
@@ -208,7 +214,13 @@ func setStructMember(o reflect.Value, args ...interface{}) {
 		if !field.IsValid() {
 			panic(fmt.Sprintf("struct `%v` doesn't has member `%v`", o.Type(), key))
 		}
-		field.Set(reflect.ValueOf(args[i+1]))
+
+		if field.CanSet() {
+			field.Set(reflect.ValueOf(args[i+1]))
+			// } else {
+			// 	fmt.Printf("not set: %v, %#v, %v, %#v\n", field.CanAddr(), field, field, o)
+		}
+
 	}
 }
 

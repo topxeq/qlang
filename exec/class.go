@@ -354,6 +354,151 @@ func MemberRef(name string) Instr {
 }
 
 // -----------------------------------------------------------------------------
+
+type iMemberRefV struct {
+	name string
+}
+
+func (p *iMemberRefV) Exec(stk *Stack, ctx *Context) {
+
+	v, ok := stk.Pop()
+	if !ok {
+		panic(ErrRefWithoutObject)
+	}
+
+	// fmt.Printf("v: %v, %v\n", v, reflect.TypeOf(v))
+
+	name := p.name
+	t := reflect.TypeOf(v)
+
+	// tk.Pl("%v", t.Kind())
+	switch t {
+	case typeObjectPtr:
+		val := v.(*Object).Member(name)
+		stk.Push(val)
+		return
+	case typeClassPtr:
+		o := v.(*Class)
+		val, ok := o.Fns[name]
+		if !ok {
+			panic(fmt.Errorf("class doesn't has method `%s`", name))
+		}
+		stk.Push(val)
+		return
+	}
+
+	obj := reflect.ValueOf(v)
+
+	kind := obj.Kind()
+	// fmt.Printf("herev: v: %#v, typeof(v): %v, valueofkind(v): %v, objKind: %v, obj: %#v\n", v, reflect.TypeOf(v), reflect.ValueOf(v).Kind(), kind, obj)
+
+	typeStrT := fmt.Sprintf("%v", t)
+
+	// fmt.Printf("typeStrT: %v\n", typeStrT)
+
+	if (kind == reflect.Map) && (!strings.HasPrefix(typeStrT, "map[")) {
+		kind = reflect.Complex128
+	}
+
+	switch {
+	case kind == reflect.Map:
+		m := obj.MapIndex(reflect.ValueOf(name))
+		// fmt.Printf("m: %#v, name: %v\n", m, name)
+		if m.IsValid() {
+			stk.Push(m.Interface())
+		} else {
+			panic(fmt.Errorf("member `%s` not found", name))
+		}
+	default:
+		name = strings.Title(name)
+		m := obj.MethodByName(name)
+
+		// typeT := reflect.TypeOf(v)
+
+		// fmt.Printf("1m: %#v, obj: %#v, kind: %v, %v, Name: %v\n", m, typeT, kind, m.CanSet(), name)
+		// lenT := typeT.NumMethod()
+
+		// fmt.Printf("typeT: %#v, methodNum: %#v\n", typeT, lenT)
+		// for i := 0; i < lenT; i++ {
+		// 	fmt.Printf("m %v: %#v, method: %#v\n", i, typeT.Method(i), typeT.Method(i).Name)
+
+		// }
+
+		// if kind == reflect.Ptr {
+		// 	typeT = typeT.Elem()
+		// }
+
+		// lenT = typeT.NumField()
+
+		// fmt.Printf("typeT: %#v, NumField: %#v, name: %v\n", typeT, lenT, typeT.Name)
+		// for i := 0; i < lenT; i++ {
+		// 	fmt.Printf("i %v: %#v, field: %#v\n", i, typeT.Field(i), typeT.Field(i).Name)
+
+		// }
+
+		if !m.IsValid() {
+			if kind == reflect.Ptr {
+				// obj = obj.Elem()
+				obj = reflect.Indirect(obj)
+				// lenT := obj.NumMethod()
+
+				// fmt.Printf("obj: %#v, methodNum: %#v\n", obj, lenT)
+				// for i := 0; i < lenT; i++ {
+				// 	fmt.Printf("m %v: %#v, method: %#v\n", i, obj.Method(i))
+
+				// }
+
+				// m = obj.MethodByName(name)
+				// if !m.IsValid() {
+				m = obj.FieldByName(name)
+
+				// if m.CanAddr() {
+				// 	m = m.Addr()
+				// }
+				// }
+				// fmt.Printf("2m: %#v, obj: %#v, kind: %v, %v, canaddr: %v, Name: %v\n", m, obj, kind, m.CanSet(), m.CanAddr(), name)
+			} else if kind == reflect.Struct {
+				obj = reflect.Indirect(obj)
+				m = obj.FieldByName(name)
+
+				// fmt.Printf("3m: %#v, obj: %#v, obj.CanAddr(): %#v, kind: %v, %v, Name: %v\n", m, obj, obj.CanAddr(), kind, m.CanSet(), name)
+			} else if obj.CanAddr() {
+				obj = obj.Addr()
+				m = obj.MethodByName(name)
+			} else {
+				// obj = obj.Elem()
+				// m = obj.FieldByName(name)
+			}
+
+			// fmt.Printf("m: %#v, kind: %v, %v\n", m, kind, m.CanSet())
+			if !m.IsValid() {
+				panic(fmt.Errorf("type `%v` doesn't has member `%s`", reflect.TypeOf(v), name))
+			}
+
+			t = obj.Type()
+		}
+
+		if qlang.AutoCall[t] && m.Type().NumIn() == 0 {
+			out := m.Call(nil)
+			stk.PushRet(out)
+			return
+		}
+
+		stk.Push(m.Interface())
+	}
+}
+
+func (p *iMemberRefV) ToVar() Instr {
+	return &iMemberVar{p.name}
+}
+
+// MemberRefV returns a MemberRef instruction.
+//
+func MemberRefV(name string) Instr {
+	return &iMemberRefV{name}
+}
+
+// -----------------------------------------------------------------------------
 // MemberVar
 
 type iMemberVar struct {
