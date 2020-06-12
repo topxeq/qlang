@@ -420,7 +420,4 @@ var Exports = map[string]interface{}{
 	"Size":                       qlang.StructOf((*sciter.Size)(nil)),
 	"TimerParams":                qlang.StructOf((*sciter.TimerParams)(nil)),
 	"TiscriptMethodParams":       qlang.StructOf((*sciter.TiscriptMethodParams)(nil)),
-
-	"NewValue":  sciter.NewValue,
-	"NullValue": sciter.NullValue,
 }
