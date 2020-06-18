@@ -7,6 +7,7 @@ import (
 
 	"github.com/topxeq/qlang/exec"
 	"github.com/topxeq/text/tpl/interpreter"
+	"github.com/topxeq/tk"
 
 	qcl "github.com/topxeq/qlang/cl"
 	qlang "github.com/topxeq/qlang/spec"
@@ -76,6 +77,10 @@ type Qlang struct {
 	*exec.Context
 	cl *qcl.Compiler
 }
+
+// func (p Qlang) String() string {
+// 	return fmt.Sprintf("Ctx: %v\ncl: %v", "", p.cl)
+// }
 
 // New returns a new qlang instance.
 //
@@ -178,6 +183,24 @@ func (p *Qlang) SafeExec(code []byte, fname string) (err error) {
 func (p *Qlang) SafeEval(expr string) (err error) {
 
 	return p.SafeExec([]byte(expr), "")
+}
+
+func (p *Qlang) TXCompile(srcA string) (err error) {
+
+	code := p.cl.Code()
+	start := code.Len()
+	end, err := p.Cl([]byte(srcA), "")
+	if err != nil {
+		return err
+	}
+
+	tk.Pl("start: %v, end: %v, p: %v", start, end, nil)
+
+	return nil
+
+	//	p.ExecBlock(start, end, p.cl.GlobalSymbols())
+
+	// return p.SafeExec([]byte(expr), "")
 }
 
 // InjectMethods injects some methods into a class.

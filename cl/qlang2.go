@@ -216,6 +216,10 @@ type Compiler struct {
 	inFor bool
 }
 
+func (p Compiler) String() string {
+	return fmt.Sprintf("code: %v\nipt: %v\nlibs: %v\nexits: %v\nmods: %v\ngvars: %v\nforRg: %v\ninFor: %v", p.code, p.ipt, p.libs, p.exits, p.mods, p.gvars, p.forRg, p.inFor)
+}
+
 // New returns a qlang compiler instance.
 //
 func New() *Compiler {

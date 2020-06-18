@@ -159,6 +159,10 @@ type variables struct {
 	symtbl map[string]int // symbol table
 }
 
+func (v variables) String() string {
+	return fmt.Sprintf("vars: %v, symtbl: %v", v.vars, v.symtbl)
+}
+
 // initVars initializes the variable table.
 //
 func (p *variables) initVars(symtbl map[string]int) {
@@ -309,6 +313,10 @@ type Context struct {
 	noextv bool // don't cache extern var
 }
 
+// func (v Context) String() string {
+// 	return fmt.Sprintf("variables")
+// }
+
 // NewContextEx returns a new context of an executor.
 //
 func NewContextEx(symtbl map[string]int) *Context {
@@ -400,6 +408,10 @@ type Instr interface {
 	Exec(stk *Stack, ctx *Context)
 }
 
+// func (v Instr) String() string {
+// 	return fmt.Sprintf("%v", v)
+// }
+
 // RefToVar converts a value reference instruction into a assignable variable instruction.
 //
 type RefToVar interface {
@@ -425,6 +437,16 @@ func (v ipFileLine) String() string {
 type Code struct {
 	data  []Instr
 	lines []*ipFileLine // ip => (file,line)
+}
+
+func (v Code) String() string {
+	var sb strings.Builder
+
+	for i, vi := range v.data {
+		sb.WriteString(fmt.Sprintf("\n [%v] -> %#v; ", i, vi))
+	}
+
+	return fmt.Sprintf("data: %v\n, lines: \n%v", sb.String(), v.lines)
 }
 
 func (p *Code) GetCurrentLine(idxA int) int {
