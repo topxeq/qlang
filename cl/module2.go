@@ -70,7 +70,7 @@ const (
 
 func qlangFile(file string) string {
 
-	if path.Ext(file) == ".ql" {
+	if (path.Ext(file) == ".ql") || (path.Ext(file) == ".gox") {
 		return file
 	}
 	return file + indexFile
