@@ -69,6 +69,7 @@ var Exports = map[string]interface{}{
 	"DeepClone":                           tk.DeepClone,
 	"DeepCopyFromTo":                      tk.DeepCopyFromTo,
 	"DeleteItemInArray":                   tk.DeleteItemInArray,
+	"DeleteItemInFloat64Array":            tk.DeleteItemInFloat64Array,
 	"DeleteItemInInt64Array":              tk.DeleteItemInInt64Array,
 	"DeleteItemInIntArray":                tk.DeleteItemInIntArray,
 	"DeleteItemInStringArray":             tk.DeleteItemInStringArray,
