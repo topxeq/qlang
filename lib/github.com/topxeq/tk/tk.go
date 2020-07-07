@@ -37,6 +37,7 @@ var Exports = map[string]interface{}{
 	"CalCosineSimilarityBetweenFloatsBig": tk.CalCosineSimilarityBetweenFloatsBig,
 	"CheckErr":                            tk.CheckErr,
 	"CheckErrCompact":                     tk.CheckErrCompact,
+	"CheckErrStrf":                        tk.CheckErrStrf,
 	"CheckErrf":                           tk.CheckErrf,
 	"CheckError":                          tk.CheckError,
 	"CheckErrorFunc":                      tk.CheckErrorFunc,
