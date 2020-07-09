@@ -22,6 +22,7 @@ var Exports = map[string]interface{}{
 	"ErrNoSymlink":         afero.ErrNoSymlink,
 	"ErrOutOfRange":        afero.ErrOutOfRange,
 	"ErrTooLarge":          afero.ErrTooLarge,
+	"TimeFormatCompact2":   afero.TimeFormatCompact2,
 
 	"DirExists":            afero.DirExists,
 	"Exists":               afero.Exists,
@@ -55,5 +56,6 @@ var Exports = map[string]interface{}{
 	"Afero":     qlang.StructOf((*afero.Afero)(nil)),
 	"httpfs":    afero.NewHttpFs,
 	"NewHttpFs": afero.NewHttpFs,
+	"NewMemFS":  afero.NewMemFS,
 	"OsFs":      qlang.StructOf((*afero.OsFs)(nil)),
 }
