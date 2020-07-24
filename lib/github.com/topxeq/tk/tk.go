@@ -178,6 +178,7 @@ var Exports = map[string]interface{}{
 	"GetMSIStringWithDefault":                  tk.GetMSIStringWithDefault,
 	"GetMSSArrayFromXML":                       tk.GetMSSArrayFromXML,
 	"GetMSSFromXML":                            tk.GetMSSFromXML,
+	"GetNodeStringFromXML":                     tk.GetNodeStringFromXML,
 	"GetNowDateString":                         tk.GetNowDateString,
 	"GetNowMinutesInDay":                       tk.GetNowMinutesInDay,
 	"GetNowTimeOnlyStringBeijing":              tk.GetNowTimeOnlyStringBeijing,
