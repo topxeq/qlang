@@ -245,6 +245,7 @@ var Exports = map[string]interface{}{
 	"IsErrorString":                            tk.IsErrorString,
 	"IsFile":                                   tk.IsFile,
 	"IsFloat64NearlyEqual":                     tk.IsFloat64NearlyEqual,
+	"IsNil":                                    tk.IsNil,
 	"IsNilOrEmpty":                             tk.IsNilOrEmpty,
 	"IsValidEmail":                             tk.IsValidEmail,
 	"IsYesterday":                              tk.IsYesterday,
