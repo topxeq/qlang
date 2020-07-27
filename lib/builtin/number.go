@@ -402,6 +402,8 @@ func Add(a, b interface{}) interface{} {
 		if b1, ok := b.(string); ok {
 			return a1 + b1
 		}
+
+		return fmt.Sprintf("%v%v", a1, b)
 	case uint:
 		switch b1 := b.(type) {
 		case int:
