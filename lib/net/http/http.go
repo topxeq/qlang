@@ -94,6 +94,7 @@ var Exports = map[string]interface{}{
 	"DefaultClient":    http.DefaultClient,
 	"DefaultServeMux":  http.DefaultServeMux,
 
+	"Dir":      qlang.StructOf((*http.Dir)(nil)),
 	"Client":   qlang.StructOf((*http.Client)(nil)),
 	"Cookie":   qlang.StructOf((*http.Cookie)(nil)),
 	"Header":   qlang.StructOf((*http.Header)(nil)),
