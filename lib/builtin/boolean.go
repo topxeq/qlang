@@ -1,5 +1,7 @@
 package builtin
 
+import "fmt"
+
 // -----------------------------------------------------------------------------
 
 // Not returns !a
@@ -123,6 +125,9 @@ func GE(a, b interface{}) interface{} {
 // EQ returns a == b
 //
 func EQ(a, b interface{}) interface{} {
+	if a == nil || b == nil {
+		return fmt.Sprintf("%v", a) == fmt.Sprintf("%v", b)
+	}
 
 	return a == b
 }
@@ -130,6 +135,9 @@ func EQ(a, b interface{}) interface{} {
 // NE returns a != b
 //
 func NE(a, b interface{}) interface{} {
+	if a == nil || b == nil {
+		return fmt.Sprintf("%v", a) != fmt.Sprintf("%v", b)
+	}
 
 	return a != b
 }
