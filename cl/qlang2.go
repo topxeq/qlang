@@ -214,6 +214,7 @@ type Compiler struct {
 	fnctx *funcCtx
 	forRg bool
 	inFor bool
+	Debug bool
 }
 
 func (p Compiler) String() string {
@@ -223,6 +224,7 @@ func (p Compiler) String() string {
 // New returns a qlang compiler instance.
 //
 func New() *Compiler {
+	debugT := (os.Getenv("GOXDEBUG") == "true")
 
 	gvars := make(map[string]interface{})
 	mods := make(map[string]module)
@@ -234,6 +236,7 @@ func New() *Compiler {
 		gvars: gvars,
 		fnctx: fnctx,
 		Opts:  ipt.InsertSemis,
+		Debug: debugT,
 	}
 }
 
@@ -343,7 +346,7 @@ func (p *Compiler) codeLine(src interface{}) {
 
 	f := ipt.FileLine(src)
 	p.code.CodeLine(f.File, f.Line)
-	if DumpCode == 1 {
+	if DumpCode == 1 || p.Debug {
 		text := string(ipt.Source(src))
 		p.code.Block(exec.Rem(f.File, f.Line, text))
 	}

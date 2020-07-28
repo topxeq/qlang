@@ -437,6 +437,7 @@ func (v ipFileLine) String() string {
 type Code struct {
 	data  []Instr
 	lines []*ipFileLine // ip => (file,line)
+	Debug bool
 }
 
 func (v Code) String() string {
@@ -478,7 +479,7 @@ type ReservedInstr struct {
 //
 func New(data ...Instr) *Code {
 
-	return &Code{data, nil}
+	return &Code{data, nil, (os.Getenv("GOXDEBUG") == "true")}
 }
 
 // CodeLine informs current file and line.
@@ -610,10 +611,10 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 	defer func() {
 		if e := recover(); e != nil {
-			verboseFlagT := (os.Getenv("GOXVERBOSE") == "true")
-
-			if verboseFlagT {
+			if p.Debug {
 				if e != ErrReturn {
+					fmt.Println("\n--- error trace ---\n")
+
 					startT := ctx.ip - 20
 					if startT < ip {
 						startT = ip
@@ -643,7 +644,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 			// fmt.Printf("Current line: %v\n", p.GetCurrentLine(ctx.ip))
 			lineT := p.GetCurrentLine(ctx.ip)
-			fmt.Printf("Current line: %v\n", lineT)
+			// fmt.Printf("Current line: %v\n", lineT)
 
 			if err, ok := e.(*Error); ok {
 				if err.Line <= 0 && lineT > 0 {
@@ -656,7 +657,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				if s, ok := e.(string); ok {
 					err = errors.New(s)
 				} else {
-					fmt.Printf("Current line: %v\n", lineT)
+					// fmt.Printf("Current line: %v\n", lineT)
 					panic(e)
 				}
 			}
@@ -671,12 +672,8 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 		}
 	}()
 
-	// verboseG := os.Getenv("TXVERBOSE")
-
-	showCodeFlagT := (os.Getenv("GOXSHOWCODE") == "true")
-
-	if showCodeFlagT {
-		fmt.Printf("%#v, %v, %v\n", p.lines, p.lines, p.GetCurrentLine(ip))
+	if p.Debug {
+		fmt.Printf("%v, %v\n", p.lines, p.GetCurrentLine(ip))
 	}
 
 	ctx.ip = ip
@@ -684,15 +681,11 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 	for ctx.ip != ipEnd {
 		instr := data[ctx.ip]
 
-		// if verboseFlagT {
-		// fmt.Printf("[%v/%v] %s %v\n", ctx.ip, p.Len(), instrName(instr), instr)
-		// }
-
 		if ctx.ip >= p.Len() {
 			break
 		}
 
-		if showCodeFlagT {
+		if p.Debug {
 			fmt.Printf("[%v/%v] %s %#v\n", ctx.ip, p.Len(), instrName(instr), instr)
 		}
 		instr.Exec(stk, ctx)
