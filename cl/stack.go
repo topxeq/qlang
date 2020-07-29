@@ -11,13 +11,13 @@ import (
 func (p *Compiler) pushInt(v int) {
 	// fmt.Printf("pushInt: %v\n", v)
 
-	p.code.Block(exec.Push(v))
+	p.Code.Block(exec.Push(v))
 }
 
 func (p *Compiler) pushFloat(v float64) {
 	// fmt.Printf("pushFloat: %v\n", v)
 
-	p.code.Block(exec.Push(v))
+	p.Code.Block(exec.Push(v))
 }
 
 func (p *Compiler) pushByte(lit string) {
@@ -30,7 +30,7 @@ func (p *Compiler) pushByte(lit string) {
 	if tail != "" || multibyte {
 		panic("invalid char: " + lit)
 	}
-	p.code.Block(exec.Push(byte(v)))
+	p.Code.Block(exec.Push(byte(v)))
 }
 
 func (p *Compiler) pushString(lit string) {
@@ -40,13 +40,13 @@ func (p *Compiler) pushString(lit string) {
 	if err != nil {
 		panic("invalid string `" + lit + "`: " + err.Error())
 	}
-	p.code.Block(exec.Push(v))
+	p.Code.Block(exec.Push(v))
 }
 
 func (p *Compiler) pushID(name string) {
 	// fmt.Printf("push id: %v\n", name)
 
-	p.code.Block(exec.Push(name))
+	p.Code.Block(exec.Push(name))
 }
 
 // -----------------------------------------------------------------------------

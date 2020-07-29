@@ -27,15 +27,15 @@ var (
 	OnPop func(v interface{})
 )
 
-type iPush struct {
-	v interface{}
+type IPush struct {
+	V interface{}
 }
 
 type iPop int
 type iPopEx int
 
-func (p *iPush) Exec(stk *Stack, ctx *Context) {
-	stk.Push(p.v)
+func (p *IPush) Exec(stk *Stack, ctx *Context) {
+	stk.Push(p.V)
 }
 
 func (p iPop) Exec(stk *Stack, ctx *Context) {
@@ -48,7 +48,7 @@ func (p iPopEx) Exec(stk *Stack, ctx *Context) {
 }
 
 func Push(v interface{}) Instr {
-	return &iPush{v}
+	return &IPush{v}
 }
 
 func PopEx() Instr {
@@ -70,7 +70,7 @@ var (
 type iClear int
 
 func (p iClear) Exec(stk *Stack, ctx *Context) {
-	stk.data = stk.data[:ctx.base]
+	stk.Data = stk.Data[:ctx.base]
 }
 
 var (

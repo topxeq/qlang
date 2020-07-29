@@ -18,7 +18,7 @@ import (
 // A Stack represents a FILO container.
 //
 type Stack struct {
-	data []interface{}
+	Data []interface{}
 }
 
 // NewStack returns a new Stack.
@@ -33,16 +33,16 @@ func NewStack() *Stack {
 //
 func (p *Stack) Push(v interface{}) {
 
-	p.data = append(p.data, v)
+	p.Data = append(p.Data, v)
 }
 
 // Top returns the last pushed value, if it exists.
 //
 func (p *Stack) Top() (v interface{}, ok bool) {
 
-	n := len(p.data)
+	n := len(p.Data)
 	if n > 0 {
-		v, ok = p.data[n-1], true
+		v, ok = p.Data[n-1], true
 	}
 	return
 }
@@ -51,10 +51,10 @@ func (p *Stack) Top() (v interface{}, ok bool) {
 //
 func (p *Stack) Pop() (v interface{}, ok bool) {
 
-	n := len(p.data)
+	n := len(p.Data)
 	if n > 0 {
-		v, ok = p.data[n-1], true
-		p.data = p.data[:n-1]
+		v, ok = p.Data[n-1], true
+		p.Data = p.Data[:n-1]
 	}
 	return
 }
@@ -82,7 +82,7 @@ func (p *Stack) PushRet(ret []reflect.Value) error {
 //
 func (p *Stack) PopArgs(arity int) (args []reflect.Value, ok bool) {
 
-	pstk := p.data
+	pstk := p.Data
 	n := len(pstk)
 	if n >= arity {
 		args, ok = make([]reflect.Value, arity), true
@@ -90,7 +90,7 @@ func (p *Stack) PopArgs(arity int) (args []reflect.Value, ok bool) {
 		for i := 0; i < arity; i++ {
 			args[i] = reflect.ValueOf(pstk[n+i])
 		}
-		p.data = pstk[:n]
+		p.Data = pstk[:n]
 	}
 	return
 }
@@ -99,7 +99,7 @@ func (p *Stack) PopArgs(arity int) (args []reflect.Value, ok bool) {
 //
 func (p *Stack) PopNArgs(arity int) []interface{} {
 
-	pstk := p.data
+	pstk := p.Data
 	n := len(pstk)
 	if n >= arity {
 		args := make([]interface{}, arity)
@@ -107,7 +107,7 @@ func (p *Stack) PopNArgs(arity int) []interface{} {
 		for i := 0; i < arity; i++ {
 			args[i] = pstk[n+i]
 		}
-		p.data = pstk[:n]
+		p.Data = pstk[:n]
 		return args
 	}
 	panic("unexpected argument count")
@@ -118,7 +118,7 @@ func (p *Stack) PopNArgs(arity int) []interface{} {
 func (p *Stack) PopFnArgs(arity int) []string {
 
 	ok := false
-	pstk := p.data
+	pstk := p.Data
 	n := len(pstk)
 	if n >= arity {
 		args := make([]string, arity)
@@ -128,7 +128,7 @@ func (p *Stack) PopFnArgs(arity int) []string {
 				panic("function argument isn't a symbol")
 			}
 		}
-		p.data = pstk[:n]
+		p.Data = pstk[:n]
 		return args
 	}
 	panic("unexpected argument count")
@@ -138,14 +138,14 @@ func (p *Stack) PopFnArgs(arity int) []string {
 //
 func (p *Stack) BaseFrame() int {
 
-	return len(p.data)
+	return len(p.Data)
 }
 
 // SetFrame sets stack to new size.
 //
 func (p *Stack) SetFrame(n int) {
 
-	p.data = p.data[:n]
+	p.Data = p.Data[:n]
 }
 
 // -----------------------------------------------------------------------------
@@ -422,47 +422,47 @@ type optimizableArityGetter interface {
 	OptimizableGetArity() int
 }
 
-type ipFileLine struct {
-	ip   int
-	line int
-	file string
+type IpFileLine struct {
+	Ip   int
+	Line int
+	File string
 }
 
-func (v ipFileLine) String() string {
-	return fmt.Sprintf("ip: %v, line: %v, file: %v", v.ip, v.line, v.file)
+func (v IpFileLine) String() string {
+	return fmt.Sprintf("ip: %v, line: %v, file: %v", v.Ip, v.Line, v.File)
 }
 
 // A Code represents generated instructions to execute.
 //
 type Code struct {
-	data  []Instr
-	lines []*ipFileLine // ip => (file,line)
+	Data  []Instr
+	Lines []*IpFileLine // ip => (file,line)
 	Debug bool
 }
 
 func (v Code) String() string {
 	var sb strings.Builder
 
-	for i, vi := range v.data {
+	for i, vi := range v.Data {
 		sb.WriteString(fmt.Sprintf("\n [%v] -> %#v; ", i, vi))
 	}
 
-	return fmt.Sprintf("data: %v\n, lines: \n%v", sb.String(), v.lines)
+	return fmt.Sprintf("data: %v\n, lines: \n%v", sb.String(), v.Lines)
 }
 
 func (p *Code) GetCurrentLine(idxA int) int {
 	rs := 0
 
-	if p.lines == nil {
+	if p.Lines == nil {
 		return rs
 	}
 
-	for _, v := range p.lines {
-		if idxA < v.ip {
-			return v.line
+	for _, v := range p.Lines {
+		if idxA < v.Ip {
+			return v.Line
 		}
 
-		rs = v.line
+		rs = v.Line
 	}
 
 	return rs
@@ -471,8 +471,8 @@ func (p *Code) GetCurrentLine(idxA int) int {
 // A ReservedInstr represents a reserved instruction to be assigned.
 //
 type ReservedInstr struct {
-	code *Code
-	idx  int
+	Code *Code
+	Idx  int
 }
 
 // New returns a new Code object.
@@ -486,19 +486,19 @@ func New(data ...Instr) *Code {
 //
 func (p *Code) CodeLine(file string, line int) {
 
-	p.lines = append(p.lines, &ipFileLine{ip: len(p.data), file: file, line: line})
+	p.Lines = append(p.Lines, &IpFileLine{Ip: len(p.Data), File: file, Line: line})
 }
 
 // Line returns file line of a instruction position.
 //
 func (p *Code) Line(ip int) (file string, line int) {
 
-	idx := sort.Search(len(p.lines), func(i int) bool {
-		return ip < p.lines[i].ip
+	idx := sort.Search(len(p.Lines), func(i int) bool {
+		return ip < p.Lines[i].Ip
 	})
-	if idx < len(p.lines) {
-		t := p.lines[idx]
-		return t.file, t.line
+	if idx < len(p.Lines) {
+		t := p.Lines[idx]
+		return t.File, t.Line
 	}
 	return "", 0
 }
@@ -507,15 +507,15 @@ func (p *Code) Line(ip int) (file string, line int) {
 //
 func (p *Code) Len() int {
 
-	return len(p.data)
+	return len(p.Data)
 }
 
 // Reserve reserves an instruction and returns it.
 //
 func (p *Code) Reserve() ReservedInstr {
 
-	idx := len(p.data)
-	p.data = append(p.data, nil)
+	idx := len(p.Data)
+	p.Data = append(p.Data, nil)
 	return ReservedInstr{p, idx}
 }
 
@@ -523,29 +523,29 @@ func (p *Code) Reserve() ReservedInstr {
 //
 func (p ReservedInstr) Set(code Instr) {
 
-	p.code.data[p.idx] = code
+	p.Code.Data[p.Idx] = code
 }
 
 // Next returns next instruction position.
 //
 func (p ReservedInstr) Next() int {
 
-	return p.idx + 1
+	return p.Idx + 1
 }
 
 // Delta returns distance from b to p.
 //
 func (p ReservedInstr) Delta(b ReservedInstr) int {
 
-	return p.idx - b.idx
+	return p.Idx - b.Idx
 }
 
 // CheckConst returns the value, if code[ip] is a const instruction.
 //
 func (p *Code) CheckConst(ip int) (v interface{}, ok bool) {
 
-	if instr, ok := p.data[ip].(*iPush); ok {
-		return instr.v, true
+	if instr, ok := p.Data[ip].(*IPush); ok {
+		return instr.V, true
 	}
 	return
 }
@@ -555,17 +555,17 @@ func appendInstrOptimized(data []Instr, instr Instr, arity int) []Instr {
 	n := len(data)
 	base := n - arity
 	for i := base; i < n; i++ {
-		if _, ok := data[i].(*iPush); !ok {
+		if _, ok := data[i].(*IPush); !ok {
 			return append(data, instr)
 		}
 	}
 	args := make([]interface{}, arity)
 	for i := base; i < n; i++ {
-		args[i-base] = data[i].(*iPush).v
+		args[i-base] = data[i].(*IPush).V
 	}
-	stk := &Stack{data: args}
+	stk := &Stack{Data: args}
 	instr.Exec(stk, nil)
-	return append(data[:base], Push(stk.data[0]))
+	return append(data[:base], Push(stk.Data[0]))
 }
 
 // Block appends some instructions to code.
@@ -575,19 +575,19 @@ func (p *Code) Block(code ...Instr) int {
 	for _, instr := range code {
 		if g, ok := instr.(optimizableArityGetter); ok {
 			arity := g.OptimizableGetArity()
-			p.data = appendInstrOptimized(p.data, instr, arity)
+			p.Data = appendInstrOptimized(p.Data, instr, arity)
 		} else {
-			p.data = append(p.data, instr)
+			p.Data = append(p.Data, instr)
 		}
 	}
-	return len(p.data)
+	return len(p.Data)
 }
 
 // ToVar converts the last instruction from ref to var.
 //
 func (p *Code) ToVar() {
 
-	data := p.data
+	data := p.Data
 	idx := len(data) - 1
 
 	// fmt.Printf("ToVar: %#v, %#v, %#v\n", idx, data[idx], data)
@@ -621,7 +621,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 					}
 
 					for i := startT; i <= ctx.ip; i++ {
-						instr := p.data[i]
+						instr := p.Data[i]
 
 						fmt.Printf("[%v, line: %v] %s %v \n", i, p.GetCurrentLine(i), instrName(instr), instr)
 					}
@@ -673,11 +673,11 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 	}()
 
 	if p.Debug {
-		fmt.Printf("%v, %v\n", p.lines, p.GetCurrentLine(ip))
+		fmt.Printf("%v, %v\n", p.Lines, p.GetCurrentLine(ip))
 	}
 
 	ctx.ip = ip
-	data := p.data
+	data := p.Data
 	for ctx.ip != ipEnd {
 		instr := data[ctx.ip]
 
@@ -699,14 +699,14 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 func (p *Code) Dump(ranges ...int) {
 
 	start := 0
-	end := len(p.data)
+	end := len(p.Data)
 	if len(ranges) > 0 {
 		start = ranges[0]
 		if len(ranges) > 1 {
 			end = ranges[1]
 		}
 	}
-	for i, instr := range p.data[start:end] {
+	for i, instr := range p.Data[start:end] {
 		fmt.Printf("==> %04d: %s %v\n", i+start, instrName(instr), instr)
 	}
 }

@@ -15,8 +15,8 @@ func (p tchan) OptimizableGetArity() int {
 
 func (p tchan) Exec(stk *Stack, ctx *Context) {
 
-	n := len(stk.data) - 1
-	stk.data[n] = qlang.ChanOf(stk.data[n])
+	n := len(stk.Data) - 1
+	stk.Data[n] = qlang.ChanOf(stk.Data[n])
 }
 
 // Chan is an instruction that returns chan T.
@@ -34,8 +34,8 @@ func (p slice) OptimizableGetArity() int {
 
 func (p slice) Exec(stk *Stack, ctx *Context) {
 
-	n := len(stk.data) - 1
-	stk.data[n] = qlang.Slice(stk.data[n])
+	n := len(stk.Data) - 1
+	stk.Data[n] = qlang.Slice(stk.Data[n])
 }
 
 // Slice is an instruction that returns []T.
@@ -52,19 +52,19 @@ var nilVarSlice = make([]interface{}, 0)
 func (p sliceFrom) Exec(stk *Stack, ctx *Context) {
 
 	if p == 0 {
-		stk.data = append(stk.data, nilVarSlice)
+		stk.Data = append(stk.Data, nilVarSlice)
 		return
 	}
-	n := len(stk.data) - int(p)
-	stk.data[n] = qlang.SliceFrom(stk.data[n:]...)
-	stk.data = stk.data[:n+1]
+	n := len(stk.Data) - int(p)
+	stk.Data[n] = qlang.SliceFrom(stk.Data[n:]...)
+	stk.Data = stk.Data[:n+1]
 }
 
 func (p sliceFromTy) Exec(stk *Stack, ctx *Context) {
 
-	n := len(stk.data) - int(p)
-	stk.data[n] = qlang.SliceFromTy(stk.data[n:]...)
-	stk.data = stk.data[:n+1]
+	n := len(stk.Data) - int(p)
+	stk.Data[n] = qlang.SliceFromTy(stk.Data[n:]...)
+	stk.Data = stk.Data[:n+1]
 }
 
 // SliceFrom is an instruction that creates slice in [a1, a2, ...] form.
@@ -88,9 +88,9 @@ type iStructInit int
 
 func (p iStructInit) Exec(stk *Stack, ctx *Context) {
 
-	n := len(stk.data) - int(p)
-	stk.data[n] = qlang.StructInit(stk.data[n:]...)
-	stk.data = stk.data[:n+1]
+	n := len(stk.Data) - int(p)
+	stk.Data[n] = qlang.StructInit(stk.Data[n:]...)
+	stk.Data = stk.Data[:n+1]
 }
 
 // StructInit returns a StructInit instruction that means `&StructType{name1: expr1, name2: expr2, ...}`.
@@ -106,9 +106,9 @@ type iMapInit int
 
 func (p iMapInit) Exec(stk *Stack, ctx *Context) {
 
-	n := len(stk.data) - int(p)
-	stk.data[n] = qlang.MapInit(stk.data[n:]...)
-	stk.data = stk.data[:n+1]
+	n := len(stk.Data) - int(p)
+	stk.Data[n] = qlang.MapInit(stk.Data[n:]...)
+	stk.Data = stk.Data[:n+1]
 }
 
 // MapInit returns a MapInit instruction that means `map[key]elem{key1: expr1, key2: expr2, ...}`.
@@ -128,9 +128,9 @@ func (p tmap) OptimizableGetArity() int {
 
 func (p tmap) Exec(stk *Stack, ctx *Context) {
 
-	n := len(stk.data) - 1
-	stk.data[n-1] = qlang.Map(stk.data[n-1], stk.data[n])
-	stk.data = stk.data[:n]
+	n := len(stk.Data) - 1
+	stk.Data[n-1] = qlang.Map(stk.Data[n-1], stk.Data[n])
+	stk.Data = stk.Data[:n]
 }
 
 // Map is an instruction that returns `map[key]elem`.

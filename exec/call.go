@@ -28,16 +28,16 @@ var (
 // -----------------------------------------------------------------------------
 // Call
 
-type iCall struct {
-	vfn   reflect.Value
-	n     int // 期望的参数个数
-	arity int // 实际传入的参数个数
+type ICall struct {
+	Vfn   reflect.Value
+	N     int // 期望的参数个数
+	Arity int // 实际传入的参数个数
 }
 
-func (p *iCall) Exec(stk *Stack, ctx *Context) {
+func (p *ICall) Exec(stk *Stack, ctx *Context) {
 
-	tfn := p.vfn.Type()
-	n, arity := p.n, p.arity
+	tfn := p.Vfn.Type()
+	n, arity := p.N, p.Arity
 
 	var ok bool
 	var in []reflect.Value
@@ -56,7 +56,7 @@ func (p *iCall) Exec(stk *Stack, ctx *Context) {
 			validateType(&in[i], tfn.In(i), nil)
 		}
 	}
-	out := p.vfn.Call(in)
+	out := p.Vfn.Call(in)
 	err := stk.PushRet(out)
 	if err != nil {
 		panic(err)
@@ -191,7 +191,7 @@ func Call(fn interface{}, varity ...int) Instr {
 		panic(fmt.Errorf("invalid argument count: require %d, but we got %d", n, arity))
 	}
 
-	return &iCall{reflect.ValueOf(fn), n, arity}
+	return &ICall{reflect.ValueOf(fn), n, arity}
 }
 
 // -----------------------------------------------------------------------------

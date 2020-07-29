@@ -9,67 +9,67 @@ import (
 
 func (p *Compiler) inc() {
 
-	p.code.Block(exec.IncEx)
+	p.Code.Block(exec.IncEx)
 }
 
 func (p *Compiler) dec() {
 
-	p.code.Block(exec.DecEx)
+	p.Code.Block(exec.DecEx)
 }
 
 func (p *Compiler) addAssign() {
 
-	p.code.Block(exec.AddAssignEx)
+	p.Code.Block(exec.AddAssignEx)
 }
 
 func (p *Compiler) subAssign() {
 
-	p.code.Block(exec.SubAssignEx)
+	p.Code.Block(exec.SubAssignEx)
 }
 
 func (p *Compiler) mulAssign() {
 
-	p.code.Block(exec.MulAssignEx)
+	p.Code.Block(exec.MulAssignEx)
 }
 
 func (p *Compiler) quoAssign() {
 
-	p.code.Block(exec.QuoAssignEx)
+	p.Code.Block(exec.QuoAssignEx)
 }
 
 func (p *Compiler) modAssign() {
 
-	p.code.Block(exec.ModAssignEx)
+	p.Code.Block(exec.ModAssignEx)
 }
 
 func (p *Compiler) xorAssign() {
 
-	p.code.Block(exec.XorAssignEx)
+	p.Code.Block(exec.XorAssignEx)
 }
 
 func (p *Compiler) bitandAssign() {
 
-	p.code.Block(exec.BitAndAssignEx)
+	p.Code.Block(exec.BitAndAssignEx)
 }
 
 func (p *Compiler) bitorAssign() {
 
-	p.code.Block(exec.BitOrAssignEx)
+	p.Code.Block(exec.BitOrAssignEx)
 }
 
 func (p *Compiler) andnotAssign() {
 
-	p.code.Block(exec.AndNotAssignEx)
+	p.Code.Block(exec.AndNotAssignEx)
 }
 
 func (p *Compiler) lshrAssign() {
 
-	p.code.Block(exec.LshrAssignEx)
+	p.Code.Block(exec.LshrAssignEx)
 }
 
 func (p *Compiler) rshrAssign() {
 
-	p.code.Block(exec.RshrAssignEx)
+	p.Code.Block(exec.RshrAssignEx)
 }
 
 func (p *Compiler) multiAssign() {
@@ -77,20 +77,20 @@ func (p *Compiler) multiAssign() {
 	nval := p.popArity()
 	arity := p.popArity() + 1
 	if nval == 1 {
-		p.code.Block(exec.MultiAssignFromSliceEx(arity))
+		p.Code.Block(exec.MultiAssignFromSliceEx(arity))
 	} else if arity != nval {
 		panic("argument count of multi assignment doesn't match")
 	} else {
-		p.code.Block(exec.MultiAssignEx(arity))
+		p.Code.Block(exec.MultiAssignEx(arity))
 	}
 }
 
 func (p *Compiler) assign() {
 
-	p.code.Block(exec.AssignEx)
+	p.Code.Block(exec.AssignEx)
 }
 
-func (p *funcCtx) requireSymbol(name string) (id int, fnew bool) {
+func (p *FuncCtx) requireSymbol(name string) (id int, fnew bool) {
 	id, ok := p.getSymbol(name)
 	if ok {
 		return
@@ -101,15 +101,15 @@ func (p *funcCtx) requireSymbol(name string) (id int, fnew bool) {
 func (p *Compiler) ref(name string) {
 
 	if val, ok := p.gvars[name]; ok {
-		p.code.Block(exec.Push(val))
+		p.Code.Block(exec.Push(val))
 		return
 	}
 
-	fnctx := p.fnctx
+	fnctx := p.Fnctx
 	id, ok := fnctx.getSymbol(name)
 	if !ok {
 		if val, ok := qlang.Fntable[name]; ok {
-			p.code.Block(exec.GfnRef(val, func() exec.Instr {
+			p.Code.Block(exec.GfnRef(val, func() exec.Instr {
 				id := fnctx.newSymbol(name)
 				return exec.Var(id)
 			}))
@@ -117,7 +117,7 @@ func (p *Compiler) ref(name string) {
 		}
 		id = fnctx.newSymbol(name)
 	}
-	p.code.Block(exec.Ref(id))
+	p.Code.Block(exec.Ref(id))
 }
 
 func (p *Compiler) index() {
@@ -130,15 +130,15 @@ func (p *Compiler) index() {
 		if arity1 == 0 {
 			panic("call operator[] without index")
 		}
-		p.code.Block(exec.Get)
+		p.Code.Block(exec.Get)
 	} else {
-		p.code.Block(exec.Op3(qlang.SubSlice, arity1 != 0, arity2 != 0))
+		p.Code.Block(exec.Op3(qlang.SubSlice, arity1 != 0, arity2 != 0))
 	}
 }
 
 func (p *Compiler) toVar() {
 
-	p.code.ToVar()
+	p.Code.ToVar()
 }
 
 func (p *Compiler) addrof(name string) {
@@ -147,12 +147,12 @@ func (p *Compiler) addrof(name string) {
 		panic("only C variable could be addressable")
 		return
 	}
-	fnctx := p.fnctx
+	fnctx := p.Fnctx
 	id, ok := fnctx.getSymbol(name)
 	if !ok {
 		panic("variable %s not defined yet")
 	}
-	p.code.Block(exec.AddrOf(id))
+	p.Code.Block(exec.AddrOf(id))
 }
 
 // -----------------------------------------------------------------------------

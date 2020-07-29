@@ -20,19 +20,19 @@ var (
 
 // -----------------------------------------------------------------------------
 
-type iRef struct {
-	name int
+type IRef struct {
+	Name int
 }
 
-func (p *iRef) Exec(stk *Stack, ctx *Context) {
+func (p *IRef) Exec(stk *Stack, ctx *Context) {
 
-	stk.Push(ctx.getRef(p.name))
+	stk.Push(ctx.getRef(p.Name))
 }
 
-func (p *iRef) ToVar() Instr {
+func (p *IRef) ToVar() Instr {
 	// fmt.Printf("iRef ToVar: %v\n", p.name)
 
-	return &iVar{p.name}
+	return &IVar{p.Name}
 }
 
 func (p *Context) getRef(name int) interface{} {
@@ -72,26 +72,26 @@ func SymbolIndex(id, scope int) int {
 //
 func Ref(name int) Instr {
 	// fmt.Printf("Ref: %v\n", name)
-	return &iRef{name}
+	return &IRef{name}
 }
 
 // -----------------------------------------------------------------------------
 // Var
 
-type iVar struct {
-	name int
+type IVar struct {
+	Name int
 }
 
-func (p *iVar) Exec(stk *Stack, ctx *Context) {
+func (p *IVar) Exec(stk *Stack, ctx *Context) {
 
-	stk.Push(&variable{Name: p.name})
+	stk.Push(&variable{Name: p.Name})
 }
 
 // Var returns a Var instruction.
 //
 func Var(name int) Instr {
 	// fmt.Printf("Var: %v\n", name)
-	return &iVar{name}
+	return &IVar{name}
 }
 
 // -----------------------------------------------------------------------------

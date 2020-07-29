@@ -10,9 +10,9 @@ import (
 // -----------------------------------------------------------------------------
 // AssignEx
 
-type iAssignEx int
+type IAssignEx int
 
-func (p iAssignEx) Exec(stk *Stack, ctx *Context) {
+func (p IAssignEx) Exec(stk *Stack, ctx *Context) {
 
 	v, ok1 := stk.Pop()
 	k, ok2 := stk.Pop()
@@ -56,7 +56,7 @@ func (p *Context) getVarRef(name int) (varRef *interface{}) {
 
 // AssignEx is qlang AssignEx instruction.
 //
-var AssignEx Instr = iAssignEx(0)
+var AssignEx Instr = IAssignEx(0)
 
 // -----------------------------------------------------------------------------
 

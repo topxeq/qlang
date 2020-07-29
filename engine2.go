@@ -75,12 +75,50 @@ func Debug(fn func()) {
 //
 type Qlang struct {
 	*exec.Context
-	cl *qcl.Compiler
+	Cpl *qcl.Compiler
 }
 
 // func (p Qlang) String() string {
-// 	return fmt.Sprintf("Ctx: %v\ncl: %v", "", p.cl)
+// 	return fmt.Sprintf("Ctx: %v\ncl: %v", "", p.Cpl)
 // }
+
+func (p *Qlang) DumpEngine() error {
+	// gob.Register(Qlang{})
+	// gob.Register(exec.IVar{})
+	// gob.Register(exec.IPush{})
+	// // var tmpv exec.IAssignEx = 0
+	// gob.Register(exec.IAssignEx(0))
+	// gob.Register(exec.IRef{})
+	// gob.Register(exec.ICall{})
+
+	// var bufT bytes.Buffer
+	// enc := gob.NewEncoder(&bufT)
+
+	// err := enc.Encode(p)
+	// if err != nil {
+	// 	return err
+	// }
+
+	// file, err := os.Create("code.dump")
+	// if err != nil {
+	// 	return err
+	// }
+
+	// defer file.Close()
+
+	// wFile := bufio.NewWriter(file)
+	// _, err = wFile.Write(bufT.Bytes())
+
+	// if err != nil {
+	// 	return err
+	// }
+
+	// wFile.Flush()
+
+	tk.SaveJSONIndentToFile(p, "codeDump.json")
+
+	return nil
+}
 
 // New returns a new qlang instance.
 //
@@ -90,7 +128,7 @@ func New() *Qlang {
 	stk := exec.NewStack()
 	ctx := exec.NewContextEx(cl.GlobalSymbols())
 	ctx.Stack = stk
-	ctx.Code = cl.Code()
+	ctx.Code = cl.GetCode()
 	return &Qlang{ctx, cl}
 }
 
@@ -98,15 +136,15 @@ func New() *Qlang {
 //
 func (p *Qlang) SetLibs(libs string) {
 
-	p.cl.SetLibs(libs)
+	p.Cpl.SetLibs(libs)
 }
 
 // Cl compiles a source code.
 //
 func (p *Qlang) Cl(codeText []byte, fname string) (end int, err error) {
 
-	end = p.cl.Cl(codeText, fname)
-	p.cl.Done()
+	end = p.Cpl.Cl(codeText, fname)
+	p.Cpl.Done()
 	p.ResizeVars()
 	return
 }
@@ -131,11 +169,16 @@ func (p *Qlang) SafeCl(codeText []byte, fname string) (end int, err error) {
 	return p.Cl(codeText, fname)
 }
 
+func (p *Qlang) Run() (err error) {
+	p.ExecBlock(0, p.Cpl.GetCode().Len(), p.Cpl.GlobalSymbols())
+	return
+}
+
 // Exec compiles and executes a source code.
 //
 func (p *Qlang) Exec(codeText []byte, fname string) (err error) {
 
-	code := p.cl.Code()
+	code := p.Cpl.GetCode()
 	start := code.Len()
 	end, err := p.Cl(codeText, fname)
 	if err != nil {
@@ -146,7 +189,7 @@ func (p *Qlang) Exec(codeText []byte, fname string) (err error) {
 		code.Dump(start)
 	}
 
-	p.ExecBlock(start, end, p.cl.GlobalSymbols())
+	p.ExecBlock(start, end, p.Cpl.GlobalSymbols())
 	return
 }
 
@@ -187,7 +230,7 @@ func (p *Qlang) SafeEval(expr string) (err error) {
 
 func (p *Qlang) TXCompile(srcA string) (err error) {
 
-	code := p.cl.Code()
+	code := p.Cpl.GetCode()
 	start := code.Len()
 	end, err := p.Cl([]byte(srcA), "")
 	if err != nil {
@@ -198,7 +241,7 @@ func (p *Qlang) TXCompile(srcA string) (err error) {
 
 	return nil
 
-	//	p.ExecBlock(start, end, p.cl.GlobalSymbols())
+	//	p.ExecBlock(start, end, p.Cpl.GlobalSymbols())
 
 	// return p.SafeExec([]byte(expr), "")
 }
@@ -223,7 +266,7 @@ func (p *Qlang) InjectMethods(pcls interface{}, code []byte) (err error) {
 	default:
 		return fmt.Errorf("invalid cls argument type: %v", reflect.TypeOf(pcls))
 	}
-	err = p.cl.InjectMethods(cls, code)
+	err = p.Cpl.InjectMethods(cls, code)
 	p.ResizeVars()
 	return
 }

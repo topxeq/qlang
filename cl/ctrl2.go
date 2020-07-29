@@ -9,22 +9,22 @@ import (
 
 func (p *Compiler) or(e interpreter.Engine) {
 
-	reserved := p.code.Reserve()
+	reserved := p.Code.Reserve()
 	expr, _ := p.gstk.Pop()
 	if err := e.EvalCode(p, "term4", expr); err != nil {
 		panic(err)
 	}
-	reserved.Set(exec.Or(p.code.Len() - reserved.Next()))
+	reserved.Set(exec.Or(p.Code.Len() - reserved.Next()))
 }
 
 func (p *Compiler) and(e interpreter.Engine) {
 
-	reserved := p.code.Reserve()
+	reserved := p.Code.Reserve()
 	expr, _ := p.gstk.Pop()
 	if err := e.EvalCode(p, "term3", expr); err != nil {
 		panic(err)
 	}
-	reserved.Set(exec.And(p.code.Len() - reserved.Next()))
+	reserved.Set(exec.And(p.Code.Len() - reserved.Next()))
 }
 
 func (p *Compiler) fnIf(e interpreter.Engine) {
@@ -57,20 +57,20 @@ func (p *Compiler) doIf(e interpreter.Engine, ifbr []interface{}, elseCode inter
 			panic(err)
 		}
 		p.codeLine(condCode)
-		reserved1 := p.code.Reserve()
+		reserved1 := p.Code.Reserve()
 		bodyCode := ifbr[(i<<1)+1]
 		bctx := evalDocCode(e, p, bodyCode)
 		bctx.MergeTo(&p.bctx)
 		if i < reservedCnt {
-			reserved2[i] = p.code.Reserve()
+			reserved2[i] = p.Code.Reserve()
 		}
-		reserved1.Set(exec.JmpIfFalse(p.code.Len() - reserved1.Next()))
+		reserved1.Set(exec.JmpIfFalse(p.Code.Len() - reserved1.Next()))
 	}
 
 	bctx := evalDocCode(e, p, elseCode)
 	bctx.MergeTo(&p.bctx)
 
-	end := p.code.Len()
+	end := p.Code.Len()
 	for i := 0; i < reservedCnt; i++ {
 		reserved2[i].Set(exec.Jmp(end - reserved2[i].Next()))
 	}
@@ -93,7 +93,7 @@ func (p *Compiler) fnSwitch(e interpreter.Engine) {
 	p.bctx = blockCtx{}
 	if switchCode == nil {
 		p.doIf(e, casebr, defaultCode, caseArity)
-		p.bctx.MergeSw(&old, p.code.Len())
+		p.bctx.MergeSw(&old, p.Code.Len())
 		return
 	}
 
@@ -108,19 +108,19 @@ func (p *Compiler) fnSwitch(e interpreter.Engine) {
 			panic(err)
 		}
 		p.codeLine(caseCode)
-		reserved1 := p.code.Reserve()
+		reserved1 := p.Code.Reserve()
 		bodyCode := casebr[(i<<1)+1]
 		bctx := evalDocCode(e, p, bodyCode)
 		bctx.MergeTo(&p.bctx)
-		reserved2[i] = p.code.Reserve()
+		reserved2[i] = p.Code.Reserve()
 		reserved1.Set(exec.Case(reserved2[i].Delta(reserved1)))
 	}
 
-	p.code.Block(exec.Default)
+	p.Code.Block(exec.Default)
 	bctx := evalDocCode(e, p, defaultCode)
 	bctx.MergeTo(&p.bctx)
 
-	end := p.code.Len()
+	end := p.Code.Len()
 	for i := 0; i < caseArity; i++ {
 		reserved2[i].Set(exec.Jmp(end - reserved2[i].Next()))
 	}
@@ -143,7 +143,7 @@ func (p *Compiler) setRange() {
 	p.inFor = false
 }
 
-func requireSym(fnctx *funcCtx, name string) int {
+func requireSym(fnctx *FuncCtx, name string) int {
 
 	id, ok := fnctx.getSymbol(name)
 	if !ok {
@@ -176,12 +176,12 @@ func (p *Compiler) forRange(e interpreter.Engine) {
 		args := p.gstk.PopFnArgs(arity)
 		iargs = make([]int, arity)
 		for i, arg := range args {
-			iargs[i] = requireSym(p.fnctx, arg)
+			iargs[i] = requireSym(p.Fnctx, arg)
 		}
 	}
 
-	instr := p.code.Reserve()
-	fnctx := p.fnctx
+	instr := p.Code.Reserve()
+	fnctx := p.Fnctx
 	p.exits = append(p.exits, func() {
 		old := p.bctx
 		p.bctx = blockCtx{}
@@ -225,22 +225,22 @@ func (p *Compiler) fnFor(e interpreter.Engine) {
 		panic("illegal `for` statement")
 	}
 
-	loop := p.code.Len()
+	loop := p.Code.Len()
 
 	if condCode != nil {
 		if err := e.EvalCode(p, "expr", condCode); err != nil {
 			panic(err)
 		}
 		p.codeLine(condCode)
-		reserved := p.code.Reserve()
+		reserved := p.Code.Reserve()
 		defer func() {
-			reserved.Set(exec.JmpIfFalse(p.code.Len() - reserved.Next()))
+			reserved.Set(exec.JmpIfFalse(p.Code.Len() - reserved.Next()))
 		}()
 	}
 
 	bctx := evalDocCode(e, p, bodyCode)
 	if stepCode != nil {
-		bctx.conts.JmpTo(p.code.Len())
+		bctx.conts.JmpTo(p.Code.Len())
 		if err := e.EvalCode(p, "s", stepCode); err != nil {
 			panic(err)
 		}
@@ -248,13 +248,13 @@ func (p *Compiler) fnFor(e interpreter.Engine) {
 		bctx.conts.JmpTo(loop)
 	}
 
-	p.code.Block(exec.Jmp(loop - (p.code.Len() + 1)))
-	bctx.brks.JmpTo(p.code.Len())
+	p.Code.Block(exec.Jmp(loop - (p.Code.Len() + 1)))
+	bctx.brks.JmpTo(p.Code.Len())
 }
 
 func (p *Compiler) fnBreak() {
 
-	instr := p.code.Reserve()
+	instr := p.Code.Reserve()
 	p.bctx.brks = &instrNode{
 		prev:  p.bctx.brks,
 		instr: instr,
@@ -263,7 +263,7 @@ func (p *Compiler) fnBreak() {
 
 func (p *Compiler) fnContinue() {
 
-	instr := p.code.Reserve()
+	instr := p.Code.Reserve()
 	p.bctx.conts = &instrNode{
 		prev:  p.bctx.conts,
 		instr: instr,

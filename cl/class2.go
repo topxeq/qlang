@@ -32,7 +32,7 @@ func (p *Compiler) memberFuncDecl() {
 	p.gstk.Push(fn)
 }
 
-func (p *Compiler) addMethods(cls *exec.Class, e interpreter.Engine, parent *funcCtx, members []interface{}) {
+func (p *Compiler) addMethods(cls *exec.Class, e interpreter.Engine, parent *FuncCtx, members []interface{}) {
 
 	for _, val := range members {
 		v := val.(*functionInfo)
@@ -49,8 +49,8 @@ func (p *Compiler) fnClass(e interpreter.Engine) {
 
 	arity := p.popArity()
 	members := p.gstk.PopNArgs(arity)
-	instr := p.code.Reserve()
-	fnctx := p.fnctx
+	instr := p.Code.Reserve()
+	fnctx := p.Fnctx
 	p.exits = append(p.exits, func() {
 		cls := exec.IClass()
 		p.addMethods(cls, e, fnctx, members)
@@ -89,7 +89,7 @@ func (p *Compiler) InjectMethods(cls *exec.Class, code []byte) (err error) {
 	p.cl(engine, "methods", src)
 	arity := p.popArity()
 	members := p.gstk.PopNArgs(arity)
-	p.addMethods(cls, engine, p.fnctx, members)
+	p.addMethods(cls, engine, p.Fnctx, members)
 	p.Done()
 	return
 }
@@ -100,17 +100,17 @@ func (p *Compiler) fnNew() {
 	if nArgs != 0 {
 		nArgs = p.popArity()
 	}
-	p.code.Block(exec.INew(nArgs))
+	p.Code.Block(exec.INew(nArgs))
 }
 
 func (p *Compiler) memberRef(name string) {
 
-	p.code.Block(exec.MemberRef(name))
+	p.Code.Block(exec.MemberRef(name))
 }
 
 func (p *Compiler) memberRefV(name string) {
 
-	p.code.Block(exec.MemberRefV(name))
+	p.Code.Block(exec.MemberRefV(name))
 }
 
 // -----------------------------------------------------------------------------

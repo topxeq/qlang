@@ -167,35 +167,35 @@ func (p *blockCtx) MergeSw(old *blockCtx, done int) {
 	*p = *old
 }
 
-type funcCtx struct {
-	symtbl map[string]int
-	parent *funcCtx
+type FuncCtx struct {
+	Symtbl map[string]int
+	Parent *FuncCtx
 }
 
-func newFuncCtx(parent *funcCtx, args []string) *funcCtx {
+func newFuncCtx(parent *FuncCtx, args []string) *FuncCtx {
 	symtbl := make(map[string]int)
 	for i, arg := range args {
 		symtbl[arg] = i
 	}
-	return &funcCtx{symtbl: symtbl, parent: parent}
+	return &FuncCtx{Symtbl: symtbl, Parent: parent}
 }
 
-func (p *funcCtx) getSymbol(name string) (id int, ok bool) {
+func (p *FuncCtx) getSymbol(name string) (id int, ok bool) {
 	scope := 0
 	for p != nil {
-		if id, ok = p.symtbl[name]; ok {
+		if id, ok = p.Symtbl[name]; ok {
 			id = exec.SymbolIndex(id, scope)
 			return
 		}
-		p = p.parent
+		p = p.Parent
 		scope++
 	}
 	return
 }
 
-func (p *funcCtx) newSymbol(name string) int {
-	id := len(p.symtbl)
-	p.symtbl[name] = id
+func (p *FuncCtx) newSymbol(name string) int {
+	id := len(p.Symtbl)
+	p.Symtbl[name] = id
 	return id
 }
 
@@ -203,7 +203,7 @@ func (p *funcCtx) newSymbol(name string) int {
 //
 type Compiler struct {
 	Opts  *ipt.Options
-	code  *exec.Code
+	Code  *exec.Code
 	ipt   interpreter.Engine
 	libs  []string
 	exits []func()
@@ -211,14 +211,14 @@ type Compiler struct {
 	gvars map[string]interface{}
 	gstk  exec.Stack
 	bctx  blockCtx
-	fnctx *funcCtx
+	Fnctx *FuncCtx
 	forRg bool
 	inFor bool
 	Debug bool
 }
 
 func (p Compiler) String() string {
-	return fmt.Sprintf("code: %v\nipt: %v\nlibs: %v\nexits: %v\nmods: %v\ngvars: %v\nforRg: %v\ninFor: %v", p.code, p.ipt, p.libs, p.exits, p.mods, p.gvars, p.forRg, p.inFor)
+	return fmt.Sprintf("code: %v\nipt: %v\nlibs: %v\nexits: %v\nmods: %v\ngvars: %v\nforRg: %v\ninFor: %v", p.Code, p.ipt, p.libs, p.exits, p.mods, p.gvars, p.forRg, p.inFor)
 }
 
 // New returns a qlang compiler instance.
@@ -229,12 +229,12 @@ func New() *Compiler {
 	gvars := make(map[string]interface{})
 	mods := make(map[string]module)
 	symtbl := make(map[string]int)
-	fnctx := &funcCtx{symtbl: symtbl}
+	fnctx := &FuncCtx{Symtbl: symtbl}
 	return &Compiler{
-		code:  exec.New(),
+		Code:  exec.New(),
 		mods:  mods,
 		gvars: gvars,
-		fnctx: fnctx,
+		Fnctx: fnctx,
 		Opts:  ipt.InsertSemis,
 		Debug: debugT,
 	}
@@ -244,7 +244,7 @@ func New() *Compiler {
 //
 func (p *Compiler) GlobalSymbols() map[string]int {
 
-	return p.fnctx.symtbl
+	return p.Fnctx.Symtbl
 }
 
 // SetLibs sets searching paths when qlang searchs a library (ie. import a module).
@@ -263,9 +263,9 @@ func (p *Compiler) Vars() map[string]interface{} {
 
 // Code returns the generated code.
 //
-func (p *Compiler) Code() *exec.Code {
+func (p *Compiler) GetCode() *exec.Code {
 
-	return p.code
+	return p.Code
 }
 
 // Grammar returns the qlang compiler's grammar. It is required by tpl.Interpreter engine.
@@ -312,22 +312,22 @@ func (p *Compiler) vCall() {
 		if arity == 0 {
 			panic("what do you mean of `...`?")
 		}
-		p.code.Block(exec.CallFnv(arity))
+		p.Code.Block(exec.CallFnv(arity))
 	} else {
-		p.code.Block(exec.CallFn(arity))
+		p.Code.Block(exec.CallFn(arity))
 	}
 }
 
 func (p *Compiler) pop() {
 
-	p.code.Block(exec.PopEx())
+	p.Code.Block(exec.PopEx())
 }
 
 // CallFn generates a function call instruction. It is required by tpl.Interpreter engine.
 //
 func (p *Compiler) CallFn(fn interface{}) {
 
-	p.code.Block(exec.Call(fn))
+	p.Code.Block(exec.Call(fn))
 }
 
 // -----------------------------------------------------------------------------
@@ -345,10 +345,10 @@ func (p *Compiler) codeLine(src interface{}) {
 	}
 
 	f := ipt.FileLine(src)
-	p.code.CodeLine(f.File, f.Line)
+	p.Code.CodeLine(f.File, f.Line)
 	if DumpCode == 1 || p.Debug {
 		text := string(ipt.Source(src))
-		p.code.Block(exec.Rem(f.File, f.Line, text))
+		p.Code.Block(exec.Rem(f.File, f.Line, text))
 	}
 }
 

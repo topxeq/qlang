@@ -10,8 +10,8 @@ import (
 func (p *Compiler) fnGo(e interpreter.Engine) {
 
 	src, _ := p.gstk.Pop()
-	instr := p.code.Reserve()
-	fnctx := p.fnctx
+	instr := p.Code.Reserve()
+	fnctx := p.Fnctx
 	p.exits = append(p.exits, func() {
 		start, end := p.clBlock(e, "expr", src, fnctx)
 		instr.Set(exec.Go(start, end))
@@ -22,17 +22,17 @@ func (p *Compiler) fnGo(e interpreter.Engine) {
 
 func (p *Compiler) chanIn() {
 
-	p.code.Block(exec.ChanIn)
+	p.Code.Block(exec.ChanIn)
 }
 
 func (p *Compiler) chanOut() {
 
-	p.code.Block(exec.ChanOut)
+	p.Code.Block(exec.ChanOut)
 }
 
 func (p *Compiler) tChan() {
 
-	p.code.Block(exec.Chan)
+	p.Code.Block(exec.Chan)
 }
 
 // -----------------------------------------------------------------------------

@@ -86,14 +86,14 @@ func (p *Compiler) dir() string {
 	panic("ident `__dir__` not found")
 }
 
-func (p *Compiler) compileModule(fname string, parent *funcCtx) (end int, symtbl map[string]int) {
+func (p *Compiler) compileModule(fname string, parent *FuncCtx) (end int, symtbl map[string]int) {
 
 	ctx := newFuncCtx(parent, nil)
-	old := p.fnctx
-	p.fnctx = ctx
+	old := p.Fnctx
+	p.Fnctx = ctx
 	end = p.Compile(fname)
-	symtbl = ctx.symtbl
-	p.fnctx = old
+	symtbl = ctx.Symtbl
+	p.Fnctx = old
 	return
 }
 
@@ -128,7 +128,7 @@ func (p *Compiler) Cl(codeText []byte, fname string) int {
 	if err != nil {
 		panic(err)
 	}
-	return p.code.Len()
+	return p.Code.Len()
 }
 
 // -----------------------------------------------------------------------------
@@ -144,7 +144,7 @@ func (p *Compiler) include(lit string) {
 	p.Compile(fname)
 }
 
-func requireModuleSym(fnctx *funcCtx, name string) int {
+func requireModuleSym(fnctx *FuncCtx, name string) int {
 
 	if _, ok := fnctx.getSymbol(name); ok {
 		panic("import `" + name + "` error: ident exists")
@@ -175,9 +175,9 @@ func (p *Compiler) fnImport(lit string) {
 		}
 	}
 
-	code := p.code
+	code := p.Code
 	instr := code.Reserve()
-	id := requireModuleSym(p.fnctx, name)
+	id := requireModuleSym(p.Fnctx, name)
 	code.Block(exec.As(id))
 	p.exits = append(p.exits, func() {
 		file = path.Clean(file)
@@ -196,7 +196,7 @@ func (p *Compiler) export() {
 
 	arity := p.popArity()
 	names := p.gstk.PopFnArgs(arity)
-	p.code.Block(exec.Export(names...))
+	p.Code.Block(exec.Export(names...))
 }
 
 // -----------------------------------------------------------------------------

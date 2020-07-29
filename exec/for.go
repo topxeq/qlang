@@ -23,7 +23,7 @@ const (
 
 func (p *iForRange) execBody(stk *Stack, ctx *Context) {
 
-	data := ctx.Code.data
+	data := ctx.Code.Data
 	ipEnd := p.end
 
 	ctx.ip = p.start
