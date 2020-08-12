@@ -316,6 +316,7 @@ var Exports = map[string]interface{}{
 	"PlvWithError":                             tk.PlvWithError,
 	"Plvs":                                     tk.Plvs,
 	"Plvsr":                                    tk.Plvsr,
+	"Plvx":                                     tk.Plvx,
 	"PostRequest":                              tk.PostRequest,
 	"PostRequestBytesWithCookieX":              tk.PostRequestBytesWithCookieX,
 	"PostRequestBytesWithMSSHeaderX":           tk.PostRequestBytesWithMSSHeaderX,
