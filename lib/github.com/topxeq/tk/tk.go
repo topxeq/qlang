@@ -383,6 +383,8 @@ var Exports = map[string]interface{}{
 	"SplitLinesRemoveEmpty":                    tk.SplitLinesRemoveEmpty,
 	"SplitN":                                   tk.SplitN,
 	"Spr":                                      tk.Spr,
+	"StartSocksClient":                         tk.StartSocksClient,
+	"StartSocksServer":                         tk.StartSocksServer,
 	"StartsWith":                               tk.StartsWith,
 	"StartsWithBOM":                            tk.StartsWithBOM,
 	"StartsWithDigit":                          tk.StartsWithDigit,
