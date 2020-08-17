@@ -411,6 +411,8 @@ var Exports = map[string]interface{}{
 	"StringReplace":                            tk.StringReplace,
 	"SumBytes":                                 tk.SumBytes,
 	"SystemCmd":                                tk.SystemCmd,
+	"ToFloat":                                  tk.ToFloat,
+	"ToInt":                                    tk.ToInt,
 	"ToIntI":                                   tk.ToIntI,
 	"ToJSON":                                   tk.ToJSON,
 	"ToJSONIndent":                             tk.ToJSONIndent,
