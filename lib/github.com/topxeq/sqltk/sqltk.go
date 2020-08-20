@@ -17,17 +17,7 @@ var Exports = map[string]interface{}{
 	"QueryDBI":           sqltk.QueryDBI,
 	"QueryDBNS":          sqltk.QueryDBNS,
 	"QueryDBNSS":         sqltk.QueryDBNSS,
+	"QueryDBNSV":         sqltk.QueryDBNSV,
 	"QueryDBS":           sqltk.QueryDBS,
 	"QueryDBString":      sqltk.QueryDBString,
-
-	"connectDB":          sqltk.ConnectDB,
-	"connectDBNoPing":    sqltk.ConnectDBNoPing,
-	"execV":              sqltk.ExecV,
-	"oneLineRecordToMap": sqltk.OneLineRecordToMap,
-	"queryDBCount":       sqltk.QueryDBCount,
-	"queryDBI":           sqltk.QueryDBI,
-	"queryDBNS":          sqltk.QueryDBNS,
-	"queryDBNSS":         sqltk.QueryDBNSS,
-	"queryDBS":           sqltk.QueryDBS,
-	"queryDBString":      sqltk.QueryDBString,
 }

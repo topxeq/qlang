@@ -383,6 +383,7 @@ var Exports = map[string]interface{}{
 	"SetVar":                                   tk.SetVar,
 	"ShuffleStringArray":                       tk.ShuffleStringArray,
 	"SimpleMapToString":                        tk.SimpleMapToString,
+	"Sleep":                                    tk.Sleep,
 	"SleepMilliSeconds":                        tk.SleepMilliSeconds,
 	"SleepSeconds":                             tk.SleepSeconds,
 	"Split":                                    tk.Split,

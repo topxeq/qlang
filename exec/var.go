@@ -171,8 +171,10 @@ func (p *iAddrOf) Exec(stk *Stack, ctx *Context) {
 	val := ctx.getPointer(p.name)
 
 	// tp := reflect.ValueOf(val)
+	// typeT := reflect.TypeOf(val)
+	// fmt.Printf("tp: %#v, %#v, %#v\n", val, tp, tp.String())
 	// tty.Debugf("iAddrOf : tp [%s]\n", tp.String())
-	// fmt.Printf(": %#v, %#v, %#v\n", val, tp, tp.Elem())
+	// fmt.Printf(": %#v, %#v, %#v, %#v, %v, %#v\n", val, tp, tp.Elem(), typeT, typeT, tp.Elem().Type())
 
 	// stk.Push(uintptr(unsafe.Pointer(val.(*interface{}))))
 	stk.Push(val.(*interface{}))
