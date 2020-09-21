@@ -398,6 +398,8 @@ var Exports = map[string]interface{}{
 	"Spr":                                      tk.Spr,
 	"StartSocksClient":                         tk.StartSocksClient,
 	"StartSocksServer":                         tk.StartSocksServer,
+	"StartTransparentProxy":                    tk.StartTransparentProxy,
+	"StartTransparentProxy2":                   tk.StartTransparentProxy2,
 	"StartsWith":                               tk.StartsWith,
 	"StartsWithBOM":                            tk.StartsWithBOM,
 	"StartsWithDigit":                          tk.StartsWithDigit,
