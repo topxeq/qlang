@@ -122,6 +122,7 @@ var Exports = map[string]interface{}{
 	"FlattenXML":                          tk.FlattenXML,
 	"Float32ArrayToFloat64Array":          tk.Float32ArrayToFloat64Array,
 	"Float64ToStr":                        tk.Float64ToStr,
+	"FormToMap":                           tk.FormToMap,
 	"FormatStringSliceSlice":              tk.FormatStringSliceSlice,
 	"FormatTime":                          tk.FormatTime,
 	"Fpl":                                 tk.Fpl,
