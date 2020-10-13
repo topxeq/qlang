@@ -226,6 +226,8 @@ var Exports = map[string]interface{}{
 	"GetTimeStampNano":                         tk.GetTimeStampNano,
 	"GetTimeStringDiffMS":                      tk.GetTimeStringDiffMS,
 	"GetUUID":                                  tk.GetUUID,
+	"GetUUID1":                                 tk.GetUUID1,
+	"GetUUID4":                                 tk.GetUUID4,
 	"GetUserInput":                             tk.GetUserInput,
 	"GetValue":                                 tk.GetValue,
 	"GetValueOfMSS":                            tk.GetValueOfMSS,
