@@ -252,6 +252,7 @@ var Exports = map[string]interface{}{
 	"IsDirectory":                              tk.IsDirectory,
 	"IsEmptyTrim":                              tk.IsEmptyTrim,
 	"IsErrStr":                                 tk.IsErrStr,
+	"IsError":                                  tk.IsError,
 	"IsErrorString":                            tk.IsErrorString,
 	"IsFile":                                   tk.IsFile,
 	"IsFloat64NearlyEqual":                     tk.IsFloat64NearlyEqual,
