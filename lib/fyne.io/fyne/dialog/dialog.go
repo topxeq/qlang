@@ -10,12 +10,15 @@ var Exports = map[string]interface{}{
 	"_name": "fyne.io/fyne/dialog",
 
 	"NewFileIcon":       dialog.NewFileIcon,
+	"ShowColorPicker":   dialog.ShowColorPicker,
 	"ShowConfirm":       dialog.ShowConfirm,
 	"ShowCustom":        dialog.ShowCustom,
 	"ShowCustomConfirm": dialog.ShowCustomConfirm,
+	"ShowEntryDialog":   dialog.ShowEntryDialog,
 	"ShowError":         dialog.ShowError,
 	"ShowFileOpen":      dialog.ShowFileOpen,
 	"ShowFileSave":      dialog.ShowFileSave,
+	"ShowFolderOpen":    dialog.ShowFolderOpen,
 	"ShowInformation":   dialog.ShowInformation,
 
 	"NewCustom":        dialog.NewCustom,
@@ -23,9 +26,13 @@ var Exports = map[string]interface{}{
 	"NewError":         dialog.NewError,
 	"NewInformation":   dialog.NewInformation,
 
+	"NewColorPicker":      dialog.NewColorPicker,
 	"NewConfirm":          dialog.NewConfirm,
+	"entrydialog":         dialog.NewEntryDialog,
+	"NewEntryDialog":      dialog.NewEntryDialog,
 	"NewFileOpen":         dialog.NewFileOpen,
 	"NewFileSave":         dialog.NewFileSave,
+	"NewFolderOpen":       dialog.NewFolderOpen,
 	"NewProgress":         dialog.NewProgress,
 	"NewProgressInfinite": dialog.NewProgressInfinite,
 }

@@ -37,6 +37,7 @@ var Exports = map[string]interface{}{
 	"RadialGradient":        qlang.StructOf((*canvas.RadialGradient)(nil)),
 	"radialgradient":        canvas.NewRadialGradient,
 	"NewRadialGradient":     canvas.NewRadialGradient,
+	"Raster":                qlang.StructOf((*canvas.Raster)(nil)),
 	"NewRaster":             canvas.NewRaster,
 	"NewRasterFromImage":    canvas.NewRasterFromImage,
 	"NewRasterWithPixels":   canvas.NewRasterWithPixels,

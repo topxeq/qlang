@@ -410,8 +410,14 @@ func export(pkg string, outpath string, skipOSArch bool) error {
 				if vers, ok := checkVer(f); ok {
 					outfv(vers, name, fn)
 				} else {
-					outf("\t%q:\t%s,\n", name, fn)
-					outf("\t%q:\t%s,\n", f, fn)
+					s1 := fmt.Sprintf("\t%q:\t%s,\n", name, fn)
+					s2 := fmt.Sprintf("\t%q:\t%s,\n", f, fn)
+					if s1 == s2 {
+						outf(s1)
+					} else {
+						outf("\t%q:\t%s,\n", name, fn)
+						outf("\t%q:\t%s,\n", f, fn)
+					}
 				}
 			}
 

@@ -20,6 +20,7 @@ var Exports = map[string]interface{}{
 	"NewGridWrapLayout":        layout.NewGridWrapLayout,
 	"NewHBoxLayout":            layout.NewHBoxLayout,
 	"NewMaxLayout":             layout.NewMaxLayout,
+	"NewPaddedLayout":          layout.NewPaddedLayout,
 	"NewSpacer":                layout.NewSpacer,
 	"NewVBoxLayout":            layout.NewVBoxLayout,
 }
