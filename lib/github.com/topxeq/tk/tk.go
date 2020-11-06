@@ -237,6 +237,7 @@ var Exports = map[string]interface{}{
 	"HasGlobalEnv":                             tk.HasGlobalEnv,
 	"HexToBytes":                               tk.HexToBytes,
 	"HexToInt":                                 tk.HexToInt,
+	"HttpRequest":                              tk.HttpRequest,
 	"IfFileExists":                             tk.IfFileExists,
 	"IfSwitchExists":                           tk.IfSwitchExists,
 	"IfSwitchExistsWhole":                      tk.IfSwitchExistsWhole,
