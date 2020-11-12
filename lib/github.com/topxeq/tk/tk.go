@@ -433,6 +433,7 @@ var Exports = map[string]interface{}{
 	"ToJSONIndent":                             tk.ToJSONIndent,
 	"ToJSONIndentWithDefault":                  tk.ToJSONIndentWithDefault,
 	"ToJSONWithDefault":                        tk.ToJSONWithDefault,
+	"ToJSONX":                                  tk.ToJSONX,
 	"ToLower":                                  tk.ToLower,
 	"ToPointerFloat64Array":                    tk.ToPointerFloat64Array,
 	"ToPointerStringArray":                     tk.ToPointerStringArray,
