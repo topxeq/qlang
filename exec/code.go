@@ -211,6 +211,17 @@ func (p *variables) CopyVars() map[string]interface{} {
 	return vars
 }
 
+func (p *variables) VarsInfo() string {
+
+	var sb strings.Builder
+
+	for k, name := range p.symtbl {
+		sb.WriteString(fmt.Sprintf("%v(%v): %v, ", k, &p.vars[name], p.vars[name]))
+	}
+
+	return sb.String()
+}
+
 // ResetVars resets all variables.
 //
 func (p *variables) ResetVars(vars map[string]interface{}) {
@@ -479,7 +490,7 @@ type ReservedInstr struct {
 //
 func New(data ...Instr) *Code {
 
-	return &Code{data, nil, (os.Getenv("GOXDEBUG") == "true")}
+	return &Code{data, nil, (os.Getenv("GOXDEBUG") == "true") || (os.Getenv("GOXVERBOSE") == "true")}
 }
 
 // CodeLine informs current file and line.
@@ -689,6 +700,11 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 			fmt.Printf("[%v/%v] %s %#v\n", ctx.ip, p.Len(), instrName(instr), instr)
 		}
 		instr.Exec(stk, ctx)
+
+		if p.Debug {
+			fmt.Println("STACK:", stk)
+			fmt.Println("VARS:", ctx.VarsInfo())
+		}
 
 		ctx.ip++
 	}

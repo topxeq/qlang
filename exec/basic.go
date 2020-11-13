@@ -13,7 +13,8 @@ type iRem struct {
 	Code string
 }
 
-func (p *iRem) Exec(stk *Stack, ctx *Context) {}
+func (p *iRem) Exec(stk *Stack, ctx *Context) {
+}
 
 func Rem(file string, line int, code string) Instr {
 
