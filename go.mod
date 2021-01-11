@@ -3,6 +3,7 @@ module github.com/topxeq/qlang
 go 1.14
 
 require (
+	github.com/360EntSecGroup-Skylar/excelize v1.4.1
 	github.com/AllenDang/giu v0.0.0-20200402133405-cbb7ee9d166a
 	github.com/beevik/etree v1.1.0
 	github.com/dgraph-io/badger v1.6.1

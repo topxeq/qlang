@@ -101,7 +101,6 @@ var Exports = map[string]interface{}{
 	"ExtURISparklineGroups":                        excelize.ExtURISparklineGroups,
 	"ExtURITimelineRefs":                           excelize.ExtURITimelineRefs,
 	"ExtURIWebExtensions":                          excelize.ExtURIWebExtensions,
-	"FileNameLength":                               excelize.FileNameLength,
 	"Line":                                         excelize.Line,
 	"NameSpaceDrawingML":                           excelize.NameSpaceDrawingML,
 	"NameSpaceDrawingMLChart":                      excelize.NameSpaceDrawingMLChart,
