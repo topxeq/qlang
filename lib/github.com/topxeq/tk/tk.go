@@ -361,6 +361,7 @@ var Exports = map[string]interface{}{
 	"Randomize":                                tk.Randomize,
 	"ReadLineFromBufioReader":                  tk.ReadLineFromBufioReader,
 	"RegContains":                              tk.RegContains,
+	"RegSplit":                                 tk.RegSplit,
 	"RegContainsX":                             tk.RegContainsX,
 	"RegFindAll":                               tk.RegFindAll,
 	"RegFindAllGroups":                         tk.RegFindAllGroups,
