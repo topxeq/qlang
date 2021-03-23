@@ -454,6 +454,7 @@ var Exports = map[string]interface{}{
 	"TXResultFromString":                       tk.TXResultFromString,
 	"TXResultFromStringE":                      tk.TXResultFromStringE,
 	"TXResultFromStringSafely":                 tk.TXResultFromStringSafely,
+	"TableToMSSArray":                          tk.TableToMSSArray,
 	"TableToMSSJSON":                           tk.TableToMSSJSON,
 	"TimeFormat":                               tk.TimeFormat,
 	"TimeFormatCompact":                        tk.TimeFormatCompact,
