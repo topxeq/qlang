@@ -122,13 +122,19 @@ func (p *Qlang) DumpEngine() error {
 
 // New returns a new qlang instance.
 //
-func New() *Qlang {
-
+func New(optionsA ...string) *Qlang {
 	cl := qcl.New()
 	stk := exec.NewStack()
 	ctx := exec.NewContextEx(cl.GlobalSymbols())
 	ctx.Stack = stk
 	ctx.Code = cl.GetCode()
+
+	if tk.IfSwitchExists(optionsA, "-noexit") {
+		ctx.NoExit = true
+	} else {
+		ctx.NoExit = false
+	}
+
 	return &Qlang{ctx, cl}
 }
 

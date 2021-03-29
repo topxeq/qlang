@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/topxeq/qlang/exec"
-	"github.com/topxeq/qlang/text/tpl"
-	"github.com/topxeq/qlang/text/tpl/interpreter"
+	"github.com/topxeq/text/tpl"
+	"github.com/topxeq/text/tpl/interpreter"
 )
 
 var (

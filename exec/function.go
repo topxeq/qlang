@@ -49,10 +49,19 @@ func (arity iReturn) Exec(stk *Stack, ctx *Context) {
 	ctx.ExecDefers()
 
 	if ctx.ret == nil {
-		os.Exit(0)
+		if ctx.NoExit {
+			panic(ErrReturn)
+		} else {
+			os.Exit(0)
+		}
+
 	}
 	if v, ok := ctx.ret.(int); ok {
-		os.Exit(v)
+		if ctx.NoExit {
+			panic(ErrReturn)
+		} else {
+			os.Exit(v)
+		}
 	}
 	panic("must return `int` for main function")
 }

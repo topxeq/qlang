@@ -322,6 +322,11 @@ type Context struct {
 	base   int
 	onsel  bool // on select
 	noextv bool // don't cache extern var
+
+	NoExit           bool
+	LineStack        []string
+	CurrentLineCount int
+	CurrentLine      string
 }
 
 // func (v Context) String() string {
