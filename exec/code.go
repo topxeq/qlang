@@ -501,7 +501,6 @@ func New(data ...Instr) *Code {
 // CodeLine informs current file and line.
 //
 func (p *Code) CodeLine(file string, line int) {
-
 	p.Lines = append(p.Lines, &IpFileLine{Ip: len(p.Data), File: file, Line: line})
 }
 
