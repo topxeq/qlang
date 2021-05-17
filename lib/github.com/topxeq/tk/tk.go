@@ -443,6 +443,7 @@ var Exports = map[string]interface{}{
 	"StrToIntE":                                tk.StrToIntE,
 	"StrToIntPositive":                         tk.StrToIntPositive,
 	"StrToIntWithDefaultValue":                 tk.StrToIntWithDefaultValue,
+	"StrToHex":                                 tk.StrToHex,
 	"StrToTime":                                tk.StrToTime,
 	"StrToTimeByFormat":                        tk.StrToTimeByFormat,
 	"StrToTimeCompact":                         tk.StrToTimeCompact,
