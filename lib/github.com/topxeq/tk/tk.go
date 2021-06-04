@@ -458,6 +458,8 @@ var Exports = map[string]interface{}{
 	"TXResultFromStringSafely":                 tk.TXResultFromStringSafely,
 	"TableToMSSArray":                          tk.TableToMSSArray,
 	"TableToMSSJSON":                           tk.TableToMSSJSON,
+	"TableToMSSMap":                            tk.TableToMSSMap,
+	"TableToMSSMapArray":                       tk.TableToMSSMapArray,
 	"TimeFormat":                               tk.TimeFormat,
 	"TimeFormatCompact":                        tk.TimeFormatCompact,
 	"TimeFormatCompact2":                       tk.TimeFormatCompact2,
