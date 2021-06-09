@@ -394,6 +394,7 @@ var Exports = map[string]interface{}{
 	"ReshapeXML":                               tk.ReshapeXML,
 	"RestoreLineEnds":                          tk.RestoreLineEnds,
 	"RunWinFileWithSystemDefault":              tk.RunWinFileWithSystemDefault,
+	"SafelyGetStringInArray":                   tk.SafelyGetStringInArray,
 	"SafelyGetFloat64ForKeyWithDefault":        tk.SafelyGetFloat64ForKeyWithDefault,
 	"SafelyGetIntForKeyWithDefault":            tk.SafelyGetIntForKeyWithDefault,
 	"SafelyGetStringForKeyWithDefault":         tk.SafelyGetStringForKeyWithDefault,
