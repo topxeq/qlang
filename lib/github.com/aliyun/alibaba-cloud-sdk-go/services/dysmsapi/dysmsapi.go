@@ -1,6 +1,7 @@
 package dysmsapi
 
 import (
+	"github.com/aliyun/alibaba-cloud-sdk-go/sdk/requests/types"
 	"github.com/aliyun/alibaba-cloud-sdk-go/services/dysmsapi"
 
 	qlang "github.com/topxeq/qlang/spec"
@@ -59,4 +60,7 @@ var Exports = map[string]interface{}{
 	"CreateSendSmsRequest":             dysmsapi.CreateSendSmsRequest,
 	"SmsSendDetailDTO":                 qlang.StructOf((*dysmsapi.SmsSendDetailDTO)(nil)),
 	"SmsSendDetailDTOs":                qlang.StructOf((*dysmsapi.SmsSendDetailDTOs)(nil)),
+
+	// added by madarin
+	"NewInteger": qlang.StructOf((*types.NewInteger)(nil)),
 }
