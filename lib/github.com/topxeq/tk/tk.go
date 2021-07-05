@@ -255,6 +255,7 @@ var Exports = map[string]interface{}{
 	"IfSwitchExistsWhole":                      tk.IfSwitchExistsWhole,
 	"IfSwitchExistsWholeI":                     tk.IfSwitchExistsWholeI,
 	"InStrings":                                tk.InStrings,
+	"InStringsTrim":                            tk.InStringsTrim,
 	"IndexInStringList":                        tk.IndexInStringList,
 	"IndexInStringListFromEnd":                 tk.IndexInStringListFromEnd,
 	"Int64ArrayToFloat64Array":                 tk.Int64ArrayToFloat64Array,
