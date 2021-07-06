@@ -251,6 +251,8 @@ var Exports = map[string]interface{}{
 	"HexToInt":                                 tk.HexToInt,
 	"HttpRequest":                              tk.HttpRequest,
 	"IfFileExists":                             tk.IfFileExists,
+	"GetFileSize":                              tk.GetFileSize,
+	"GetFileSizeCompact":                       tk.GetFileSizeCompact,
 	"IfSwitchExists":                           tk.IfSwitchExists,
 	"IfSwitchExistsWhole":                      tk.IfSwitchExistsWhole,
 	"IfSwitchExistsWholeI":                     tk.IfSwitchExistsWholeI,
