@@ -33,10 +33,14 @@ require (
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
 	github.com/topxeq/sqltk v0.0.0-20210112052931-55ad87cc9be3
-	github.com/topxeq/text v0.0.0-20210329005401-bef410a88344
+	github.com/topxeq/text v0.0.0
 	github.com/topxeq/tk v0.0.0-20210318011618-0e03ab785f68
 	github.com/topxeq/xmlx v0.2.0
 	github.com/visualfc/pkgwalk v1.0.0
 	gonum.org/v1/netlib v0.0.0-20210302091547-ede94419cf37 // indirect
 	gonum.org/v1/plot v0.7.0
 )
+
+replace github.com/topxeq/text v0.0.0 => ../text
+
+
