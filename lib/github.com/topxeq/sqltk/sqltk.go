@@ -27,7 +27,14 @@ var Exports = map[string]interface{}{
 	"QueryDBS":           sqltk.QueryDBS,
 	"QueryDBString":      sqltk.QueryDBString,
 	"RecordsToMapArray":  sqltk.RecordsToMapArray,
-	"SqlTKX":             sqltk.SqlTKX,
+
+	"ConnectDBX":   sqltk.ConnectDBX,
+	"ExecDBX":      sqltk.ExecDBX,
+	"QueryDBX":     sqltk.QueryDBX,
+	"QueryCountX":  sqltk.QueryCountX,
+	"QueryStringX": sqltk.QueryStringX,
+
+	"SqlTKX": sqltk.SqlTKX,
 
 	"SqlTK": qlang.StructOf((*sqltk.SqlTK)(nil)),
 }
