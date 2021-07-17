@@ -324,6 +324,7 @@ var Exports = map[string]interface{}{
 	"Lsr":                                   tk.Lsr,
 	"MD5Encrypt":                            tk.MD5Encrypt,
 	"MSSFromJSON":                           tk.MSSFromJSON,
+	"NewStringRing":                         tk.NewStringRing,
 	"NewRandomGenerator":                    tk.NewRandomGenerator,
 	"NewSSHClient":                          tk.NewSSHClient,
 	"NewTK":                                 tk.NewTK,
