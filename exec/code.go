@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	qlang "github.com/topxeq/qlang/spec"
+	"github.com/topxeq/tk"
 )
 
 // -----------------------------------------------------------------------------
@@ -622,7 +623,13 @@ func (p *Code) ToVar() {
 
 // Exec executes a code block from ip to ipEnd.
 //
+var codeRingG *tk.StringRing = nil
+
 func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
+
+	if codeRingG == nil {
+		codeRingG = tk.NewStringRing(10)
+	}
 
 	defer func() {
 		if e := recover(); e != nil {
@@ -665,6 +672,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				if err.Line <= 0 && lineT > 0 {
 					err.Line = lineT
 				}
+				fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
 				panic(err)
 			}
 			err, ok := e.(error)
@@ -700,6 +708,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 			break
 		}
 
+		codeRingG.Push(fmt.Sprintf("[%v/%v] %s %#v", ctx.ip, p.Len(), instrName(instr), instr))
 		if p.Debug {
 			fmt.Printf("[%v/%v] %s %#v\n", ctx.ip, p.Len(), instrName(instr), instr)
 		}
