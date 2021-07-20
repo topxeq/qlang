@@ -111,7 +111,7 @@ func (p *Stack) PopNArgs(arity int) []interface{} {
 		p.Data = pstk[:n]
 		return args
 	}
-	panic("unexpected argument count")
+	panic("PopNArgs: unexpected argument count")
 }
 
 // PopFnArgs pops argument names of a function call.
@@ -132,7 +132,7 @@ func (p *Stack) PopFnArgs(arity int) []string {
 		p.Data = pstk[:n]
 		return args
 	}
-	panic("unexpected argument count")
+	panic("PopFnArgs: unexpected argument count")
 }
 
 // BaseFrame returns current stack size.
