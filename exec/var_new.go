@@ -24,7 +24,6 @@ func (p IAssignEx) Exec(stk *Stack, ctx *Context) {
 }
 
 func doAssign(k, v interface{}, ctx *Context) {
-
 	switch t := k.(type) {
 	case *variable:
 		varRef := ctx.getVarRef(t.Name)

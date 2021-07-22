@@ -30,6 +30,16 @@ func NewStack() *Stack {
 	return &Stack{data}
 }
 
+func (v Stack) String() string {
+
+	bufT := make([]string, 0, len(v.Data))
+	for i, iv := range v.Data {
+		bufT = append(bufT, fmt.Sprintf("%v: (%T) %v", i, iv, iv))
+	}
+
+	return "[" + strings.Join(bufT, ", ") + "]"
+}
+
 // Push pushs a value into this stack.
 //
 func (p *Stack) Push(v interface{}) {
@@ -217,7 +227,7 @@ func (p *variables) VarsInfo() string {
 	var sb strings.Builder
 
 	for k, name := range p.symtbl {
-		sb.WriteString(fmt.Sprintf("%v(%v): %v, ", k, &p.vars[name], p.vars[name]))
+		sb.WriteString(fmt.Sprintf("%v(%v, %T): %v, ", k, &p.vars[name], p.vars[name], p.vars[name]))
 	}
 
 	return sb.String()
