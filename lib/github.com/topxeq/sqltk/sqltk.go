@@ -19,6 +19,7 @@ var Exports = map[string]interface{}{
 	"NewSqlTK":           sqltk.NewSqlTK,
 	"OneLineRecordToMap": sqltk.OneLineRecordToMap,
 	"QueryDBCount":       sqltk.QueryDBCount,
+	"QueryDBFloat":       sqltk.QueryDBFloat,
 	"QueryDBI":           sqltk.QueryDBI,
 	"QueryDBNS":          sqltk.QueryDBNS,
 	"QueryDBNSS":         sqltk.QueryDBNSS,
@@ -32,6 +33,7 @@ var Exports = map[string]interface{}{
 	"ExecDBX":      sqltk.ExecDBX,
 	"QueryDBX":     sqltk.QueryDBX,
 	"QueryCountX":  sqltk.QueryCountX,
+	"QueryFloatX":  sqltk.QueryFloatX,
 	"QueryStringX": sqltk.QueryStringX,
 
 	"SqlTKX": sqltk.SqlTKX,

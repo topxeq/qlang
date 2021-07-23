@@ -466,6 +466,7 @@ var Exports = map[string]interface{}{
 	"GetSystemEndian":                       tk.GetSystemEndian,
 	"GetSystemEndianInt":                    tk.GetSystemEndianInt,
 	"CompareBytes":                          tk.CompareBytes,
+	"IfThenElse":                            tk.IfThenElse,
 	"StrToTime":                             tk.StrToTime,
 	"StrToTimeByFormat":                     tk.StrToTimeByFormat,
 	"StrToTimeCompact":                      tk.StrToTimeCompact,
