@@ -118,6 +118,7 @@ factor =
 	'*' factor/elem |
 	'&' IDENT/ref *('.' member/mrefv) '{' (IDENT/pushid ':' expr) %= ','/ARITY ?',' '}' /initst |
 	'^' IDENT/addrof |
+	'~' IDENT/addrxof |
 	"<-" factor/chout |
 	'+' factor
 `
@@ -226,7 +227,7 @@ func (p Compiler) String() string {
 func New() *Compiler {
 	debugT := (os.Getenv("GOXDEBUG") == "true")
 
-	gvars := make(map[string]interface{})
+	gvars := make(map[string]interface{}, 100)
 	mods := make(map[string]module)
 	symtbl := make(map[string]int)
 	fnctx := &FuncCtx{Symtbl: symtbl}
@@ -422,6 +423,7 @@ var exports = map[string]interface{}{
 	"$pop":     (*Compiler).pop,
 	"$xline":   (*Compiler).codeLine,
 	"$addrof":  (*Compiler).addrof,
+	"$addrxof": (*Compiler).addrxof,
 	// "$maddrof": (*Compiler).maddrof,
 }
 

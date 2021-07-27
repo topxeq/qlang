@@ -180,7 +180,7 @@ func (p *variables) initVars(symtbl map[string]int) {
 
 	n := len(symtbl)
 	if n > 0 {
-		p.vars = make([]interface{}, n)
+		p.vars = make([]interface{}, n, 10000)
 	}
 	p.symtbl = symtbl
 }
@@ -196,7 +196,7 @@ func (p *variables) ResizeVars() {
 		return
 	}
 	if i == 0 {
-		vars = make([]interface{}, 0, n)
+		vars = make([]interface{}, 0, n+10000)
 	}
 	for ; i < n; i++ {
 		vars = append(vars, qlang.Undefined)

@@ -155,4 +155,18 @@ func (p *Compiler) addrof(name string) {
 	p.Code.Block(exec.AddrOf(id))
 }
 
+func (p *Compiler) addrxof(name string) {
+	// tty.Debugf("Compiler.addrof(%s)\n", name)
+	if _, ok := p.gvars[name]; ok {
+		panic("only C variable could be addressable")
+		return
+	}
+	fnctx := p.Fnctx
+	id, ok := fnctx.getSymbol(name)
+	if !ok {
+		panic("variable %s not defined yet")
+	}
+	p.Code.Block(exec.AddrxOf(id))
+}
+
 // -----------------------------------------------------------------------------

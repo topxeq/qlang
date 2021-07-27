@@ -243,6 +243,8 @@ var Exports = map[string]interface{}{
 	"GetUUID4":                              tk.GetUUID4,
 	"GetUserInput":                          tk.GetUserInput,
 	"GetValue":                              tk.GetValue,
+	"GetPointer":                            tk.GetPointer,
+	"GetAddr":                               tk.GetAddr,
 	"GetValueOfMSS":                         tk.GetValueOfMSS,
 	"GetVar":                                tk.GetVar,
 	"GetVersion":                            tk.GetVersion,
