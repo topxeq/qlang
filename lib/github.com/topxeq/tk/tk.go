@@ -507,6 +507,7 @@ var Exports = map[string]interface{}{
 	"ToStr":                                 tk.ToStr,
 	"ToUpper":                               tk.ToUpper,
 	"Trim":                                  tk.Trim,
+	"TrimSafely":                            tk.TrimSafely,
 	"TrimCharSet":                           tk.TrimCharSet,
 	"TypeOfValue":                           tk.TypeOfValue,
 	"TypeOfValueReflect":                    tk.TypeOfValueReflect,
