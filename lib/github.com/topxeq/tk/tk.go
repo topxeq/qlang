@@ -516,6 +516,9 @@ var Exports = map[string]interface{}{
 	"UrlEncode2":                            tk.UrlEncode2,
 	"WriteResponse":                         tk.WriteResponse,
 
+	"GetZip":         tk.GetZip,
+	"GetZipArchiver": tk.GetZipArchiver,
+
 	"ServerInfo":   qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":  qlang.StructOf((*tk.SimpleEvent)(nil)),
 	"TK":           qlang.StructOf((*tk.TK)(nil)),
