@@ -123,6 +123,7 @@ var Exports = map[string]interface{}{
 	"FatalErr":                            tk.FatalErr,
 	"FatalErrf":                           tk.FatalErrf,
 	"Fatalf":                              tk.Fatalf,
+	"FatalfByCondition":                   tk.FatalfByCondition,
 	"FindFirstDiffIndex":                  tk.FindFirstDiffIndex,
 	"FindSamePrefix":                      tk.FindSamePrefix,
 	"FlattenXML":                          tk.FlattenXML,

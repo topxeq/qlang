@@ -691,6 +691,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 					err = errors.New(s)
 				} else {
 					// fmt.Printf("Current line: %v\n", lineT)
+					fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
 					panic(e)
 				}
 			}
@@ -701,6 +702,7 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				Line:  line,
 				Stack: debug.Stack(),
 			}
+			fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
 			panic(err)
 		}
 	}()
