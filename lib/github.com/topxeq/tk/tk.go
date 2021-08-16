@@ -521,6 +521,8 @@ var Exports = map[string]interface{}{
 	"DialPop3TLS":                           tk.DialPop3TLS,
 	"NewPop3Client":                         tk.NewPop3Client,
 
+	"GenerateQR": tk.GenerateQR,
+
 	"GetZip":         tk.GetZip,
 	"GetZipArchiver": tk.GetZipArchiver,
 
