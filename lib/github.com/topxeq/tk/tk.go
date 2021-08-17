@@ -378,6 +378,7 @@ var Exports = map[string]interface{}{
 	"Printfln":                              tk.Printfln,
 	"Prl":                                   tk.Prl,
 	"PutRequestX":                           tk.PutRequestX,
+	"FindSubStringAll":                      tk.FindSubStringAll,
 	"Randomize":                             tk.Randomize,
 	"ReadLineFromBufioReader":               tk.ReadLineFromBufioReader,
 	"RegSplit":                              tk.RegSplit,
