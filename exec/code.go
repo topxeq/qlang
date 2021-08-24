@@ -162,12 +162,14 @@ func (p *Stack) SetFrame(n int) {
 // -----------------------------------------------------------------------------
 
 type variable struct {
-	Name int
+	Name  int
+	SName string
 }
 
 type variables struct {
-	vars   []interface{}
-	symtbl map[string]int // symbol table
+	vars          []interface{}
+	symtbl        map[string]int // symbol table
+	ReverseSymtbl map[int]string // symbol table
 }
 
 func (v variables) String() string {
@@ -183,6 +185,12 @@ func (p *variables) initVars(symtbl map[string]int) {
 		p.vars = make([]interface{}, n, 10000)
 	}
 	p.symtbl = symtbl
+
+	p.ReverseSymtbl = make(map[int]string, len(symtbl))
+
+	for k, v := range symtbl {
+		p.ReverseSymtbl[v] = k
+	}
 }
 
 // ResizeVars is reserved for internal use.
@@ -202,6 +210,13 @@ func (p *variables) ResizeVars() {
 		vars = append(vars, qlang.Undefined)
 	}
 	p.vars = vars
+
+	p.ReverseSymtbl = make(map[int]string, len(p.symtbl))
+
+	for k, v := range p.symtbl {
+		p.ReverseSymtbl[v] = k
+	}
+
 }
 
 // Vars is deprecated. please use `CopyVars` method.
@@ -227,7 +242,7 @@ func (p *variables) VarsInfo() string {
 	var sb strings.Builder
 
 	for k, name := range p.symtbl {
-		sb.WriteString(fmt.Sprintf("%v(%v, %T): %v, ", k, &p.vars[name], p.vars[name], p.vars[name]))
+		sb.WriteString(fmt.Sprintf("%v(%v, %v, %T): %v, ", k, name, &p.vars[name], p.vars[name], p.vars[name]))
 	}
 
 	return sb.String()
@@ -240,6 +255,13 @@ func (p *variables) ResetVars(vars map[string]interface{}) {
 	for k, name := range p.symtbl {
 		p.vars[name] = vars[k]
 	}
+
+	p.ReverseSymtbl = make(map[int]string, len(p.symtbl))
+
+	for k, v := range p.symtbl {
+		p.ReverseSymtbl[v] = k
+	}
+
 }
 
 // Var returns a variable value.
@@ -260,6 +282,22 @@ func (p *variables) GetVar(name string) (v interface{}, ok bool) {
 		return p.vars[k], true
 	}
 	return qlang.Undefined, false
+}
+
+func (p *variables) GetVarWithIndex(name string) (v interface{}, idx int, ok bool) {
+
+	if k, ok := p.symtbl[name]; ok {
+		return p.vars[k], k, true
+	}
+	return qlang.Undefined, -1, false
+}
+
+func (p *variables) GetVarName(name int) string {
+
+	if k, ok := p.ReverseSymtbl[name]; ok {
+		return k
+	}
+	return ""
 }
 
 // SetVar sets a variable value.
@@ -720,11 +758,12 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 			break
 		}
 
+		instr.Exec(stk, ctx)
+
 		codeRingG.Push(fmt.Sprintf("[%v/%v] %s %#v", ctx.ip, p.Len(), instrName(instr), instr))
 		if p.Debug {
 			fmt.Printf("[%v/%v] %s %#v\n", ctx.ip, p.Len(), instrName(instr), instr)
 		}
-		instr.Exec(stk, ctx)
 
 		if p.Debug {
 			fmt.Println("STACK:", stk)

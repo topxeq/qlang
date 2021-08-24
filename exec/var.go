@@ -34,7 +34,7 @@ func (p *IRef) Exec(stk *Stack, ctx *Context) {
 func (p *IRef) ToVar() Instr {
 	// fmt.Printf("iRef ToVar: %v\n", p.name)
 
-	return &IVar{p.Name}
+	return &IVar{Name: p.Name}
 }
 
 func (p *Context) getRef(name int) interface{} {
@@ -249,19 +249,23 @@ func Ref(name int) Instr {
 // Var
 
 type IVar struct {
-	Name int
+	Name  int
+	SName string
 }
 
 func (p *IVar) Exec(stk *Stack, ctx *Context) {
+	snameT, _ := ctx.ReverseSymtbl[p.Name]
 
-	stk.Push(&variable{Name: p.Name})
+	p.SName = snameT
+
+	stk.Push(&variable{Name: p.Name, SName: snameT})
 }
 
 // Var returns a Var instruction.
 //
 func Var(name int) Instr {
 	// fmt.Printf("Var: %v\n", name)
-	return &IVar{name}
+	return &IVar{Name: name}
 }
 
 // -----------------------------------------------------------------------------

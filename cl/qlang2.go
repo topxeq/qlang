@@ -169,16 +169,18 @@ func (p *blockCtx) MergeSw(old *blockCtx, done int) {
 }
 
 type FuncCtx struct {
-	Symtbl map[string]int
-	Parent *FuncCtx
+	Symtbl        map[string]int
+	ReverseSymtbl map[int]string
+	Parent        *FuncCtx
 }
 
 func newFuncCtx(parent *FuncCtx, args []string) *FuncCtx {
+	reverseSymtbl := make(map[int]string)
 	symtbl := make(map[string]int)
 	for i, arg := range args {
 		symtbl[arg] = i
 	}
-	return &FuncCtx{Symtbl: symtbl, Parent: parent}
+	return &FuncCtx{Symtbl: symtbl, Parent: parent, ReverseSymtbl: reverseSymtbl}
 }
 
 func (p *FuncCtx) getSymbol(name string) (id int, ok bool) {
@@ -197,6 +199,12 @@ func (p *FuncCtx) getSymbol(name string) (id int, ok bool) {
 func (p *FuncCtx) newSymbol(name string) int {
 	id := len(p.Symtbl)
 	p.Symtbl[name] = id
+
+	if p.ReverseSymtbl == nil {
+		p.ReverseSymtbl = make(map[int]string)
+	}
+
+	p.ReverseSymtbl[id] = name
 	return id
 }
 
