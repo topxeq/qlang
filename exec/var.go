@@ -23,10 +23,14 @@ var (
 // -----------------------------------------------------------------------------
 
 type IRef struct {
-	Name int
+	Name  int
+	SName string
 }
 
 func (p *IRef) Exec(stk *Stack, ctx *Context) {
+	snameT, _ := ctx.ReverseSymtbl[p.Name]
+
+	p.SName = snameT
 
 	stk.Push(ctx.getRef(p.Name))
 }
@@ -242,7 +246,7 @@ func SymbolIndex(id, scope int) int {
 //
 func Ref(name int) Instr {
 	// fmt.Printf("Ref: %v\n", name)
-	return &IRef{name}
+	return &IRef{Name: name}
 }
 
 // -----------------------------------------------------------------------------
