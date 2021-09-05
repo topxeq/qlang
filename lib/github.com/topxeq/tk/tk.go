@@ -87,6 +87,7 @@ var Exports = map[string]interface{}{
 	"DownloadPage":                        tk.DownloadPage,
 	"DownloadPageByMap":                   tk.DownloadPageByMap,
 	"DownloadPageUTF8":                    tk.DownloadPageUTF8,
+	"DownloadWebPage":                     tk.DownloadWebPage,
 	"EncodeHTML":                          tk.EncodeHTML,
 	"EncodeStringCustom":                  tk.EncodeStringCustom,
 	"EncodeStringCustomEx":                tk.EncodeStringCustomEx,
