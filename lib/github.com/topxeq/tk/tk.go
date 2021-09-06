@@ -345,6 +345,8 @@ var Exports = map[string]interface{}{
 	"NewTK":                                 tk.NewTK,
 	"NilToEmptyStr":                         tk.NilToEmptyStr,
 	"NowToFileName":                         tk.NowToFileName,
+	"ReplaceHtmlByMap":                      tk.ReplaceHtmlByMap,
+	"CleanHtmlPlaceholders":                 tk.CleanHtmlPlaceholders,
 	"NowToStrUTC":                           tk.NowToStrUTC,
 	"ObjectToJSON":                          tk.ObjectToJSON,
 	"ObjectToJSONIndent":                    tk.ObjectToJSONIndent,
