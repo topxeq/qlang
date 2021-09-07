@@ -528,6 +528,8 @@ var Exports = map[string]interface{}{
 	"UrlEncode":                             tk.UrlEncode,
 	"UrlEncode2":                            tk.UrlEncode2,
 	"WriteResponse":                         tk.WriteResponse,
+	"SetResponseHeader":                     tk.SetResponseHeader,
+	"WriteResponseHeader":                   tk.WriteResponseHeader,
 	"ConnectPop3":                           tk.ConnectPop3,
 	"DialPop3":                              tk.DialPop3,
 	"DialPop3TLS":                           tk.DialPop3TLS,
