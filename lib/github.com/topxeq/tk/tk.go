@@ -302,6 +302,7 @@ var Exports = map[string]interface{}{
 	"JoinLinesBySeparator":                  tk.JoinLinesBySeparator,
 	"JoinPath":                              tk.JoinPath,
 	"GetFileInfo":                           tk.GetFileInfo,
+	"ToTime":                                tk.ToTime,
 	"JoinURL":                               tk.JoinURL,
 	"KindOfValueReflect":                    tk.KindOfValueReflect,
 	"Len64":                                 tk.Len64,
