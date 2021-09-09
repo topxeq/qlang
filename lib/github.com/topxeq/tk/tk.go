@@ -157,6 +157,7 @@ var Exports = map[string]interface{}{
 	"GenerateJSONPResponseWithObject":       tk.GenerateJSONPResponseWithObject,
 	"GenerateRandomFloats":                  tk.GenerateRandomFloats,
 	"GenerateRandomString":                  tk.GenerateRandomString,
+	"GenerateRandomStringX":                 tk.GenerateRandomStringX,
 	"GetAllOSParameters":                    tk.GetAllOSParameters,
 	"GetAllParameters":                      tk.GetAllParameters,
 	"GetAllSwitches":                        tk.GetAllSwitches,
