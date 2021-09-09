@@ -41,6 +41,7 @@ var Exports = map[string]interface{}{
 	"Contains":                            tk.Contains,
 	"ContainsIgnoreCase":                  tk.ContainsIgnoreCase,
 	"ContainsIn":                          tk.ContainsIn,
+	"RegContainsIn":                       tk.RegContainsIn,
 	"ContainsInStringList":                tk.ContainsInStringList,
 	"ConvertStringToUTF8":                 tk.ConvertStringToUTF8,
 	"ConvertToGB18030":                    tk.ConvertToGB18030,
