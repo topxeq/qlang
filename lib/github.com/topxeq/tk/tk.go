@@ -545,8 +545,10 @@ var Exports = map[string]interface{}{
 
 	"GenerateQR": tk.GenerateQR,
 
-	"GetZip":         tk.GetZip,
-	"GetZipArchiver": tk.GetZipArchiver,
+	"GetZip":          tk.GetZip,
+	"GetZipArchiver":  tk.GetZipArchiver,
+	"GetEncZipReader": tk.GetEncZipReader,
+	"GetEncZipWriter": tk.GetEncZipWriter,
 
 	"ServerInfo":   qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":  qlang.StructOf((*tk.SimpleEvent)(nil)),
