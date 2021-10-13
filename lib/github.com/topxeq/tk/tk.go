@@ -406,6 +406,7 @@ var Exports = map[string]interface{}{
 	"RegFindFirst":                          tk.RegFindFirst,
 	"RegFindFirstIndex":                     tk.RegFindFirstIndex,
 	"RegFindFirstIndexX":                    tk.RegFindFirstIndexX,
+	"RegFindAllIndexX":                      tk.RegFindAllIndexX,
 	"RegFindFirstTX":                        tk.RegFindFirstTX,
 	"RegFindFirstX":                         tk.RegFindFirstX,
 	"RegMatch":                              tk.RegMatch,
