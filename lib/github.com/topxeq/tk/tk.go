@@ -460,6 +460,7 @@ var Exports = map[string]interface{}{
 	"Sleep":                                 tk.Sleep,
 	"SleepMilliSeconds":                     tk.SleepMilliSeconds,
 	"SleepSeconds":                          tk.SleepSeconds,
+	"SortMSSArray":                          tk.SortMSSArray,
 	"Split":                                 tk.Split,
 	"SplitLines":                            tk.SplitLines,
 	"SplitLinesRemoveEmpty":                 tk.SplitLinesRemoveEmpty,
