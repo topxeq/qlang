@@ -40,6 +40,7 @@ var Exports = map[string]interface{}{
 	"QueryCountX":      sqltk.QueryCountX,
 	"QueryFloatX":      sqltk.QueryFloatX,
 	"QueryStringX":     sqltk.QueryStringX,
+	"CloseDBX":         sqltk.CloseDBX,
 
 	"SqlTKX": sqltk.SqlTKX,
 
