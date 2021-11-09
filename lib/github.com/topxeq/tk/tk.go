@@ -538,6 +538,7 @@ var Exports = map[string]interface{}{
 	"UrlDecode":                             tk.UrlDecode,
 	"UrlEncode":                             tk.UrlEncode,
 	"UrlEncode2":                            tk.UrlEncode2,
+	"WrapError":                             tk.WrapError,
 	"WriteResponse":                         tk.WriteResponse,
 	"SetResponseHeader":                     tk.SetResponseHeader,
 	"WriteResponseHeader":                   tk.WriteResponseHeader,
