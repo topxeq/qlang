@@ -318,6 +318,7 @@ var GetVar Instr = iGetVar(0)
 type iGfnRef struct {
 	val   interface{}
 	toVar func() Instr
+	SName string
 }
 
 func (p *iGfnRef) Exec(stk *Stack, ctx *Context) {
@@ -332,8 +333,8 @@ func (p *iGfnRef) ToVar() Instr {
 
 // GfnRef returns an instruction that refers a fntable item.
 //
-func GfnRef(v interface{}, toVar func() Instr) Instr {
-	return &iGfnRef{v, toVar}
+func GfnRef(v interface{}, toVar func() Instr, sname string) Instr {
+	return &iGfnRef{v, toVar, sname}
 }
 
 type iAddrOf struct {

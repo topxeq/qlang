@@ -673,6 +673,8 @@ func (p *Code) ToVar() {
 //
 var codeRingG *tk.StringRing = nil
 
+var errDumpedG = false
+
 func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 
 	if codeRingG == nil {
@@ -720,19 +722,28 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				if err.Line <= 0 && lineT > 0 {
 					err.Line = lineT
 				}
-				fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
+
+				if !errDumpedG {
+					fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
+				}
+				errDumpedG = true
 				panic(err)
 			}
+
 			err, ok := e.(error)
 			if !ok {
 				if s, ok := e.(string); ok {
 					err = errors.New(s)
 				} else {
 					// fmt.Printf("Current line: %v\n", lineT)
-					fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
+					if !errDumpedG {
+						fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
+					}
+					errDumpedG = true
 					panic(e)
 				}
 			}
+
 			file, line := p.Line(ctx.ip - 1)
 			err = &Error{
 				Err:   err,
@@ -740,7 +751,10 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 				Line:  line,
 				Stack: debug.Stack(),
 			}
-			fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
+			if !errDumpedG {
+				fmt.Printf("Code stack: \n%v\n", codeRingG.GetString())
+			}
+			errDumpedG = true
 			panic(err)
 		}
 	}()

@@ -112,7 +112,7 @@ func (p *Compiler) ref(name string) {
 			p.Code.Block(exec.GfnRef(val, func() exec.Instr {
 				id := fnctx.newSymbol(name)
 				return exec.Var(id)
-			}))
+			}, name))
 			return
 		}
 		id = fnctx.newSymbol(name)
