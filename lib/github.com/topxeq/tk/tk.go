@@ -361,6 +361,7 @@ var Exports = map[string]interface{}{
 	"NowToStrUTC":                           tk.NowToStrUTC,
 	"ObjectToJSON":                          tk.ObjectToJSON,
 	"ObjectToJSONIndent":                    tk.ObjectToJSONIndent,
+	"PadString":                             tk.PadString,
 	"ParseCommandLine":                      tk.ParseCommandLine,
 	"ParseHexColor":                         tk.ParseHexColor,
 	"Pass":                                  tk.Pass,
