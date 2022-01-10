@@ -101,6 +101,7 @@ var Exports = map[string]interface{}{
 	"EncodeStringSimple":                  tk.EncodeStringSimple,
 	"EncodeStringUnderline":               tk.EncodeStringUnderline,
 	"EncodeToBase64":                      tk.EncodeToBase64,
+	"ToBase64":                            tk.ToBase64,
 	"EncodeToXMLString":                   tk.EncodeToXMLString,
 	"EncryptDataByTXDEE":                  tk.EncryptDataByTXDEE,
 	"EncryptDataByTXDEF":                  tk.EncryptDataByTXDEF,
