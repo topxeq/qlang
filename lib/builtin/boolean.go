@@ -1,6 +1,10 @@
 package builtin
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/topxeq/qlang/spec"
+)
 
 // -----------------------------------------------------------------------------
 
@@ -11,7 +15,18 @@ func Not(a interface{}) interface{} {
 	if a1, ok := a.(bool); ok {
 		return !a1
 	}
-	return panicUnsupportedOp1("!", a)
+
+	// if a == nil {
+	// 	return true
+	// }
+
+	if a == spec.Undefined {
+		return true
+	}
+
+	return false
+
+	// return panicUnsupportedOp1("!", a)
 }
 
 // LT returns a < b
