@@ -29,6 +29,7 @@ require (
 	github.com/topxeq/dlgs v0.0.0-20211122010615-d49596e82836
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/go-sciter v0.0.0
+	github.com/topxeq/gods v0.0.0
 	github.com/topxeq/goph v0.0.0
 	github.com/topxeq/imagetk v0.0.0-20200429123347-cfc2b754475d
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
@@ -55,3 +56,5 @@ replace github.com/topxeq/charlang v0.0.0 => ../charlang
 replace github.com/topxeq/goph v0.0.0 => ../goph
 
 replace github.com/topxeq/go-sciter v0.0.0 => ../go-sciter
+
+replace github.com/topxeq/gods v0.0.0 => ../gods

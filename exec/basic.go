@@ -140,8 +140,10 @@ func (delta iJmpIfFalse) Exec(stk *Stack, ctx *Context) {
 		if !a1 {
 			ctx.ip += int(delta)
 		}
+	} else if a == qlang.Undefined {
+		ctx.ip += int(delta)
 	} else {
-		panic("condition isn't a boolean expression")
+		// panic("condition isn't a boolean expression")
 	}
 }
 
