@@ -320,6 +320,7 @@ var Exports = map[string]interface{}{
 	"Len64":                                 tk.Len64,
 	"LessI":                                 tk.LessI,
 	"LimitPrecision":                        tk.LimitPrecision,
+	"LimitString":                           tk.LimitString,
 	"LoadBytes":                             tk.LoadBytes,
 	"LoadBytesFromFile":                     tk.LoadBytesFromFile,
 	"LoadBytesFromFileE":                    tk.LoadBytesFromFileE,

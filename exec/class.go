@@ -407,7 +407,8 @@ func (p *iMemberRefV) Exec(stk *Stack, ctx *Context) {
 		if m.IsValid() {
 			stk.Push(m.Interface())
 		} else {
-			panic(fmt.Errorf("member `%s` not found", name))
+			stk.Push(qlang.Undefined)
+			// by Madarin20220217 panic(fmt.Errorf("member `%s` not found", name))
 		}
 	default:
 		name = strings.Title(name)
