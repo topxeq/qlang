@@ -507,6 +507,7 @@ var Exports = map[string]interface{}{
 	"ToHex":                                 tk.ToHex,
 	"ToByte":                                tk.ToByte,
 	"GetChar":                               tk.GetChar,
+	"GetChar2":                              tk.GetChar2,
 	"GetSystemEndian":                       tk.GetSystemEndian,
 	"GetSystemEndianInt":                    tk.GetSystemEndianInt,
 	"IfThenElse":                            tk.IfThenElse,
