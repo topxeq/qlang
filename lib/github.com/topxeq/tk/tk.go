@@ -494,6 +494,7 @@ var Exports = map[string]interface{}{
 	"StartsWithIgnoreCase":                  tk.StartsWithIgnoreCase,
 	"StartsWithUpper":                       tk.StartsWithUpper,
 	"StrToBool":                             tk.StrToBool,
+	"ToBool":                                tk.ToBool,
 	"StrToFloat64":                          tk.StrToFloat64,
 	"StrToFloat64E":                         tk.StrToFloat64E,
 	"StrToFloat64WithDefaultValue":          tk.StrToFloat64WithDefaultValue,
