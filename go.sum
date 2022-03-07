@@ -241,8 +241,9 @@ github.com/topxeq/sqltk v0.0.0-20220224013714-d9d64a06d59f/go.mod h1:qfnUkeG9fQM
 github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928 h1:yPsp6rNV6vy1pL0H3GGz99es8Uq/gziGEYxtSq3uChQ=
 github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928/go.mod h1:tYltUG1XxnVJvVhMpEV2YUzmcOU0HjYl4fK3nnNDKiM=
 github.com/topxeq/tk v0.9.1/go.mod h1:yIxcIUyuF/Rxfqzyp+Zdnz7cUqGH7TYT2nneH8XgbNw=
-github.com/topxeq/tk v0.9.2-0.20220224013140-1d883c9b6981 h1:sS6ddVlAP5YDTfKy3spl19l/zbS5nKU6TFhZoST4xeo=
 github.com/topxeq/tk v0.9.2-0.20220224013140-1d883c9b6981/go.mod h1:yIxcIUyuF/Rxfqzyp+Zdnz7cUqGH7TYT2nneH8XgbNw=
+github.com/topxeq/tk v1.0.0 h1:o+oQUjOrrhsLRoVBxEZnmjcbV//K0+03WRu/hxsrdns=
+github.com/topxeq/tk v1.0.0/go.mod h1:yIxcIUyuF/Rxfqzyp+Zdnz7cUqGH7TYT2nneH8XgbNw=
 github.com/topxeq/uuid v0.0.0-20210318003930-0d149e412ca1 h1:IEl6WYCFNG6l+4JSvFVZ0zKXOuu6NockB/BgL6d6FcE=
 github.com/topxeq/uuid v0.0.0-20210318003930-0d149e412ca1/go.mod h1:M6+8XhQK8KhdO8FvAckQN9zCLgJU8TZTVhITlsQwkWM=
 github.com/topxeq/xmlx v0.2.0 h1:u3QIV7fNyGbLx3gvA0DjMj3Ss7U9Wmu4SYOuhunwCGQ=

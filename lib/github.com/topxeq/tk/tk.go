@@ -576,6 +576,8 @@ var Exports = map[string]interface{}{
 	"GetEncZipReader": tk.GetEncZipReader,
 	"GetEncZipWriter": tk.GetEncZipWriter,
 
+	"MAX_INT": tk.MAX_INT,
+
 	"ServerInfo":   qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":  qlang.StructOf((*tk.SimpleEvent)(nil)),
 	"TK":           qlang.StructOf((*tk.TK)(nil)),
