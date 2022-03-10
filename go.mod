@@ -37,7 +37,7 @@ require (
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
 	github.com/topxeq/sqltk v0.0.0-20220224013714-d9d64a06d59f
 	github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928
-	github.com/topxeq/tk v1.0.0
+	github.com/topxeq/tk v1.0.1-0.20220310074537-a5a99f49fae8
 	github.com/topxeq/xmlx v0.2.0
 	github.com/visualfc/pkgwalk v1.0.0
 	github.com/xuri/excelize/v2 v2.4.1
