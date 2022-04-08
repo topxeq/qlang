@@ -506,6 +506,7 @@ var Exports = map[string]interface{}{
 	"StrToIntE":                             tk.StrToIntE,
 	"StrToIntPositive":                      tk.StrToIntPositive,
 	"StrToIntWithDefaultValue":              tk.StrToIntWithDefaultValue,
+	"StrToIntQuick":                         tk.StrToIntQuick,
 	"StrToHex":                              tk.StrToHex,
 	"ToHex":                                 tk.ToHex,
 	"ToByte":                                tk.ToByte,
