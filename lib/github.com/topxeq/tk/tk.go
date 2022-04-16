@@ -296,6 +296,7 @@ var Exports = map[string]interface{}{
 	"IsDirectory":                           tk.IsDirectory,
 	"IsEmptyTrim":                           tk.IsEmptyTrim,
 	"IsErrStr":                              tk.IsErrStr,
+	"IsErrStrX":                             tk.IsErrStrX,
 	"IsError":                               tk.IsError,
 	"IsErrorString":                         tk.IsErrorString,
 	"IsFile":                                tk.IsFile,
