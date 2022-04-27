@@ -223,6 +223,7 @@ var Exports = map[string]interface{}{
 	"GetOSArgsShort":                        tk.GetOSArgsShort,
 	"GetOSName":                             tk.GetOSName,
 	"GetParam":                              tk.GetParam,
+	"GetParamI":                             tk.GetParamI,
 	"GetParameter":                          tk.GetParameter,
 	"GetParameterByIndexWithDefaultValue":   tk.GetParameterByIndexWithDefaultValue,
 	"GetPlainAuth":                          tk.GetPlainAuth,
