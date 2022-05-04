@@ -547,6 +547,7 @@ var Exports = map[string]interface{}{
 	"ToFloat":                               tk.ToFloat,
 	"ToInt":                                 tk.ToInt,
 	"ToIntI":                                tk.ToIntI,
+	"ToRune":                                tk.ToRune,
 	"ToJSON":                                tk.ToJSON,
 	"ToJSONIndent":                          tk.ToJSONIndent,
 	"ToJSONIndentWithDefault":               tk.ToJSONIndentWithDefault,
