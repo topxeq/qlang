@@ -42,6 +42,10 @@ var Exports = map[string]interface{}{
 	"QueryStringX":     sqltk.QueryStringX,
 	"CloseDBX":         sqltk.CloseDBX,
 
+	"BeginTransX": sqltk.BeginTransX,
+	"PrepareX":    sqltk.PrepareX,
+	"CommitX":     sqltk.CommitX,
+
 	"SqlTKX": sqltk.SqlTKX,
 
 	"SqlTK": qlang.StructOf((*sqltk.SqlTK)(nil)),
