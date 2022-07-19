@@ -181,6 +181,7 @@ var Exports = map[string]interface{}{
 	"GetClipboardTextDefaultEmpty":          tk.GetClipboardTextDefaultEmpty,
 	"GetClipboardTextWithDefault":           tk.GetClipboardTextWithDefault,
 	"GetCurrentDir":                         tk.GetCurrentDir,
+	"SetCurrentDir":                         tk.SetCurrentDir,
 	"GetCurrentThreadID":                    tk.GetCurrentThreadID,
 	"GetDBConnection":                       tk.GetDBConnection,
 	"GetDBResultArray":                      tk.GetDBResultArray,
