@@ -200,6 +200,7 @@ var Exports = map[string]interface{}{
 	"GetFilePathSeperator":                  tk.GetFilePathSeperator,
 	"GetFileVar":                            tk.GetFileVar,
 	"GetFormValueWithDefaultValue":          tk.GetFormValueWithDefaultValue,
+	"IfFormValueExists":                     tk.IfFormValueExists,
 	"GetGlobalEnvList":                      tk.GetGlobalEnvList,
 	"GetGlobalEnvString":                    tk.GetGlobalEnvString,
 	"GetInputBufferedScan":                  tk.GetInputBufferedScan,
