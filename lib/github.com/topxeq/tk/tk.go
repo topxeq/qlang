@@ -426,6 +426,8 @@ var Exports = map[string]interface{}{
 	"RegSplitX":                             tk.RegSplitX,
 	"RegContains":                           tk.RegContains,
 	"RegContainsX":                          tk.RegContainsX,
+	"RegCount":                              tk.RegCount,
+	"RegCountX":                             tk.RegCountX,
 	"RegFindAll":                            tk.RegFindAll,
 	"RegFindAllGroups":                      tk.RegFindAllGroups,
 	"RegFindAllGroupsX":                     tk.RegFindAllGroupsX,
