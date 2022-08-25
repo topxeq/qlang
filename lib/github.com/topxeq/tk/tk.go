@@ -161,6 +161,7 @@ var Exports = map[string]interface{}{
 	"GenerateFileListRecursively":         tk.GenerateFileListRecursively,
 	"GenerateFileListRecursivelyWithExclusive": tk.GenerateFileListRecursivelyWithExclusive,
 	"GetFileList":                           tk.GetFileList,
+	"GetMimeTypeByExt":                      tk.GetMimeTypeByExt,
 	"GenerateJSONPResponse":                 tk.GenerateJSONPResponse,
 	"GenerateJSONPResponseMix":              tk.GenerateJSONPResponseMix,
 	"GenerateJSONPResponseWith2Object":      tk.GenerateJSONPResponseWith2Object,
