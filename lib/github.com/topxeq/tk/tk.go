@@ -554,6 +554,7 @@ var Exports = map[string]interface{}{
 	"TimeFormatCompact2":                    tk.TimeFormatCompact2,
 	"TimeFormatMS":                          tk.TimeFormatMS,
 	"TimeFormatMSCompact":                   tk.TimeFormatMSCompact,
+	"TimeFormatDateCompact":                 tk.TimeFormatDateCompact,
 	"ToXML":                                 tk.ToXML,
 	"ToTime":                                tk.ToTime,
 	"ToVar":                                 tk.ToVar,

@@ -71,6 +71,8 @@ var Exports = map[string]interface{}{
 	"Parse":                  time.Parse,
 	"ParseInLocation":        time.ParseInLocation,
 	"uniUnixx":               time.Unix,
+	"unix":                   time.Unix,
+	"Unix":                   time.Unix,
 	"NewTimer":               time.NewTimer,
 	"AfterFunc":              time.AfterFunc,
 }
