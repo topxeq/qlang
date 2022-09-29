@@ -374,6 +374,7 @@ var Exports = map[string]interface{}{
 	"MSS2MSI":                               tk.MSS2MSI,
 	"NewSSHClient":                          tk.NewSSHClient,
 	"NewTK":                                 tk.NewTK,
+	"NewSyncMap":                            tk.NewSyncMap,
 	"NilToEmptyStr":                         tk.NilToEmptyStr,
 	"NowToFileName":                         tk.NowToFileName,
 	"ReplaceHtmlByMap":                      tk.ReplaceHtmlByMap,
