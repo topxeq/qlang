@@ -7,7 +7,6 @@ import (
 )
 
 // Exports is the export table of this module.
-//
 var Exports = map[string]interface{}{
 	"_name": "github.com/topxeq/tk",
 
@@ -273,6 +272,9 @@ var Exports = map[string]interface{}{
 	"GetAddr":                               tk.GetAddr,
 	"GetValueOfMSS":                         tk.GetValueOfMSS,
 	"GetVar":                                tk.GetVar,
+	"DeleteVar":                             tk.DeleteVar,
+	"ClearVar":                              tk.ClearVar,
+	"SizeVar":                               tk.SizeVar,
 	"GetVersion":                            tk.GetVersion,
 	"GetXMLNode":                            tk.GetXMLNode,
 	"GlobalEnvSetG":                         tk.GlobalEnvSetG,
