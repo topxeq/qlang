@@ -63,6 +63,7 @@ var Exports = map[string]interface{}{
 	"CreateTXCollection":                  tk.CreateTXCollection,
 	"CreateTempFile":                      tk.CreateTempFile,
 	"CreateFile":                          tk.CreateFile,
+	"OpenFile":                            tk.OpenFile,
 	"DebugModeG":                          tk.DebugModeG,
 	"DecodeFromBase64":                    tk.DecodeFromBase64,
 	"DecodeHTML":                          tk.DecodeHTML,
