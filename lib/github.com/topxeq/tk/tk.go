@@ -81,6 +81,7 @@ var Exports = map[string]interface{}{
 	"ReflectCallMethodSlice":              tk.ReflectCallMethodSlice,
 
 	"DecodeFromBase64":             tk.DecodeFromBase64,
+	"FromBase64":                   tk.FromBase64,
 	"DecodeHTML":                   tk.DecodeHTML,
 	"DecodeStringCustom":           tk.DecodeStringCustom,
 	"DecodeStringSimple":           tk.DecodeStringSimple,
@@ -426,6 +427,9 @@ var Exports = map[string]interface{}{
 	"Plvs":                                  tk.Plvs,
 	"Plvsr":                                 tk.Plvsr,
 	"Plvx":                                  tk.Plvx,
+	"Plo":                                   tk.Plo,
+	"Plos":                                  tk.Plos,
+	"Plosr":                                 tk.Plosr,
 	"MapToPostData":                         tk.MapToPostData,
 	"MapToPostDataI":                        tk.MapToPostDataI,
 	"PostRequest":                           tk.PostRequest,
