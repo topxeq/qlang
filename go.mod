@@ -31,7 +31,7 @@ require (
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/go-sciter v0.0.0-20211221081058-795e1f32ae3d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
-	github.com/topxeq/goph v0.0.0-20220826070657-60e7e124b635
+	github.com/topxeq/goph v0.0.0-20221226004140-460511aa0dde
 	github.com/topxeq/imagetk v0.0.0-20200429123347-cfc2b754475d
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
@@ -40,7 +40,7 @@ require (
 	github.com/topxeq/tk v1.0.1
 	github.com/topxeq/xmlx v0.2.0
 	github.com/visualfc/pkgwalk v1.0.0
-	github.com/xuri/excelize/v2 v2.4.1
+	github.com/xuri/excelize/v2 v2.6.1
 	gonum.org/v1/netlib v0.0.0-20210302091547-ede94419cf37 // indirect
 	gonum.org/v1/plot v0.7.0
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
