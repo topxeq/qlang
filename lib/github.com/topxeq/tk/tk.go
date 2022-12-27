@@ -13,6 +13,7 @@ var Exports = map[string]interface{}{
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
 	"AdjustFloat":                         tk.AdjustFloat,
+	"ArrayContains":                       tk.ArrayContains,
 	"GetNegativeResult":                   tk.GetNegativeResult,
 	"GetMultiplyResult":                   tk.GetMultiplyResult,
 	"GetDivResult":                        tk.GetDivResult,
