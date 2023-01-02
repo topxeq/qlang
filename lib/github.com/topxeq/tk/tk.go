@@ -577,6 +577,7 @@ var Exports = map[string]interface{}{
 	"Abs":                                   tk.Abs,
 	"DealRef":                               tk.DealRef,
 	"TKX":                                   tk.TKX,
+	"AutoSeq":                               tk.AutoSeq,
 	"TXResultFromString":                    tk.TXResultFromString,
 	"TXResultFromStringE":                   tk.TXResultFromStringE,
 	"TXResultFromStringSafely":              tk.TXResultFromStringSafely,
@@ -637,7 +638,7 @@ var Exports = map[string]interface{}{
 
 	"MAX_INT": tk.MAX_INT,
 
-	"AutoSeq":      qlang.StructOf((*tk.AutoSeq)(nil)),
+	"Seq":          qlang.StructOf((*tk.Seq)(nil)),
 	"ServerInfo":   qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":  qlang.StructOf((*tk.SimpleEvent)(nil)),
 	"TK":           qlang.StructOf((*tk.TK)(nil)),
