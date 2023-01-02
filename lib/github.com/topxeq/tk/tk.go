@@ -398,6 +398,7 @@ var Exports = map[string]interface{}{
 	"NewSSHClient":                          tk.NewSSHClient,
 	"NewTK":                                 tk.NewTK,
 	"NewSyncMap":                            tk.NewSyncMap,
+	"NewSeq":                                tk.NewSeq,
 	"NilToEmptyStr":                         tk.NilToEmptyStr,
 	"NowToFileName":                         tk.NowToFileName,
 	"ReplaceHtmlByMap":                      tk.ReplaceHtmlByMap,
@@ -624,6 +625,8 @@ var Exports = map[string]interface{}{
 	"DialPop3":                              tk.DialPop3,
 	"DialPop3TLS":                           tk.DialPop3TLS,
 	"NewPop3Client":                         tk.NewPop3Client,
+	"GetSeq":                                tk.GetSeq,
+	"ResetSeq":                              tk.ResetSeq,
 
 	"GenerateQR": tk.GenerateQR,
 
@@ -634,6 +637,7 @@ var Exports = map[string]interface{}{
 
 	"MAX_INT": tk.MAX_INT,
 
+	"AutoSeq":      qlang.StructOf((*tk.AutoSeq)(nil)),
 	"ServerInfo":   qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":  qlang.StructOf((*tk.SimpleEvent)(nil)),
 	"TK":           qlang.StructOf((*tk.TK)(nil)),
