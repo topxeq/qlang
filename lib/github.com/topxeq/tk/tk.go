@@ -638,11 +638,15 @@ var Exports = map[string]interface{}{
 
 	"MAX_INT": tk.MAX_INT,
 
-	"Seq":          qlang.StructOf((*tk.Seq)(nil)),
-	"ServerInfo":   qlang.StructOf((*tk.ServerInfo)(nil)),
-	"SimpleEvent":  qlang.StructOf((*tk.SimpleEvent)(nil)),
-	"TK":           qlang.StructOf((*tk.TK)(nil)),
-	"TXCollection": qlang.StructOf((*tk.TXCollection)(nil)),
-	"TXResult":     qlang.StructOf((*tk.TXResult)(nil)),
-	"TXString":     qlang.StructOf((*tk.TXString)(nil)),
+	"Seq":              qlang.StructOf((*tk.Seq)(nil)),
+	"ServerInfo":       qlang.StructOf((*tk.ServerInfo)(nil)),
+	"SimpleEvent":      qlang.StructOf((*tk.SimpleEvent)(nil)),
+	"TK":               qlang.StructOf((*tk.TK)(nil)),
+	"TXCollection":     qlang.StructOf((*tk.TXCollection)(nil)),
+	"TXResult":         qlang.StructOf((*tk.TXResult)(nil)),
+	"TXString":         qlang.StructOf((*tk.TXString)(nil)),
+	"TXDelegate":       qlang.StructOf((*tk.TXDelegate)(nil)),
+	"CompactDelegate":  qlang.StructOf((*tk.CompactDelegate)(nil)),
+	"QuickDelegate":    qlang.StructOf((*tk.QuickDelegate)(nil)),
+	"QuickVarDelegate": qlang.StructOf((*tk.QuickVarDelegate)(nil)),
 }
