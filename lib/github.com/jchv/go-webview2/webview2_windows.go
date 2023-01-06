@@ -1,3 +1,6 @@
+//go:build windows
+// +build windows
+
 package webview2
 
 import (
