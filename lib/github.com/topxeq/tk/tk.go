@@ -26,6 +26,8 @@ var Exports = map[string]interface{}{
 	"GetLETResult":                        tk.GetLETResult,
 	"GetEQResult":                         tk.GetEQResult,
 	"GetNEQResult":                        tk.GetNEQResult,
+	"GetANDResult":                        tk.GetANDResult,
+	"GetORResult":                         tk.GetORResult,
 	"AESDecrypt":                          tk.AESDecrypt,
 	"AESEncrypt":                          tk.AESEncrypt,
 	"AddDebug":                            tk.AddDebug,
