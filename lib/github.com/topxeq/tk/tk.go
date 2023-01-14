@@ -108,7 +108,9 @@ var Exports = map[string]interface{}{
 	"DeleteItemInIntArray":         tk.DeleteItemInIntArray,
 	"DeleteItemInStringArray":      tk.DeleteItemInStringArray,
 	"DownloadBytes":                tk.DownloadBytes,
+	"DownloadBytesWithProgress":    tk.DownloadBytesWithProgress,
 	"DownloadFile":                 tk.DownloadFile,
+	"DownloadFileWithProgress":     tk.DownloadFileWithProgress,
 	"DownloadPage":                 tk.DownloadPage,
 	"DownloadPageByMap":            tk.DownloadPageByMap,
 	"DownloadPageUTF8":             tk.DownloadPageUTF8,
@@ -141,6 +143,7 @@ var Exports = map[string]interface{}{
 	"EnsureBasePath":               tk.EnsureBasePath,
 	"EnsureMakeDirs":               tk.EnsureMakeDirs,
 	"EnsureMakeDirsE":              tk.EnsureMakeDirsE,
+	"EnsureValidFileName":          tk.EnsureValidFileName,
 	"EnsureValidFileNameX":         tk.EnsureValidFileNameX,
 	"ErrStr":                       tk.ErrStr,
 	"ErrStrF":                      tk.ErrStrF,
@@ -628,6 +631,7 @@ var Exports = map[string]interface{}{
 	"DialPop3":                              tk.DialPop3,
 	"DialPop3TLS":                           tk.DialPop3TLS,
 	"NewPop3Client":                         tk.NewPop3Client,
+	"NewCountingWriter":                     tk.NewCountingWriter,
 	"GetSeq":                                tk.GetSeq,
 	"ResetSeq":                              tk.ResetSeq,
 
@@ -651,4 +655,5 @@ var Exports = map[string]interface{}{
 	"CompactDelegate":  qlang.StructOf((*tk.CompactDelegate)(nil)),
 	"QuickDelegate":    qlang.StructOf((*tk.QuickDelegate)(nil)),
 	"QuickVarDelegate": qlang.StructOf((*tk.QuickVarDelegate)(nil)),
+	"CountingWriter":   qlang.StructOf((*tk.CountingWriter)(nil)),
 }

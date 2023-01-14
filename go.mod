@@ -13,6 +13,7 @@ require (
 	github.com/eiannone/keyboard v0.0.0-20200508000154-caf4b762e807
 	github.com/fogleman/gg v1.3.0
 	github.com/golang/protobuf v1.3.2 // indirect
+	github.com/jchv/go-webview2 v0.0.0-20221223143126-dc24628cff85
 	github.com/kbinani/screenshot v0.0.0-20210326165202-b96eb3309bb0
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
@@ -31,7 +32,7 @@ require (
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/go-sciter v0.0.0-20211221081058-795e1f32ae3d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
-	github.com/topxeq/goph v0.0.0-20221230013617-12d452557b9e
+	github.com/topxeq/goph v0.0.0-20230112013348-b87b12402004
 	github.com/topxeq/imagetk v0.0.0-20200429123347-cfc2b754475d
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
