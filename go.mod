@@ -32,7 +32,7 @@ require (
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/go-sciter v0.0.0-20211221081058-795e1f32ae3d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
-	github.com/topxeq/goph v0.0.0-20230113131413-bfce71ff75e9
+	github.com/topxeq/goph v0.0.0-20230115120321-83c87d1c01f4
 	github.com/topxeq/imagetk v0.0.0-20200429123347-cfc2b754475d
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
