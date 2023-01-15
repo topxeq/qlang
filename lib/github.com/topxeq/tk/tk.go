@@ -632,6 +632,7 @@ var Exports = map[string]interface{}{
 	"DialPop3TLS":                           tk.DialPop3TLS,
 	"NewPop3Client":                         tk.NewPop3Client,
 	"NewCountingWriter":                     tk.NewCountingWriter,
+	"NewQuickObject":                        tk.NewQuickObject,
 	"GetSeq":                                tk.GetSeq,
 	"ResetSeq":                              tk.ResetSeq,
 
@@ -645,6 +646,7 @@ var Exports = map[string]interface{}{
 	"MAX_INT": tk.MAX_INT,
 
 	"Seq":              qlang.StructOf((*tk.Seq)(nil)),
+	"QuickObject":      qlang.StructOf((*tk.QuickObject)(nil)),
 	"ServerInfo":       qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":      qlang.StructOf((*tk.SimpleEvent)(nil)),
 	"TK":               qlang.StructOf((*tk.TK)(nil)),
