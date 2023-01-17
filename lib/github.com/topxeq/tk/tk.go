@@ -83,6 +83,7 @@ var Exports = map[string]interface{}{
 	"DebugModeG":                          tk.DebugModeG,
 	"ReflectCallMethod":                   tk.ReflectCallMethod,
 	"ReflectCallMethodSlice":              tk.ReflectCallMethodSlice,
+	"ReflectGetMember":                    tk.ReflectGetMember,
 
 	"DecodeFromBase64":             tk.DecodeFromBase64,
 	"FromBase64":                   tk.FromBase64,
@@ -396,6 +397,8 @@ var Exports = map[string]interface{}{
 	"NewXMLFromMSI":                         tk.NewXMLFromMSI,
 	"NewXMLFromAny":                         tk.NewXMLFromAny,
 	"NewStringRing":                         tk.NewStringRing,
+	"NewSimpleStack":                        tk.NewSimpleStack,
+	"NewSyncStack":                          tk.NewSyncStack,
 	"NewObject":                             tk.NewObject,
 	"NewRandomGenerator":                    tk.NewRandomGenerator,
 	"MSI2MSS":                               tk.MSI2MSS,
