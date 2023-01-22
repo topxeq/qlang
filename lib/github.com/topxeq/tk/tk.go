@@ -331,6 +331,7 @@ var Exports = map[string]interface{}{
 	"IntToStrX":                             tk.IntToStrX,
 	"IntToWYZ":                              tk.IntToWYZ,
 	"IsDirectory":                           tk.IsDirectory,
+	"IsUndefined":                           tk.IsUndefined,
 	"IsEmptyTrim":                           tk.IsEmptyTrim,
 	"IsErrStr":                              tk.IsErrStr,
 	"IsErrStrX":                             tk.IsErrStrX,
@@ -648,6 +649,9 @@ var Exports = map[string]interface{}{
 
 	"MAX_INT": tk.MAX_INT,
 
+	"Undefined": tk.Undefined,
+
+	"UndefinedStruct":  qlang.StructOf((*tk.UndefinedStruct)(nil)),
 	"Seq":              qlang.StructOf((*tk.Seq)(nil)),
 	"QuickObject":      qlang.StructOf((*tk.QuickObject)(nil)),
 	"ServerInfo":       qlang.StructOf((*tk.ServerInfo)(nil)),
