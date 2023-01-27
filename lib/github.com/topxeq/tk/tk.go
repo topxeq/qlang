@@ -414,6 +414,7 @@ var Exports = map[string]interface{}{
 	"NewTK":                                 tk.NewTK,
 	"NewSyncMap":                            tk.NewSyncMap,
 	"NewSeq":                                tk.NewSeq,
+	"NewCompactIterator":                    tk.NewCompactIterator,
 	"NilToEmptyStr":                         tk.NilToEmptyStr,
 	"NowToFileName":                         tk.NowToFileName,
 	"ReplaceHtmlByMap":                      tk.ReplaceHtmlByMap,
