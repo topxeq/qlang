@@ -14,6 +14,7 @@ require (
 	github.com/fogleman/gg v1.3.0
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/jchv/go-webview2 v0.0.0-20221223143126-dc24628cff85
+	// github.com/jchv/go-webview2 v0.0.0-20221223143126-dc24628cff85
 	github.com/kbinani/screenshot v0.0.0-20210326165202-b96eb3309bb0
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
