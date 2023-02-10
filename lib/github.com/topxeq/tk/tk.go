@@ -12,6 +12,10 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"Compress":                            tk.Compress,
+	"Uncompress":                          tk.Uncompress,
+	"CompressText":                        tk.CompressText,
+	"UncompressText":                      tk.UncompressText,
 	"Len":                                 tk.Len,
 	"AdjustFloat":                         tk.AdjustFloat,
 	"ArrayContains":                       tk.ArrayContains,
