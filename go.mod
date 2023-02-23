@@ -31,13 +31,14 @@ require (
 	github.com/topxeq/dialog v0.0.0-20211124003827-315c3296b533
 	github.com/topxeq/dlgs v0.0.0-20211122010615-d49596e82836
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
+	github.com/topxeq/docxrepl v0.0.0-20230223003559-0c82df798f9d
 	github.com/topxeq/go-sciter v0.0.0-20211221081058-795e1f32ae3d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
 	github.com/topxeq/goph v0.0.0-20230116054750-120b087d86fb
 	github.com/topxeq/imagetk v0.0.0-20200429123347-cfc2b754475d
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
-	github.com/topxeq/sqltk v0.0.0-20220224013714-d9d64a06d59f
+	github.com/topxeq/sqltk v0.0.0-20230223005953-f9932d23950c
 	github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928
 	github.com/topxeq/tk v1.0.1
 	github.com/topxeq/xmlx v0.2.0

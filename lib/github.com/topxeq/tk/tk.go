@@ -662,6 +662,9 @@ var Exports = map[string]interface{}{
 	"GetSeq":                                tk.GetSeq,
 	"ResetSeq":                              tk.ResetSeq,
 
+	"FormatSQLValue": tk.FormatSQLValue,
+	"ListToSQLList":  tk.ListToSQLList,
+
 	"GenerateQR": tk.GenerateQR,
 
 	"GetZip":          tk.GetZip,
