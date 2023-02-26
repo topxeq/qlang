@@ -566,6 +566,7 @@ var Exports = map[string]interface{}{
 	"Sdumpf":                                tk.Sdumpf,
 	"Dump":                                  tk.Dump,
 	"Dumpf":                                 tk.Dumpf,
+	"Listen":                                tk.Listen,
 	"StartSocksClient":                      tk.StartSocksClient,
 	"StartSocksServer":                      tk.StartSocksServer,
 	"StartTransparentProxy":                 tk.StartTransparentProxy,
