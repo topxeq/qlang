@@ -418,6 +418,7 @@ var Exports = map[string]interface{}{
 	"NewXMLFromMSI":                         tk.NewXMLFromMSI,
 	"NewXMLFromAny":                         tk.NewXMLFromAny,
 	"NewStringRing":                         tk.NewStringRing,
+	"NewByteQueue":                          tk.NewByteQueue,
 	"NewSimpleStack":                        tk.NewSimpleStack,
 	"NewSyncStack":                          tk.NewSyncStack,
 	"NewObject":                             tk.NewObject,
