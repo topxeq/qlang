@@ -12,6 +12,12 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"LockN":                               tk.LockN,
+	"UnlockN":                             tk.UnlockN,
+	"TryLockN":                            tk.TryLockN,
+	"RLockN":                              tk.RLockN,
+	"RUnlockN":                            tk.RUnlockN,
+	"TryRLockN":                           tk.TryRLockN,
 	"Compress":                            tk.Compress,
 	"Uncompress":                          tk.Uncompress,
 	"CompressText":                        tk.CompressText,
