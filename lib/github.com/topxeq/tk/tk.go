@@ -425,6 +425,7 @@ var Exports = map[string]interface{}{
 	"NewXMLFromAny":                         tk.NewXMLFromAny,
 	"NewStringRing":                         tk.NewStringRing,
 	"NewByteQueue":                          tk.NewByteQueue,
+	"NewAnyQueue":                           tk.NewAnyQueue,
 	"NewSimpleStack":                        tk.NewSimpleStack,
 	"NewSyncStack":                          tk.NewSyncStack,
 	"NewObject":                             tk.NewObject,
@@ -686,6 +687,8 @@ var Exports = map[string]interface{}{
 
 	"UndefinedStruct":  qlang.StructOf((*tk.UndefinedStruct)(nil)),
 	"Seq":              qlang.StructOf((*tk.Seq)(nil)),
+	"AnyQueue":         qlang.StructOf((*tk.AnyQueue)(nil)),
+	"ByteQueue":        qlang.StructOf((*tk.ByteQueue)(nil)),
 	"QuickObject":      qlang.StructOf((*tk.QuickObject)(nil)),
 	"ServerInfo":       qlang.StructOf((*tk.ServerInfo)(nil)),
 	"SimpleEvent":      qlang.StructOf((*tk.SimpleEvent)(nil)),
