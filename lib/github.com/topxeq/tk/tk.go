@@ -65,6 +65,7 @@ var Exports = map[string]interface{}{
 	"ByteSliceToStringDec":                tk.ByteSliceToStringDec,
 	"ByteToHex":                           tk.ByteToHex,
 	"BytesToHex":                          tk.BytesToHex,
+	"BytesToHexX":                         tk.BytesToHexX,
 	"CalCosineSimilarityBetweenFloatsBig": tk.CalCosineSimilarityBetweenFloatsBig,
 	"CheckErr":                            tk.CheckErr,
 	"CheckErrX":                           tk.CheckErrX,
