@@ -604,6 +604,7 @@ var Exports = map[string]interface{}{
 	"StrToHex":                              tk.StrToHex,
 	"ToHex":                                 tk.ToHex,
 	"ToByte":                                tk.ToByte,
+	"ToPinYin":                              tk.ToPinYin,
 	"GetChar":                               tk.GetChar,
 	"GetChar2":                              tk.GetChar2,
 	"GetSystemEndian":                       tk.GetSystemEndian,
