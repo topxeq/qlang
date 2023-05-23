@@ -13,6 +13,7 @@ var Exports = map[string]interface{}{
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
 	"LockN":                               tk.LockN,
+	"IsHttps":                             tk.IsHttps,
 	"UnlockN":                             tk.UnlockN,
 	"TryLockN":                            tk.TryLockN,
 	"RLockN":                              tk.RLockN,
