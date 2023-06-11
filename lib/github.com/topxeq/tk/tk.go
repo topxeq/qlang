@@ -12,6 +12,8 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"Max":                                 tk.Max,
+	"Min":                                 tk.Min,
 	"Ceil":                                tk.Ceil,
 	"Floor":                               tk.Floor,
 	"Round":                               tk.Round,

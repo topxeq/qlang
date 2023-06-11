@@ -25,7 +25,6 @@ func init() {
 // -----------------------------------------------------------------------------
 
 // Exports is the export table of this module.
-//
 var Exports = map[string]interface{}{
 	"_name":     "math",
 	"abs":       math.Abs,
@@ -61,6 +60,8 @@ var Exports = map[string]interface{}{
 	"log1p":     math.Log1p,
 	"log2":      math.Log2,
 	"logb":      math.Logb,
+	"max":       math.Max,
+	"min":       math.Min,
 	"mod":       mod,
 	"nextafter": math.Nextafter,
 	"pow":       math.Pow,
