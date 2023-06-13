@@ -110,6 +110,8 @@ var Exports = map[string]interface{}{
 	"Log1p":     math.Log1p,
 	"Log2":      math.Log2,
 	"Logb":      math.Logb,
+	"Max":       math.Max,
+	"Min":       math.Min,
 	"Mod":       mod,
 	"Nextafter": math.Nextafter,
 	"Pow":       math.Pow,
