@@ -17,13 +17,11 @@ import (
 // type Stack
 
 // A Stack represents a FILO container.
-//
 type Stack struct {
 	Data []interface{}
 }
 
 // NewStack returns a new Stack.
-//
 func NewStack() *Stack {
 
 	data := make([]interface{}, 0, 16)
@@ -41,14 +39,12 @@ func (v Stack) String() string {
 }
 
 // Push pushs a value into this stack.
-//
 func (p *Stack) Push(v interface{}) {
 
 	p.Data = append(p.Data, v)
 }
 
 // Top returns the last pushed value, if it exists.
-//
 func (p *Stack) Top() (v interface{}, ok bool) {
 
 	n := len(p.Data)
@@ -59,7 +55,6 @@ func (p *Stack) Top() (v interface{}, ok bool) {
 }
 
 // Pop pops a value from this stack.
-//
 func (p *Stack) Pop() (v interface{}, ok bool) {
 
 	n := len(p.Data)
@@ -71,7 +66,6 @@ func (p *Stack) Pop() (v interface{}, ok bool) {
 }
 
 // PushRet pushs a function call result.
-//
 func (p *Stack) PushRet(ret []reflect.Value) error {
 
 	switch len(ret) {
@@ -90,7 +84,6 @@ func (p *Stack) PushRet(ret []reflect.Value) error {
 }
 
 // PopArgs pops arguments of a function call.
-//
 func (p *Stack) PopArgs(arity int) (args []reflect.Value, ok bool) {
 
 	pstk := p.Data
@@ -107,7 +100,6 @@ func (p *Stack) PopArgs(arity int) (args []reflect.Value, ok bool) {
 }
 
 // PopNArgs pops arguments of a function call.
-//
 func (p *Stack) PopNArgs(arity int) []interface{} {
 
 	pstk := p.Data
@@ -125,7 +117,6 @@ func (p *Stack) PopNArgs(arity int) []interface{} {
 }
 
 // PopFnArgs pops argument names of a function call.
-//
 func (p *Stack) PopFnArgs(arity int) []string {
 
 	ok := false
@@ -146,14 +137,12 @@ func (p *Stack) PopFnArgs(arity int) []string {
 }
 
 // BaseFrame returns current stack size.
-//
 func (p *Stack) BaseFrame() int {
 
 	return len(p.Data)
 }
 
 // SetFrame sets stack to new size.
-//
 func (p *Stack) SetFrame(n int) {
 
 	p.Data = p.Data[:n]
@@ -177,7 +166,6 @@ func (v variables) String() string {
 }
 
 // initVars initializes the variable table.
-//
 func (p *variables) initVars(symtbl map[string]int) {
 
 	n := len(symtbl)
@@ -194,7 +182,6 @@ func (p *variables) initVars(symtbl map[string]int) {
 }
 
 // ResizeVars is reserved for internal use.
-//
 func (p *variables) ResizeVars() {
 
 	vars := p.vars
@@ -220,14 +207,12 @@ func (p *variables) ResizeVars() {
 }
 
 // Vars is deprecated. please use `CopyVars` method.
-//
 func (p *variables) Vars() []interface{} {
 
 	return p.vars
 }
 
 // CopyVars copies and returns all variables.
-//
 func (p *variables) CopyVars() map[string]interface{} {
 
 	vars := make(map[string]interface{})
@@ -249,7 +234,6 @@ func (p *variables) VarsInfo() string {
 }
 
 // ResetVars resets all variables.
-//
 func (p *variables) ResetVars(vars map[string]interface{}) {
 
 	for k, name := range p.symtbl {
@@ -265,7 +249,6 @@ func (p *variables) ResetVars(vars map[string]interface{}) {
 }
 
 // Var returns a variable value.
-//
 func (p *variables) Var(name string) interface{} {
 
 	if k, ok := p.symtbl[name]; ok {
@@ -275,7 +258,6 @@ func (p *variables) Var(name string) interface{} {
 }
 
 // GetVar returns a variable value.
-//
 func (p *variables) GetVar(name string) (v interface{}, ok bool) {
 
 	if k, ok := p.symtbl[name]; ok {
@@ -285,8 +267,8 @@ func (p *variables) GetVar(name string) (v interface{}, ok bool) {
 }
 
 func (p *variables) GetVarWithIndex(name string) (v interface{}, idx int, ok bool) {
-
 	if k, ok := p.symtbl[name]; ok {
+		// fmt.Printf("\nname: %v, k: %v, ok: %v, p.symtbl: %v, p.vars: %v\n", name, k, ok, p.symtbl, p.vars)
 		return p.vars[k], k, true
 	}
 	return qlang.Undefined, -1, false
@@ -301,7 +283,6 @@ func (p *variables) GetVarName(name int) string {
 }
 
 // SetVar sets a variable value.
-//
 func (p *variables) SetVar(name string, v interface{}) {
 
 	k, ok := p.symtbl[name]
@@ -317,7 +298,6 @@ func (p *variables) SetVar(name string, v interface{}) {
 }
 
 // UnsetVar deletes a variable.
-//
 func (p *variables) UnsetVar(name string) {
 
 	if k, ok := p.symtbl[name]; ok {
@@ -326,21 +306,18 @@ func (p *variables) UnsetVar(name string) {
 }
 
 // FastGetVar returns a variable value.
-//
 func (p *variables) FastGetVar(name int) interface{} {
 
 	return p.vars[name]
 }
 
 // FastRefVar returns a variable address.
-//
 func (p *variables) FastRefVar(name int) *interface{} {
 
 	return &p.vars[name]
 }
 
 // FastSetVar sets a variable value.
-//
 func (p *variables) FastSetVar(name int, v interface{}) {
 
 	p.vars[name] = v
@@ -356,7 +333,6 @@ type theDefer struct {
 }
 
 // A Context represents the context of an executor.
-//
 type Context struct {
 	variables
 	Stack  *Stack
@@ -383,7 +359,6 @@ type Context struct {
 // }
 
 // NewContextEx returns a new context of an executor.
-//
 func NewContextEx(symtbl map[string]int) *Context {
 
 	mods := make(map[string]*importMod)
@@ -396,7 +371,6 @@ func NewContextEx(symtbl map[string]int) *Context {
 }
 
 // Exports returns a module exports.
-//
 func (p *Context) Exports() map[string]interface{} {
 
 	export := make(map[string]interface{}, len(p.export))
@@ -407,7 +381,6 @@ func (p *Context) Exports() map[string]interface{} {
 }
 
 // ExecBlock executes an anonym function.
-//
 func (p *Context) ExecBlock(ip, ipEnd int, symtbl map[string]int) {
 
 	mod := NewFunction(nil, ip, ipEnd, symtbl, nil, false)
@@ -415,7 +388,6 @@ func (p *Context) ExecBlock(ip, ipEnd int, symtbl map[string]int) {
 }
 
 // ExecDefers executes defer blocks.
-//
 func (p *Context) ExecDefers() {
 
 	d := p.defers
@@ -438,7 +410,6 @@ func (p *Context) ExecDefers() {
 // -----------------------------------------------------------------------------
 
 // A Error represents a qlang runtime error.
-//
 type Error struct {
 	Err   error
 	File  string
@@ -468,7 +439,6 @@ func (p *Error) Error() string {
 // type Code
 
 // A Instr represents a instruction of the executor.
-//
 type Instr interface {
 	Exec(stk *Stack, ctx *Context)
 }
@@ -478,7 +448,6 @@ type Instr interface {
 // }
 
 // RefToVar converts a value reference instruction into a assignable variable instruction.
-//
 type RefToVar interface {
 	ToVar() Instr
 }
@@ -498,7 +467,6 @@ func (v IpFileLine) String() string {
 }
 
 // A Code represents generated instructions to execute.
-//
 type Code struct {
 	Data  []Instr
 	Lines []*IpFileLine // ip => (file,line)
@@ -534,27 +502,23 @@ func (p *Code) GetCurrentLine(idxA int) int {
 }
 
 // A ReservedInstr represents a reserved instruction to be assigned.
-//
 type ReservedInstr struct {
 	Code *Code
 	Idx  int
 }
 
 // New returns a new Code object.
-//
 func New(data ...Instr) *Code {
 
 	return &Code{data, nil, (os.Getenv("GOXDEBUG") == "true") || (os.Getenv("GOXVERBOSE") == "true")}
 }
 
 // CodeLine informs current file and line.
-//
 func (p *Code) CodeLine(file string, line int) {
 	p.Lines = append(p.Lines, &IpFileLine{Ip: len(p.Data), File: file, Line: line})
 }
 
 // Line returns file line of a instruction position.
-//
 func (p *Code) Line(ip int) (file string, line int) {
 
 	idx := sort.Search(len(p.Lines), func(i int) bool {
@@ -568,14 +532,12 @@ func (p *Code) Line(ip int) (file string, line int) {
 }
 
 // Len returns code length.
-//
 func (p *Code) Len() int {
 
 	return len(p.Data)
 }
 
 // Reserve reserves an instruction and returns it.
-//
 func (p *Code) Reserve() ReservedInstr {
 
 	idx := len(p.Data)
@@ -584,28 +546,24 @@ func (p *Code) Reserve() ReservedInstr {
 }
 
 // Set sets a reserved instruction.
-//
 func (p ReservedInstr) Set(code Instr) {
 
 	p.Code.Data[p.Idx] = code
 }
 
 // Next returns next instruction position.
-//
 func (p ReservedInstr) Next() int {
 
 	return p.Idx + 1
 }
 
 // Delta returns distance from b to p.
-//
 func (p ReservedInstr) Delta(b ReservedInstr) int {
 
 	return p.Idx - b.Idx
 }
 
 // CheckConst returns the value, if code[ip] is a const instruction.
-//
 func (p *Code) CheckConst(ip int) (v interface{}, ok bool) {
 
 	if instr, ok := p.Data[ip].(*IPush); ok {
@@ -633,7 +591,6 @@ func appendInstrOptimized(data []Instr, instr Instr, arity int) []Instr {
 }
 
 // Block appends some instructions to code.
-//
 func (p *Code) Block(code ...Instr) int {
 
 	for _, instr := range code {
@@ -648,7 +605,6 @@ func (p *Code) Block(code ...Instr) int {
 }
 
 // ToVar converts the last instruction from ref to var.
-//
 func (p *Code) ToVar() {
 
 	data := p.Data
@@ -670,7 +626,6 @@ func (p *Code) ToVar() {
 // }
 
 // Exec executes a code block from ip to ipEnd.
-//
 var codeRingG *tk.StringRing = nil
 
 var errDumpedG = false
@@ -789,7 +744,6 @@ func (p *Code) Exec(ip, ipEnd int, stk *Stack, ctx *Context) {
 }
 
 // Dump dumps code instructions within a range.
-//
 func (p *Code) Dump(ranges ...int) {
 
 	start := 0
