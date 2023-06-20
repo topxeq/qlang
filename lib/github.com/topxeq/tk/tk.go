@@ -12,6 +12,10 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	// "BluetoothDiscoverDevice":             tk.BluetoothDiscoverDevice,
+	"GetNowTimeStamp":                     tk.GetNowTick,
+	"GetNowTick":                          tk.GetNowTick,
+	"GetNowTickNano":                      tk.GetNowTickNano,
 	"Max":                                 tk.Max,
 	"Min":                                 tk.Min,
 	"Ceil":                                tk.Ceil,

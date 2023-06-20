@@ -17,12 +17,11 @@ require (
 	// github.com/jchv/go-webview2 v0.0.0-20221223143126-dc24628cff85
 	github.com/kbinani/screenshot v0.0.0-20210326165202-b96eb3309bb0
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
-	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/nsf/termbox-go v1.1.1
 	github.com/peterh/liner v1.2.1
 	github.com/pterm/pterm v0.12.12
 	github.com/smartystreets/goconvey v1.6.4 // indirect
-	github.com/stretchr/objx v0.1.1
+	github.com/stretchr/objx v0.4.0
 	github.com/tinylib/msgp v1.1.5 // indirect
 	github.com/topxeq/afero v0.0.0-20200914073911-38c8390e9ef4
 	github.com/topxeq/awsapi v0.0.0-20191115074250-1192cb0fdb97
@@ -45,7 +44,6 @@ require (
 	github.com/visualfc/pkgwalk v1.0.0
 	github.com/xuri/excelize/v2 v2.6.1
 	gonum.org/v1/plot v0.12.0
-	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 )
 
 // replace github.com/topxeq/text v0.0.0 => ../text
