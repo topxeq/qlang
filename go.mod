@@ -20,6 +20,7 @@ require (
 	github.com/nsf/termbox-go v1.1.1
 	github.com/peterh/liner v1.2.1
 	github.com/pterm/pterm v0.12.12
+	github.com/sciter-sdk/go-sciter v0.5.1-0.20210426171118-f5212dff3ad8
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/stretchr/objx v0.4.0
 	github.com/tinylib/msgp v1.1.5 // indirect
@@ -31,7 +32,6 @@ require (
 	github.com/topxeq/dlgs v0.0.0-20211122010615-d49596e82836
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/docxrepl v0.0.0-20230223003559-0c82df798f9d
-	github.com/topxeq/go-sciter v0.0.0-20211221081058-795e1f32ae3d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
 	github.com/topxeq/goph v0.0.0-20230116054750-120b087d86fb
 	github.com/topxeq/imagetk v0.0.0-20230306082727-9b06565a8b58

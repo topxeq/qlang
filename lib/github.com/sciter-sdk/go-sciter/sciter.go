@@ -1,7 +1,7 @@
 package sciter
 
 import (
-	"github.com/topxeq/go-sciter"
+	"github.com/sciter-sdk/go-sciter"
 
 	qlang "github.com/topxeq/qlang/spec"
 )
@@ -9,7 +9,7 @@ import (
 // Exports is the export table of this module.
 //
 var Exports = map[string]interface{}{
-	"_name": "github.com/topxeq/go-sciter",
+	"_name": "github.com/sciter-sdk/go-sciter",
 
 	"ACTIVATE_CHILD":               sciter.ACTIVATE_CHILD,
 	"ALLOW_EVAL":                   sciter.ALLOW_EVAL,
