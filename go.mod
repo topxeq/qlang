@@ -20,7 +20,6 @@ require (
 	github.com/nsf/termbox-go v1.1.1
 	github.com/peterh/liner v1.2.1
 	github.com/pterm/pterm v0.12.12
-	github.com/sciter-sdk/go-sciter v0.5.1-0.20210426171118-f5212dff3ad8
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/stretchr/objx v0.4.0
 	github.com/tinylib/msgp v1.1.5 // indirect
