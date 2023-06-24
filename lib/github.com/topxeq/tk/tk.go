@@ -12,6 +12,10 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"GetTimeStampNanoInt":  tk.GetTimeStampNanoInt,
+	"TimeStampMilliToTime": tk.TimeStampMilliToTime,
+	"TimeStampNanoToTime":  tk.TimeStampNanoToTime,
+	"TimeStampToTime":      tk.TimeStampToTime,
 	// "BluetoothDiscoverDevice":             tk.BluetoothDiscoverDevice,
 	"GetNowTimeStamp":                     tk.GetNowTick,
 	"GetNowTick":                          tk.GetNowTick,

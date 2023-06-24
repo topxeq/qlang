@@ -7,7 +7,6 @@ import (
 )
 
 // Exports is the export table of this module.
-//
 var Exports = map[string]interface{}{
 	"_name": "time",
 
@@ -73,6 +72,8 @@ var Exports = map[string]interface{}{
 	"uniUnixx":               time.Unix,
 	"unix":                   time.Unix,
 	"Unix":                   time.Unix,
+	"UnixMilli":              time.UnixMilli,
+	"UnixMicro":              time.UnixMicro,
 	"NewTimer":               time.NewTimer,
 	"AfterFunc":              time.AfterFunc,
 }
