@@ -12,6 +12,7 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"FlexEval":             tk.FlexEval,
 	"GetTimeStampNanoInt":  tk.GetTimeStampNanoInt,
 	"TimeStampMilliToTime": tk.TimeStampMilliToTime,
 	"TimeStampNanoToTime":  tk.TimeStampNanoToTime,
