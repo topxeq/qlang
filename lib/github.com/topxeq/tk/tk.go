@@ -12,6 +12,9 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"Close":                tk.Close,
+	"ReadAllString":        tk.ReadAllString,
+	"FromJSONX":            tk.FromJSONX,
 	"NewIntSumBuffer":      tk.NewIntSumBuffer,
 	"FlexEval":             tk.FlexEval,
 	"FlexEvalMap":          tk.FlexEvalMap,
