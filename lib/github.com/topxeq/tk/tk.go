@@ -472,6 +472,7 @@ var Exports = map[string]interface{}{
 	"ObjectToJSONIndent":                    tk.ObjectToJSONIndent,
 	"PadString":                             tk.PadString,
 	"ParseCommandLine":                      tk.ParseCommandLine,
+	"ParseCommandLineCompact":               tk.ParseCommandLineCompact,
 	"ParseHexColor":                         tk.ParseHexColor,
 	"Pass":                                  tk.Pass,
 	"PickRandomItem":                        tk.PickRandomItem,
