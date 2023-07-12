@@ -21,7 +21,7 @@ require (
 	github.com/peterh/liner v1.2.1
 	github.com/pterm/pterm v0.12.12
 	github.com/smartystreets/goconvey v1.6.4 // indirect
-	github.com/stretchr/objx v0.4.0
+	github.com/stretchr/objx v0.5.0
 	github.com/tinylib/msgp v1.1.5 // indirect
 	github.com/topxeq/afero v0.0.0-20200914073911-38c8390e9ef4
 	github.com/topxeq/awsapi v0.0.0-20191115074250-1192cb0fdb97

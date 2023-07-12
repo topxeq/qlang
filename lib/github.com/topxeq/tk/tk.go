@@ -455,6 +455,7 @@ var Exports = map[string]interface{}{
 	"NewObject":                             tk.NewObject,
 	"NewRandomGenerator":                    tk.NewRandomGenerator,
 	"AnyArrayToStringArray":                 tk.AnyArrayToStringArray,
+	"StringArrayToAnyArray":                 tk.StringArrayToAnyArray,
 	"MSI2MSS":                               tk.MSI2MSS,
 	"MSS2MSI":                               tk.MSS2MSI,
 	"NewSSHClient":                          tk.NewSSHClient,
