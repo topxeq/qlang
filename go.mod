@@ -36,7 +36,7 @@ require (
 	github.com/topxeq/imagetk v0.0.0-20230306082727-9b06565a8b58
 	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
 	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
-	github.com/topxeq/sqltk v0.0.0-20230223005953-f9932d23950c
+	github.com/topxeq/sqltk v0.0.0-20230713014122-1cfca57c0814
 	github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928
 	github.com/topxeq/tk v1.0.1
 	github.com/topxeq/xmlx v0.2.0
