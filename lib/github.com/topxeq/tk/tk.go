@@ -12,6 +12,10 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"RecordsToMapArray":    tk.RecordsToMapArray,
+	"AlipaySignString":     tk.AlipaySignString,
+	"SignRSAWithSHA256":    tk.SignRSAWithSHA256,
+	"WeixinPaySignString":  tk.WeixinPaySignString,
 	"Close":                tk.Close,
 	"ReadAllString":        tk.ReadAllString,
 	"FromJSONX":            tk.FromJSONX,
@@ -290,6 +294,7 @@ var Exports = map[string]interface{}{
 	"GetMSSArrayFromXML":                    tk.GetMSSArrayFromXML,
 	"GetMSSFromXML":                         tk.GetMSSFromXML,
 	"GetNodeStringFromXML":                  tk.GetNodeStringFromXML,
+	"GetNowDateStringFormal":                tk.GetNowDateStringFormal,
 	"GetNowDateString":                      tk.GetNowDateString,
 	"GetNowMinutesInDay":                    tk.GetNowMinutesInDay,
 	"GetNowTimeOnlyStringBeijing":           tk.GetNowTimeOnlyStringBeijing,
@@ -613,6 +618,7 @@ var Exports = map[string]interface{}{
 	"StartsWithIgnoreCase":                  tk.StartsWithIgnoreCase,
 	"StartsWithUpper":                       tk.StartsWithUpper,
 	"StrToBool":                             tk.StrToBool,
+	"StrToBytes":                            tk.StrToBytes,
 	"ToBool":                                tk.ToBool,
 	"StrToFloat64":                          tk.StrToFloat64,
 	"StrToFloat64E":                         tk.StrToFloat64E,
