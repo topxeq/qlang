@@ -12,6 +12,12 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"NewTXResult":          tk.NewTXResult,
+	"NewTXResultFromWrap":  tk.NewTXResultFromWrap,
+	"NewTXResultFromJSON":  tk.NewTXResultFromJSON,
+	"NewTXResultFromWrapX": tk.NewTXResultFromWrapX,
+	"NewTXResultFromJSONX": tk.NewTXResultFromJSONX,
+	"Resultf":              tk.Resultf,
 	"RecordsToMapArray":    tk.RecordsToMapArray,
 	"AlipaySignString":     tk.AlipaySignString,
 	"SignRSAWithSHA256":    tk.SignRSAWithSHA256,
