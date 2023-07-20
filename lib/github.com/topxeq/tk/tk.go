@@ -12,6 +12,9 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"ReverseStringSlice":   tk.ReverseStringSlice,
+	"SetMapItem":           tk.SetMapItem,
+	"GetMapKeys":           tk.GetMapKeys,
 	"NewTXResult":          tk.NewTXResult,
 	"NewTXResultFromWrap":  tk.NewTXResultFromWrap,
 	"NewTXResultFromJSON":  tk.NewTXResultFromJSON,
@@ -457,6 +460,7 @@ var Exports = map[string]interface{}{
 	"MSSFromJSON":                           tk.MSSFromJSON,
 	"RenderMarkdown":                        tk.RenderMarkdown,
 	"NewOrderedMap":                         tk.NewOrderedMap,
+	"ToOrderedMap":                          tk.ToOrderedMap,
 	"NewXMLFromMSI":                         tk.NewXMLFromMSI,
 	"NewXMLFromAny":                         tk.NewXMLFromAny,
 	"NewStringRing":                         tk.NewStringRing,
