@@ -34,12 +34,12 @@ require (
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
 	github.com/topxeq/goph v0.0.0-20230116054750-120b087d86fb
 	github.com/topxeq/imagetk v0.0.0-20230306082727-9b06565a8b58
-	github.com/topxeq/regexpx v0.0.0-20200814082553-4bffc7d07029
-	github.com/topxeq/socks v0.0.0-20200812112322-24acb126b5f3
+	github.com/topxeq/regexpx v0.0.0-20230721063247-f118dbe089d7
+	github.com/topxeq/socks v0.0.0-20230721063359-4740c5e460e9
 	github.com/topxeq/sqltk v0.0.0
 	github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928
-	github.com/topxeq/tk v1.0.1
-	github.com/topxeq/xmlx v0.2.0
+	github.com/topxeq/tk v1.0.6
+	github.com/topxeq/xmlx v0.3.0
 	github.com/visualfc/pkgwalk v1.0.0
 	github.com/xuri/excelize/v2 v2.6.1
 	gonum.org/v1/plot v0.12.0
@@ -47,7 +47,7 @@ require (
 
 // replace github.com/topxeq/text v0.0.0 => ../text
 
-replace github.com/topxeq/tk v1.0.1 => ../tk
+replace github.com/topxeq/tk v1.0.6 => ../tk
 
 replace github.com/topxeq/sqltk v0.0.0 => ../sqltk
 
