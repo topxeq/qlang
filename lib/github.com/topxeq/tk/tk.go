@@ -12,6 +12,8 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"ReflectCallFuncQuick":         tk.ReflectCallFuncQuick,
+	"ReflectCallMethodQuick":       tk.ReflectCallMethodQuick,
 	"ReverseStringSlice":           tk.ReverseStringSlice,
 	"SetMapItem":                   tk.SetMapItem,
 	"GetMapKeys":                   tk.GetMapKeys,
