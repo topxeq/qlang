@@ -320,6 +320,7 @@ var Exports = map[string]interface{}{
 	"GetOSArgs":                             tk.GetOSArgs,
 	"GetOSArgsShort":                        tk.GetOSArgsShort,
 	"GetOSName":                             tk.GetOSName,
+	"GetOSArch":                             tk.GetOSArch,
 	"GetParam":                              tk.GetParam,
 	"GetParamI":                             tk.GetParamI,
 	"GetParameter":                          tk.GetParameter,
