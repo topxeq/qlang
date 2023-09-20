@@ -522,6 +522,7 @@ var Exports = map[string]interface{}{
 	"Plvs":                                  tk.Plvs,
 	"Plvsr":                                 tk.Plvsr,
 	"Plvx":                                  tk.Plvx,
+	"Plt":                                   tk.Plt,
 	"Plo":                                   tk.Plo,
 	"Plos":                                  tk.Plos,
 	"Plosr":                                 tk.Plosr,
