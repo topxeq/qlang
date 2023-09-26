@@ -180,6 +180,8 @@ var Exports = map[string]interface{}{
 	"DownloadWebPage":              tk.DownloadWebPage,
 	"DownloadWebPageX":             tk.DownloadWebPageX,
 	"GetWeb":                       tk.GetWeb,
+	"GetWebHead":                   tk.GetWebHead,
+	"UrlExists":                    tk.UrlExists,
 	"DownloadWebBytes":             tk.DownloadWebBytes,
 	"URIToPath":                    tk.URIToPath,
 	"PathToURI":                    tk.PathToURI,
