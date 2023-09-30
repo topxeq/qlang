@@ -12,6 +12,7 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	// "FindFirstDiffPosInStrs":       tk.FindFirstDiffPosInStrs,
 	"RegQuote":                     tk.RegQuote,
 	"ReflectHasMethod":             tk.ReflectHasMethod,
 	"ReflectCallMethodCompact":     tk.ReflectCallMethodCompact,
