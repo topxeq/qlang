@@ -12,6 +12,7 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"NewStaticWebHandler": tk.NewStaticWebHandler,
 	// "FindFirstDiffPosInStrs":       tk.FindFirstDiffPosInStrs,
 	"RegQuote":                     tk.RegQuote,
 	"ReflectHasMethod":             tk.ReflectHasMethod,
@@ -281,6 +282,7 @@ var Exports = map[string]interface{}{
 	"GetCurrentDir":                         tk.GetCurrentDir,
 	"SetCurrentDir":                         tk.SetCurrentDir,
 	"GetHomeDir":                            tk.GetHomeDir,
+	"GetTempDir":                            tk.GetTempDir,
 	"GetCurrentThreadID":                    tk.GetCurrentThreadID,
 	"GetDBConnection":                       tk.GetDBConnection,
 	"GetDBResultArray":                      tk.GetDBResultArray,
