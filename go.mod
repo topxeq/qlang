@@ -41,7 +41,7 @@ require (
 	github.com/topxeq/tk v1.0.6
 	github.com/topxeq/xmlx v0.3.0
 	github.com/visualfc/pkgwalk v1.0.0
-	github.com/xuri/excelize/v2 v2.6.1
+	github.com/xuri/excelize/v2 v2.8.0
 	gonum.org/v1/plot v0.12.0
 )
 
