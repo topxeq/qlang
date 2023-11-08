@@ -273,8 +273,17 @@ var Exports = map[string]interface{}{
 	"NewFile":           excelize.NewFile,
 	"OpenFile":          excelize.OpenFile,
 	"OpenReader":        excelize.OpenReader,
-	"Fill":              qlang.StructOf((*excelize.Fill)(nil)),
-	"Font":              qlang.StructOf((*excelize.Font)(nil)),
+	"AddPictureFromBytesEd": func(fileA *excelize.File, sheetNameA string, cellA string, fileNameA string, fileExtA string, bytesA []byte) error {
+		err := fileA.AddPictureFromBytes(sheetNameA, cellA, &excelize.Picture{
+			Extension: fileExtA,
+			File:      bytesA,
+			Format:    &excelize.GraphicOptions{AltText: "Excel Logo"},
+		})
+
+		return err
+	},
+	"Fill": qlang.StructOf((*excelize.Fill)(nil)),
+	"Font": qlang.StructOf((*excelize.Font)(nil)),
 	// "FormatHeaderFooter":         qlang.StructOf((*excelize.FormatHeaderFooter)(nil)),
 	// "FormatPageMargins":          qlang.StructOf((*excelize.FormatPageMargins)(nil)),
 	// "FormatSheetProtection":      qlang.StructOf((*excelize.FormatSheetProtection)(nil)),
@@ -285,6 +294,8 @@ var Exports = map[string]interface{}{
 	"KeyEncryptor":    qlang.StructOf((*excelize.KeyEncryptor)(nil)),
 	"KeyEncryptors":   qlang.StructOf((*excelize.KeyEncryptors)(nil)),
 	"Options":         qlang.StructOf((*excelize.Options)(nil)),
+	"GraphicOptions":  qlang.StructOf((*excelize.GraphicOptions)(nil)),
+	"Picture":         qlang.StructOf((*excelize.Picture)(nil)),
 	"PivotTableField": qlang.StructOf((*excelize.PivotTableField)(nil)),
 	"Protection":      qlang.StructOf((*excelize.Protection)(nil)),
 	"RichTextRun":     qlang.StructOf((*excelize.RichTextRun)(nil)),
