@@ -578,6 +578,7 @@ var Exports = map[string]interface{}{
 	"RegFindFirstGroupsIndexX":              tk.RegFindFirstGroupsIndexX,
 	"RegFindFirstGroupIndexX":               tk.RegFindFirstGroupIndexX,
 	"RegFindAllIndexX":                      tk.RegFindAllIndexX,
+	"RegFindAllByGroupIndexX":               tk.RegFindAllByGroupIndexX,
 	"RegFindFirstTX":                        tk.RegFindFirstTX,
 	"RegFindFirstX":                         tk.RegFindFirstX,
 	"RegMatch":                              tk.RegMatch,
