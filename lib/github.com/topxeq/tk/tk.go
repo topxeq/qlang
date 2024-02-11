@@ -12,10 +12,13 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"ImageToAscii":        tk.ImageToAscii,
 	"CenterEnlargeImage":  tk.CenterEnlargeImage,
 	"NewImage":            tk.NewImage,
 	"ResizeImage":         tk.ResizeImage,
 	"ResizeImageX":        tk.ResizeImageX,
+	"ResizeImageQuick":    tk.ResizeImageQuick,
+	"LoadImageFromFile":   tk.LoadImageFromFile,
 	"LoadImageFromBytes":  tk.LoadImageFromBytes,
 	"ThumbImage":          tk.ThumbImage,
 	"BytesStartsWith":     tk.BytesStartsWith,
