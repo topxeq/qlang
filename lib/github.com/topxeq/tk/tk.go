@@ -20,6 +20,8 @@ var Exports = map[string]interface{}{
 	"ResizeImageQuick":    tk.ResizeImageQuick,
 	"LoadImageFromFile":   tk.LoadImageFromFile,
 	"LoadImageFromBytes":  tk.LoadImageFromBytes,
+	"SaveImageToFile":     tk.SaveImageToFile,
+	"SaveImageToBytes":    tk.SaveImageToBytes,
 	"ThumbImage":          tk.ThumbImage,
 	"BytesStartsWith":     tk.BytesStartsWith,
 	"BytesEndsWith":       tk.BytesEndsWith,
