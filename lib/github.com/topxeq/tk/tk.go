@@ -12,6 +12,9 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"GetTextSimilarity":        tk.GetTextSimilarity,
+	"SimilarText":              tk.SimilarText,
+	"CalTextSimilarity":        tk.CalTextSimilarity,
 	"IsStringEncryptedByTXDEF": tk.IsStringEncryptedByTXDEF,
 	"IsDataEncryptedByTXDEF":   tk.IsDataEncryptedByTXDEF,
 	"ImageToAscii":             tk.ImageToAscii,
