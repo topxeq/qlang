@@ -121,7 +121,6 @@ var Exports = map[string]interface{}{
 	"ExtURIIgnoredErrors":                          excelize.ExtURIIgnoredErrors,
 	"ExtURIMacExcelMX":                             excelize.ExtURIMacExcelMX,
 	"ExtURIProtectedRanges":                        excelize.ExtURIProtectedRanges,
-	"ExtURISlicerCachesListX14":                    excelize.ExtURISlicerCachesListX14,
 	"ExtURISlicerListX14":                          excelize.ExtURISlicerListX14,
 	"ExtURISlicerListX15":                          excelize.ExtURISlicerListX15,
 	"ExtURISparklineGroups":                        excelize.ExtURISparklineGroups,
