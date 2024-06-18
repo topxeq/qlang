@@ -1,14 +1,14 @@
 package tk
 
 import (
-	"github.com/topxeq/tk"
+	tk "github.com/topxeq/tkc"
 
 	qlang "github.com/topxeq/qlang/spec"
 )
 
 // Exports is the export table of this module.
 var Exports = map[string]interface{}{
-	"_name": "github.com/topxeq/tk",
+	"_name": "github.com/topxeq/tkc",
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 

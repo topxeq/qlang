@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	qlang "github.com/topxeq/qlang/spec"
-	"github.com/topxeq/tk"
+	tk "github.com/topxeq/tkc"
 )
 
 // -----------------------------------------------------------------------------

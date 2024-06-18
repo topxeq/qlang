@@ -1,20 +1,21 @@
 package qlang
 
 import (
+	"bufio"
+	"encoding/json"
 	"errors"
 	"fmt"
+	"os"
 	"reflect"
 
 	"github.com/topxeq/qlang/exec"
 	"github.com/topxeq/text/tpl/interpreter"
-	"github.com/topxeq/tk"
 
 	qcl "github.com/topxeq/qlang/cl"
 	qlang "github.com/topxeq/qlang/spec"
 )
 
 // Options represent interpreter options.
-//
 type Options interpreter.Options
 
 var (
@@ -23,31 +24,28 @@ var (
 )
 
 // SetReadFile sets the `ReadFile` function.
-//
 func SetReadFile(fn func(file string) ([]byte, error)) {
 
 	qcl.ReadFile = fn
 }
 
 // SetFindEntry sets the `FindEntry` function.
-//
 func SetFindEntry(fn func(file string, libs []string) (string, error)) {
 
 	qcl.FindEntry = fn
 }
 
 // SetOnPop sets OnPop callback.
-//
 func SetOnPop(fn func(v interface{})) {
 
 	exec.OnPop = fn
 }
 
 // SetDumpCode sets dump code mode:
+//
 //	"1" - dump code with rem instruction.
 //	"2" - dump code without rem instruction.
 //	else - don't dump code.
-//
 func SetDumpCode(dumpCode string) {
 
 	switch dumpCode {
@@ -61,7 +59,6 @@ func SetDumpCode(dumpCode string) {
 }
 
 // Debug sets dump code mode to "1" for debug.
-//
 func Debug(fn func()) {
 
 	SetDumpCode("1")
@@ -72,7 +69,6 @@ func Debug(fn func()) {
 // -----------------------------------------------------------------------------
 
 // A Qlang represents the qlang compiler and executor.
-//
 type Qlang struct {
 	*exec.Context
 	Cpl *qcl.Compiler
@@ -115,13 +111,45 @@ func (p *Qlang) DumpEngine() error {
 
 	// wFile.Flush()
 
-	tk.SaveJSONIndentToFile(p, "codeDump.json")
+	rs, errT := json.MarshalIndent(p, "", "  ")
+
+	if errT != nil {
+		return errT
+	}
+
+	file, err := os.Create("codeDump.json")
+	if err != nil {
+		return err
+	}
+
+	defer file.Close()
+	wFile := bufio.NewWriter(file)
+	wFile.WriteString(string(rs))
+	wFile.Flush()
 
 	return nil
 }
 
+func IfSwitchExists(argsA []string, switchStrA string) bool {
+	if argsA == nil {
+		return false
+	}
+
+	if len(argsA) < 1 {
+		return false
+	}
+
+	for _, argT := range argsA {
+		if argT == switchStrA {
+			return true
+		}
+
+	}
+
+	return false
+}
+
 // New returns a new qlang instance.
-//
 func New(optionsA ...string) *Qlang {
 	cl := qcl.New()
 	stk := exec.NewStack()
@@ -129,7 +157,7 @@ func New(optionsA ...string) *Qlang {
 	ctx.Stack = stk
 	ctx.Code = cl.GetCode()
 
-	if tk.IfSwitchExists(optionsA, "-noexit") {
+	if IfSwitchExists(optionsA, "-noexit") {
 		ctx.NoExit = true
 	} else {
 		ctx.NoExit = false
@@ -139,14 +167,12 @@ func New(optionsA ...string) *Qlang {
 }
 
 // SetLibs sets lib paths for searching modules.
-//
 func (p *Qlang) SetLibs(libs string) {
 
 	p.Cpl.SetLibs(libs)
 }
 
 // Cl compiles a source code.
-//
 func (p *Qlang) Cl(codeText []byte, fname string) (end int, err error) {
 
 	end = p.Cpl.Cl(codeText, fname)
@@ -156,7 +182,6 @@ func (p *Qlang) Cl(codeText []byte, fname string) (end int, err error) {
 }
 
 // SafeCl compiles a source code, without panic (will convert panic into an error).
-//
 func (p *Qlang) SafeCl(codeText []byte, fname string) (end int, err error) {
 
 	defer func() {
@@ -181,7 +206,6 @@ func (p *Qlang) Run() (err error) {
 }
 
 // Exec compiles and executes a source code.
-//
 func (p *Qlang) Exec(codeText []byte, fname string) (err error) {
 
 	code := p.Cpl.GetCode()
@@ -200,14 +224,12 @@ func (p *Qlang) Exec(codeText []byte, fname string) (err error) {
 }
 
 // Eval compiles and executes a source code.
-//
 func (p *Qlang) Eval(expr string) (err error) {
 
 	return p.Exec([]byte(expr), "")
 }
 
 // SafeExec compiles and executes a source code, without panic (will convert panic into an error).
-//
 func (p *Qlang) SafeExec(code []byte, fname string) (err error) {
 
 	defer func() {
@@ -228,7 +250,6 @@ func (p *Qlang) SafeExec(code []byte, fname string) (err error) {
 }
 
 // SafeEval compiles and executes a source code, without panic (will convert panic into an error).
-//
 func (p *Qlang) SafeEval(expr string) (err error) {
 
 	return p.SafeExec([]byte(expr), "")
@@ -243,7 +264,7 @@ func (p *Qlang) TXCompile(srcA string) (err error) {
 		return err
 	}
 
-	tk.Pl("start: %v, end: %v, p: %v", start, end, nil)
+	fmt.Printf("start: %v, end: %v, p: %v\n", start, end, nil)
 
 	return nil
 
@@ -254,7 +275,6 @@ func (p *Qlang) TXCompile(srcA string) (err error) {
 
 // InjectMethods injects some methods into a class.
 // `pcls` can be a `*exec.Class` object or a `string` typed class name.
-//
 func (p *Qlang) InjectMethods(pcls interface{}, code []byte) (err error) {
 
 	var cls *exec.Class
@@ -278,14 +298,12 @@ func (p *Qlang) InjectMethods(pcls interface{}, code []byte) (err error) {
 }
 
 // Import imports a module written in Go.
-//
 func Import(mod string, table map[string]interface{}) {
 
 	qlang.Import(mod, table)
 }
 
 // SetAutoCall is reserved for internal use.
-//
 func SetAutoCall(t reflect.Type) {
 
 	qlang.SetAutoCall(t)
@@ -294,7 +312,6 @@ func SetAutoCall(t reflect.Type) {
 // -----------------------------------------------------------------------------
 
 // Exports is the export table of this module.
-//
 var Exports = map[string]interface{}{
 	"new": New,
 	"New": New,
