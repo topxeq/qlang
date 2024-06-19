@@ -743,6 +743,7 @@ var Exports = map[string]interface{}{
 	"ToStr":                        tk.ToStr,
 	"ToUpper":                      tk.ToUpper,
 	"Trim":                         tk.Trim,
+	"TrimEx":                       tk.TrimEx,
 	"TrimSafely":                   tk.TrimSafely,
 	"TrimCharSet":                  tk.TrimCharSet,
 	"TypeOfValue":                  tk.TypeOfValue,
