@@ -12,6 +12,8 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"GenerateOtpCode":          tk.GenerateOtpCode,
+	"ValidateOtpCode":          tk.ValidateOtpCode,
 	"GetTextSimilarity":        tk.GetTextSimilarity,
 	"SimilarText":              tk.SimilarText,
 	"CalTextSimilarity":        tk.CalTextSimilarity,
