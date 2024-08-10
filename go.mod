@@ -28,7 +28,7 @@ require (
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/docxrepl v0.0.0-20230223003559-0c82df798f9d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
-	github.com/topxeq/goph v0.0.0-20230116054750-120b087d86fb
+	github.com/topxeq/goph v0.0.0-20240807052241-2e088ab61555
 	github.com/topxeq/imagetk v0.0.0-20240618054658-f2d6fa68b37f
 	github.com/topxeq/regexpx v0.0.0-20230721063247-f118dbe089d7
 	github.com/topxeq/socks v0.0.0-20230721063359-4740c5e460e9
@@ -67,17 +67,22 @@ require (
 	github.com/go-latex/latex v0.0.0-20210823091927-c0d11ff05a81 // indirect
 	github.com/go-pdf/fpdf v0.6.0 // indirect
 	github.com/gogs/chardet v0.0.0-20211120154057-b7413eaefb8f // indirect
+	github.com/gojp/kana v0.1.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/golang/protobuf v1.3.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/gookit/color v1.3.8 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
 	github.com/guptarohit/asciigraph v0.5.6 // indirect
+	github.com/ikawaha/kagome-dict v1.0.10 // indirect
+	github.com/ikawaha/kagome-dict/ipa v1.0.11 // indirect
+	github.com/ikawaha/kagome/v2 v2.9.8 // indirect
 	github.com/jaytaylor/html2text v0.0.0-20230321000545-74c2419ad056 // indirect
 	github.com/jchv/go-winloader v0.0.0-20200815041850-dec1ee9a7fd5 // indirect
 	github.com/jhillyerd/enmime v1.2.0 // indirect
 	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/jtclarkjr/kanjikana v0.1.0 // indirect
 	github.com/klauspost/compress v1.14.4 // indirect
 	github.com/klauspost/pgzip v1.2.5 // indirect
 	github.com/kr/fs v0.1.0 // indirect
