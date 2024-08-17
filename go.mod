@@ -28,7 +28,7 @@ require (
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
 	github.com/topxeq/docxrepl v0.0.0-20230223003559-0c82df798f9d
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
-	github.com/topxeq/goph v0.0.0-20240807052241-2e088ab61555
+	github.com/topxeq/goph v0.0.0-20240813015542-ebac0794140b
 	github.com/topxeq/imagetk v0.0.0-20240618054658-f2d6fa68b37f
 	github.com/topxeq/regexpx v0.0.0-20230721063247-f118dbe089d7
 	github.com/topxeq/socks v0.0.0-20230721063359-4740c5e460e9
