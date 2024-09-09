@@ -12,6 +12,12 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"NewMemFile":                  tk.NewMemFile,
+	"ProcessHtmlTemplate":         tk.ProcessHtmlTemplate,
+	"BigFloatPower":               tk.BigFloatPower,
+	"BigFloatExp":                 tk.BigFloatExp,
+	"BigFloatLog":                 tk.BigFloatLog,
+	"DealString":                  tk.DealString,
 	"GetLastComponentBySeparator": tk.GetLastComponentBySeparator,
 	"GetExecutablePath":           tk.GetExecutablePath,
 	"GenerateOtpCode":             tk.GenerateOtpCode,
