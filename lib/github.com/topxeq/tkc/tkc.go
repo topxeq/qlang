@@ -12,6 +12,8 @@ var Exports = map[string]interface{}{
 
 	"TXDEF_BUFFER_LEN": tk.TXDEF_BUFFER_LEN,
 
+	"GetNextMonthStart":           tk.GetNextMonthStart,
+	"BytesContains":               tk.BytesContains,
 	"NewMemFile":                  tk.NewMemFile,
 	"ProcessHtmlTemplate":         tk.ProcessHtmlTemplate,
 	"BigFloatPower":               tk.BigFloatPower,
