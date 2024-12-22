@@ -40,7 +40,7 @@ require (
 	gonum.org/v1/plot v0.12.0
 )
 
-require github.com/topxeq/sqltk v0.0.0-20240829014103-632cd7779564
+require github.com/topxeq/sqltk v0.0.0-20241222022816-b39dde4c2ebe
 
 require (
 	git.sr.ht/~sbinet/gg v0.3.1 // indirect
