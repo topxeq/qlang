@@ -26,7 +26,7 @@ require (
 	github.com/topxeq/dialog v0.0.0-20211124003827-315c3296b533
 	github.com/topxeq/dlgs v0.0.0-20211122010615-d49596e82836
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
-	github.com/topxeq/docxrepl v0.0.0-20250212063339-ba67f7344b69
+	github.com/topxeq/docxrepl v0.0.0-20250213015321-4bb6fda31782
 	github.com/topxeq/gods v0.0.0-20220125023913-b5718bb0c704
 	github.com/topxeq/goph v0.0.0-20240813015542-ebac0794140b
 	github.com/topxeq/imagetk v0.0.0-20240618054658-f2d6fa68b37f
