@@ -42,7 +42,7 @@ require (
 	gonum.org/v1/plot v0.12.0
 )
 
-require github.com/topxeq/sqltk v0.0.0-20241222022816-b39dde4c2ebe
+require github.com/topxeq/sqltk v0.0.0-20250321071853-ac6f8f228108
 
 require (
 	git.sr.ht/~sbinet/gg v0.3.1 // indirect
@@ -76,7 +76,7 @@ require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/ebitengine/purego v0.8.2 // indirect
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
-	github.com/expr-lang/expr v1.16.9 // indirect
+	github.com/expr-lang/expr v1.17.1 // indirect
 	github.com/gen2brain/shm v0.0.0-20200228170931-49f9650110c5 // indirect
 	github.com/go-fonts/liberation v0.2.0 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
