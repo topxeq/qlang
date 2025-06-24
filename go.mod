@@ -42,7 +42,7 @@ require (
 	gonum.org/v1/plot v0.12.0
 )
 
-require github.com/topxeq/sqltk v0.0.0-20250321071853-ac6f8f228108
+require github.com/topxeq/sqltk v0.0.0-20250406084423-dfacc20b10c4
 
 require (
 	git.sr.ht/~sbinet/gg v0.3.1 // indirect
@@ -52,6 +52,7 @@ require (
 	github.com/STARRY-S/zip v0.2.1 // indirect
 	github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf // indirect
 	github.com/aarzilli/sandblast v0.0.0-20151220083925-43f8fb998d06 // indirect
+	github.com/adhocore/gronx v1.19.6 // indirect
 	github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b // indirect
 	github.com/alecthomas/chroma v0.10.0 // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect

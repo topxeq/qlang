@@ -43,6 +43,8 @@ github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf h1:FPsprx82rdrX2j
 github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf/go.mod h1:peYoMncQljjNS6tZwI9WVyQB3qZS6u79/N3mBOcnd3I=
 github.com/aarzilli/sandblast v0.0.0-20151220083925-43f8fb998d06 h1:Im/kd8D6Xggzhq6S+IP1SitRsHHmy5mxqklIjoIfJGo=
 github.com/aarzilli/sandblast v0.0.0-20151220083925-43f8fb998d06/go.mod h1:Lc8kaYF26oMHUxliWAod3EZhrPBMg0irZRYqbPZcGyo=
+github.com/adhocore/gronx v1.19.6 h1:5KNVcoR9ACgL9HhEqCm5QXsab/gI4QDIybTAWcXDKDc=
+github.com/adhocore/gronx v1.19.6/go.mod h1:7oUY1WAU8rEJWmAxXR2DN0JaO4gi9khSgKjiRypqteg=
 github.com/ajstarks/deck v0.0.0-20200831202436-30c9fc6549a9/go.mod h1:JynElWSGnm/4RlzPXRlREEwqTHAN3T56Bv2ITsFT3gY=
 github.com/ajstarks/deck/generate v0.0.0-20210309230005-c3f852c02e19/go.mod h1:T13YZdzov6OU0A1+RfKZiZN9ca6VeKdBdyDV+BY97Tk=
 github.com/ajstarks/svgo v0.0.0-20211024235047-1546f124cd8b h1:slYM766cy2nI3BwyRiyQj/Ud48djTMtMebDqepE95rw=
@@ -462,8 +464,8 @@ github.com/topxeq/regexpx v0.0.0-20230721063247-f118dbe089d7 h1:bcYgbhUq1iUMjfWb
 github.com/topxeq/regexpx v0.0.0-20230721063247-f118dbe089d7/go.mod h1:9hd2TDu1NgG4DruiRMa02efE4G0bm8GcT8lVG7u8J88=
 github.com/topxeq/socks v0.0.0-20230721063359-4740c5e460e9 h1:loWEalO4+4TPW4odgmhwpXWt1R0HclYfyw4DoE6xvzk=
 github.com/topxeq/socks v0.0.0-20230721063359-4740c5e460e9/go.mod h1:mf0FO/pQYsuIw59dJueuJMTfc9ESck/vtn6CEHeTAtA=
-github.com/topxeq/sqltk v0.0.0-20250321071853-ac6f8f228108 h1:6FZC+fstcC8UdHtzdmPurB7sBveqj17aXMHjdDHzt4g=
-github.com/topxeq/sqltk v0.0.0-20250321071853-ac6f8f228108/go.mod h1:jxzSV5oERXgwwYYa2S+piihg3xzVV+AhalDxShGQqcI=
+github.com/topxeq/sqltk v0.0.0-20250406084423-dfacc20b10c4 h1:4zGBXdrkPbDuCXp5X5PaWC8kYpAYmYTS0L3JXCP8R74=
+github.com/topxeq/sqltk v0.0.0-20250406084423-dfacc20b10c4/go.mod h1:jxzSV5oERXgwwYYa2S+piihg3xzVV+AhalDxShGQqcI=
 github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928 h1:yPsp6rNV6vy1pL0H3GGz99es8Uq/gziGEYxtSq3uChQ=
 github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928/go.mod h1:tYltUG1XxnVJvVhMpEV2YUzmcOU0HjYl4fK3nnNDKiM=
 github.com/topxeq/uuid v0.0.0-20210318003930-0d149e412ca1 h1:IEl6WYCFNG6l+4JSvFVZ0zKXOuu6NockB/BgL6d6FcE=
