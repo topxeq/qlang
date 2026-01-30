@@ -24,7 +24,7 @@ require (
 	github.com/topxeq/afero v0.0.0-20200914073911-38c8390e9ef4
 	github.com/topxeq/awsapi v0.0.0-20240618030908-cda3055d09ff
 	github.com/topxeq/blockix v0.0.0-20210301072129-59538096fd95
-	github.com/topxeq/charlang v0.0.0
+	github.com/topxeq/charlang v0.0.0-20260129072537-0ce411988119
 	github.com/topxeq/dialog v0.0.0-20211124003827-315c3296b533
 	github.com/topxeq/dlgs v0.0.0-20211122010615-d49596e82836
 	github.com/topxeq/doc2vec v0.0.0-20200623133505-b167170c691e
@@ -35,14 +35,14 @@ require (
 	github.com/topxeq/regexpx v0.0.0-20230721063247-f118dbe089d7
 	github.com/topxeq/socks v0.0.0-20230721063359-4740c5e460e9
 	github.com/topxeq/text v0.0.0-20210710090213-e5fbc3508928
-	github.com/topxeq/tkc v0.0.0
+	github.com/topxeq/tkc v0.0.0-20260115062048-7734b6d59f96
 	github.com/topxeq/xmlx v0.3.0
 	github.com/visualfc/pkgwalk v1.0.0
 	github.com/xuri/excelize/v2 v2.10.0
 	gonum.org/v1/plot v0.12.0
 )
 
-require github.com/topxeq/sqltk v0.0.0-20251230061659-bfabc630b3fa
+require github.com/topxeq/sqltk v0.0.0-20260124035901-98bf8683db30
 
 require (
 	git.sr.ht/~sbinet/gg v0.3.1 // indirect
@@ -96,6 +96,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gookit/color v1.3.8 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1 // indirect
+	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/guptarohit/asciigraph v0.5.6 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
@@ -192,11 +193,11 @@ require (
 
 // replace github.com/topxeq/text v0.0.0 => ../text
 
-replace github.com/topxeq/tkc v0.0.0 => ../tkc
+//replace github.com/topxeq/tkc v0.0.0 => ../tkc
 
 // replace github.com/topxeq/sqltk v0.0.0 => ../sqltk
 
-replace github.com/topxeq/charlang v0.0.0 => ../charlang
+//replace github.com/topxeq/charlang v0.0.0 => ../charlang
 
 // replace github.com/topxeq/goph v0.0.0 => ../goph
 
